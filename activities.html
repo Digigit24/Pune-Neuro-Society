@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Neurological Society of Pune</title>
+
+    <!--===== FAB ICON =======-->
+    <link rel="shortcut icon" href="/assets/img/logo/21 Logo.png" type="image/x-icon">
+    <meta name="title" content="Neurological Society of Pune - Advancing Neurology through Education & Collaboration">
+    <meta name="description"
+        content="About the Neurological Society of Pune (NSP), established in 2010 to propagate advances in neurology.">
+
+    <!--===== CSS LINK =======-->
+    <link rel="stylesheet" href="/assets/css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/plugins/aos.css">
+    <link rel="stylesheet" href="/assets/css/plugins/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/plugins/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/css/plugins/slick-slider.css">
+    <link rel="stylesheet" href="/assets/css/plugins/nice-select.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <style>
+        /* ===== Main menu: one-line horizontal items ===== */
+        .vl-main-menu nav ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .vl-main-menu nav ul li {
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+        }
+
+        .vl-main-menu nav ul li a {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* === Activities Page Styles === */
+
+        /* Page Header */
+        .page-header-area {
+            background-color: #02111A;
+            background-image: linear-gradient(rgba(2, 17, 26, 0.8), rgba(2, 17, 26, 0.9));
+            padding: 140px 0 80px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .page-header-area h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        /* Activities Section */
+        .ao-inner-page-section {
+            padding-top: 100px;
+            padding-bottom: 90px;
+            background-color: #f9fbfc;
+        }
+
+        .ao-title-head-center {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .ao-title-head-sm-title {
+            color: #007bff;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: inline-block;
+            background: rgba(0, 123, 255, 0.1);
+            padding: 6px 16px;
+            border-radius: 30px;
+            font-size: 14px;
+        }
+
+        .ao-title-head-lg-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #02111A;
+            margin: 0;
+        }
+
+        /* Activity Cards */
+        .activity-card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 30px;
+            border: 1px solid #eef2f6;
+        }
+
+        .activity-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 123, 255, 0.3);
+        }
+
+        .activity-image {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .activity-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .activity-card:hover .activity-image img {
+            transform: scale(1.1);
+        }
+
+        .activity-badge {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: rgba(255, 255, 255, 0.95);
+            color: #007bff;
+            padding: 6px 14px;
+            border-radius: 30px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .activity-content {
+            padding: 30px 24px;
+            flex-grow: 1;
+            position: relative;
+        }
+
+        .activity-icon {
+            width: 54px;
+            height: 54px;
+            background: #f0f7ff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #007bff;
+            font-size: 24px;
+            margin-bottom: 24px;
+            transition: 0.3s;
+        }
+
+        .activity-card:hover .activity-icon {
+            background: #007bff;
+            color: #fff;
+        }
+
+        .activity-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #02111A;
+            margin-bottom: 12px;
+            line-height: 1.4;
+        }
+
+        .activity-description {
+            font-size: 15px;
+            color: #555;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .activity-footer {
+            padding: 16px 24px;
+            background: #fcfcfc;
+            border-top: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .activity-meta span {
+            font-size: 13px;
+            color: #777;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-right: 12px;
+        }
+
+        .activity-meta span i {
+            color: #007bff;
+        }
+
+        @media (max-width: 991px) {
+            .page-header-area {
+                padding: 120px 0 60px;
+            }
+
+            .ao-inner-page-section {
+                padding: 60px 0;
+            }
+
+            .ao-title-head-lg-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!--===== PRELOADER STARTS =======-->
+    <div class="preloader">
+        <div class="loading-container">
+            <div class="loading"></div>
+            <div id="loading-icon"><img src="/assets/img/logo/preloder.png" alt=""></div>
+        </div>
+    </div>
+    <!--===== PRELOADER ENDS =======-->
+
+    <!--===== HEADER START =======-->
+    <header class="homepage7-body">
+        <div id="vl-header-sticky" class="vl-header-area vl-transparent-header"
+            style="background: rgba(2, 17, 26, 0.95); position: relative;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-6 col-6">
+                        <div class="vl-logo">
+                            <a href="index.html"><img src="/assets/img/logo/21 Logo.png" alt="NSP Logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <div class="vl-main-menu text-center">
+                            <nav class="vl-mobile-menu-active">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="#">Committee</a></li>
+                                    <li><a href="invited_faculties.html">Faculty</a></li>
+                                    <li><a href="activities.html" style="color: #007bff;">Activities</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-6">
+                        <div class="vl-hero-btn d-none d-lg-block text-end">
+                            <div class="hero-btn1">
+                                <a href="contact.html" class="vl-btn7">
+                                    <span class="text">Join Now</span>
+                                    <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="vl-header-action-item d-block d-lg-none">
+                            <button type="button" class="vl-offcanvas-toggle">
+                                <i class="fa-solid fa-bars-staggered"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--===== HEADER END =======-->
+
+    <!--===== MOBILE MENU STARTS =======-->
+    <div class="homepage7-body">
+        <div class="vl-offcanvas">
+            <div class="vl-offcanvas-wrapper">
+                <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-90">
+                    <div class="vl-offcanvas-logo">
+                        <a href="index.html"><img src="/assets/img/logo/21 Logo.png" alt=""></a>
+                    </div>
+                    <div class="vl-offcanvas-close">
+                        <button class="vl-offcanvas-close-toggle"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                </div>
+
+                <div class="vl-offcanvas-menu d-lg-none mb-40">
+                    <nav></nav>
+                </div>
+
+                <div class="space20"></div>
+                <div class="vl-offcanvas-info">
+                    <h3 class="vl-offcanvas-sm-title">Contact Us</h3>
+                    <div class="space20"></div>
+                    <span><a href="#"><i class="fa-solid fa-phone"></i> +91 76859 00400</a></span>
+                    <span><a href="#"><i class="fa-regular fa-envelope"></i> contact@nsp.org</a></span>
+                    <span><a href="#"><i class="fa-solid fa-location-dot"></i> Kothrud, Pune, India</a></span>
+                </div>
+            </div>
+        </div>
+        <div class="vl-offcanvas-overlay"></div>
+    </div>
+    <!--===== MOBILE MENU ENDS =======-->
+
+
+    <!--===== ACTIVITIES SECTION START =======-->
+    <div class="ao-inner-page-section">
+        <div class="container">
+            <!-- Section Header -->
+            <div class="ao-title-head-center" data-aos="fade-up">
+                <div class="ao-title-head-sm-title">Conference Highlights</div>
+                <h2 class="ao-title-head-lg-title">
+                    Explore Our Conference Activities
+                </h2>
+            </div>
+
+            <!-- Cards Grid -->
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="activity-card">
+                        <div class="activity-image">
+                            <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80"
+                                alt="Dr. RS Wadia Oration" />
+                            <div class="activity-badge">Featured</div>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-icon">
+                                <i class="bi bi-award"></i>
+                            </div>
+                            <h3 class="activity-title">
+                                Dr. RS Wadia Oration and NSP Oration
+                            </h3>
+                            <p class="activity-description">
+                                Prestigious orations delivered by national and
+                                international luminaries, setting the academic tone of
+                                the conference.
+                            </p>
+                        </div>
+                        <div class="activity-footer">
+                            <div class="activity-meta">
+                                <span><i class="bi bi-calendar-event"></i> Day 1</span>
+                                <span><i class="bi bi-clock"></i> 90 mins</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="activity-card">
+                        <div class="activity-image">
+                            <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&q=80"
+                                alt="Teaching Cases" />
+                            <div class="activity-badge">Interactive</div>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-icon">
+                                <i class="bi bi-lightbulb"></i>
+                            </div>
+                            <h3 class="activity-title">
+                                More than 50 Interesting Teaching Cases
+                            </h3>
+                            <p class="activity-description">
+                                Interactive case-based discussions covering all major
+                                sub-specialties of neurology, designed for active
+                                audience participation.
+                            </p>
+                        </div>
+                        <div class="activity-footer">
+                            <div class="activity-meta">
+                                <span><i class="bi bi-people"></i> All Days</span>
+                                <span><i class="bi bi-chat-dots"></i> Interactive</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="activity-card">
+                        <div class="activity-image">
+                            <img src="https://images.unsplash.com/photo-1631815588090-d4bfec5b1ccb?w=800&q=80"
+                                alt="Practical Neurology" />
+                            <div class="activity-badge">Essential</div>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-icon">
+                                <i class="bi bi-journal-medical"></i>
+                            </div>
+                            <h3 class="activity-title">
+                                Broad Coverage of Practical Neurology
+                            </h3>
+                            <p class="activity-description">
+                                Comprehensive sessions on day-to-day neurological
+                                problems, evidence-based approaches and practical
+                                management tips.
+                            </p>
+                        </div>
+                        <div class="activity-footer">
+                            <div class="activity-meta">
+                                <span><i class="bi bi-bookmark-check"></i> Core Track</span>
+                                <span><i class="bi bi-graph-up"></i> Evidence-Based</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                    <div class="activity-card">
+                        <div class="activity-image">
+                            <img src="https://images.unsplash.com/photo-1582560475093-ba66accbc424?w=800&q=80"
+                                alt="International Faculty" />
+                            <div class="activity-badge">Expert</div>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-icon">
+                                <i class="bi bi-star"></i>
+                            </div>
+                            <h3 class="activity-title">
+                                Highly Acclaimed International and National Faculty
+                            </h3>
+                            <p class="activity-description">
+                                Renowned experts from across the globe sharing latest
+                                advances, best practices and unique clinical insights.
+                            </p>
+                        </div>
+                        <div class="activity-footer">
+                            <div class="activity-meta">
+                                <span><i class="bi bi-globe"></i> Global</span>
+                                <span><i class="bi bi-trophy"></i> Renowned</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+                    <div class="activity-card">
+                        <div class="activity-image">
+                            <img src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=800&q=80"
+                                alt="Interactive Meeting" />
+                            <div class="activity-badge">Engaging</div>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-icon">
+                                <i class="bi bi-chat-square-text"></i>
+                            </div>
+                            <h3 class="activity-title">
+                                Fully Interactive Meeting with Active Participation
+                            </h3>
+                            <p class="activity-description">
+                                Live Q&A, polling, case-voting and real-time discussions
+                                ensuring two-way learning throughout the conference.
+                            </p>
+                        </div>
+                        <div class="activity-footer">
+                            <div class="activity-meta">
+                                <span><i class="bi bi-hand-thumbs-up"></i> Live Q&A</span>
+                                <span><i class="bi bi-bar-chart"></i> Polling</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+                    <div class="activity-card">
+                        <div class="activity-image">
+                            <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80"
+                                alt="Puneri Hospitality" />
+                            <div class="activity-badge">Special</div>
+                        </div>
+                        <div class="activity-content">
+                            <div class="activity-icon">
+                                <i class="bi bi-heart"></i>
+                            </div>
+                            <h3 class="activity-title">
+                                Last but not the least, Puneri Hospitality!!
+                            </h3>
+                            <p class="activity-description">
+                                Warm Puneri hospitality, cultural evenings and
+                                networking opportunities that make the meeting
+                                memorable.
+                            </p>
+                        </div>
+                        <div class="activity-footer">
+                            <div class="activity-meta">
+                                <span><i class="bi bi-cup-hot"></i> Cultural</span>
+                                <span><i class="bi bi-people-fill"></i> Networking</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="vl-footer7-section-area">
+        <div class="container">
+            <div class="row">
+                <!-- About NSP -->
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-logo-area">
+                        <img src="/assets/img/logo/21 Logo.png" alt="">
+                        <div class="space16"></div>
+                        <p>
+                            Neurological Society of Pune (NSP) is a registered society of neurologists and
+                            neurosurgeons,
+                            established in 2010 to propagate advances in neurology and set high standards in neurology
+                            education.
+                        </p>
+                        <div class="space24"></div>
+                        <ul class="social-links">
+                            <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="col-lg col-md-6">
+                    <div class="space30 d-lg-none d-block"></div>
+                    <div class="footer-widget-area foot-padding1">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="about.html">About NSP</a></li>
+                            <li><a href="activities.html">Academic Activities</a></li>
+                            <li><a href="invited_faculties.html">Invited Faculty</a></li>
+                            <li><a href="#">News & Updates</a></li>
+                            <li><a href="contact.html">Contact NSP</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Key Activities -->
+                <div class="col-lg col-md-6">
+                    <div class="space30 d-lg-none d-block"></div>
+                    <div class="footer-widget-area foot-padding2">
+                        <h3>Key Activities</h3>
+                        <ul>
+                            <li><a href="#">Monthly Neuromeets</a></li>
+                            <li><a href="#">NSP Approach Meet</a></li>
+                            <li><a href="#">PG Approach Meeting</a></li>
+                            <li><a href="#">Invited Lectures</a></li>
+                            <li><a href="#">Public Awareness Drives</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-lg col-md-6">
+                    <div class="space30 d-lg-none d-block"></div>
+                    <div class="footer-widget-area">
+                        <h3>Contact NSP</h3>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none">
+                                        <path
+                                            d="M14.05 6C15.0268 6.19057 15.9244 6.66826 16.6281 7.37194C17.3318 8.07561 17.8095 8.97326 18 9.95M14.05 2C16.0793 2.22544 17.9716 3.13417 19.4163 4.57701C20.8609 6.01984 21.7721 7.91101 22 9.94M18.5 21C9.93959 21 3 14.0604 3 5.5C3 5.11378 3.01413 4.73086 3.04189 4.35173C3.07375 3.91662 3.08968 3.69907 3.2037 3.50103C3.29814 3.33701 3.4655 3.18146 3.63598 3.09925C3.84181 3 4.08188 3 4.56201 3H7.37932C7.78308 3 7.98496 3 8.15802 3.06645C8.31089 3.12515 8.44701 3.22049 8.55442 3.3441C8.67601 3.48403 8.745 3.67376 8.88299 4.05321L10.0491 7.26005C10.2096 7.70153 10.2899 7.92227 10.2763 8.1317C10.2643 8.31637 10.2012 8.49408 10.0942 8.64506C9.97286 8.81628 9.77145 8.93713 9.36863 9.17882L8 10C9.2019 12.6489 11.3501 14.7999 14 16L14.8212 14.6314C15.0629 14.2285 15.1837 14.0271 15.3549 13.9058C15.5059 13.7988 15.6836 13.7357 15.8683 13.7237C16.0777 13.7101 16.2985 13.7904 16.74 13.9509L19.9468 15.117C20.3262 15.255 20.516 15.324 20.6559 15.4456C20.7795 15.553 20.8749 15.6891 20.9335 15.842C21 16.015 21 16.2169 21 16.6207V19.438C21 19.9181 21 20.1582 20.9007 20.364C20.8185 20.5345 20.663 20.7019 20.499 20.7963C20.3009 20.9103 20.0834 20.9262 19.6483 20.9581C19.2691 20.9859 18.8862 21 18.5 21Z"
+                                            stroke="#31353D" stroke-width="1.6" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    Neurological Society of Pune
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none">
+                                        <path
+                                            d="M12 21C15.5 17.4 19 14.1764 19 10.2C19 6.22355 15.866 3 12 3C8.13401 3 5 6.22355 5 10.2C5 14.1764 8.5 17.4 12 21Z"
+                                            stroke="#31353D" stroke-width="1.6" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                        <path
+                                            d="M12 13C13.6569 13 15 11.6569 15 10C15 8.34315 13.6569 7 12 7C10.3431 7 9 8.34315 9 10C9 11.6569 10.3431 13 12 13Z"
+                                            stroke="#31353D" stroke-width="1.6" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    Pune, India
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                        fill="none">
+                                        <path
+                                            d="M4 18L9 12M20 18L15 12M3 8L10.225 12.8166C10.8665 13.2443 11.1872 13.4582 11.5339 13.5412C11.8403 13.6147 12.1597 13.6147 12.4661 13.5412C12.8128 13.4582 13.1335 13.2443 13.775 12.8166L21 8M6.2 19H17.8C18.9201 19 19.4802 19 19.908 18.782C20.2843 18.5903 20.5903 18.2843 20.782 17.908C21 17.4802 21 16.9201 21 15.8V8.2C21 7.0799 21 6.51984 20.782 6.09202C20.5903 5.71569 20.2843 5.40973 19.908 5.21799C19.4802 5 18.9201 5 17.8 5H6.2C5.0799 5 4.51984 5 4.09202 5.21799C3.71569 5.40973 3.40973 5.71569 3.21799 6.09202C3 6.51984 3 7.07989 3 8.2V15.8C3 16.9201 3 17.4802 3.21799 17.908C3.40973 18.2843 3.71569 18.5903 4.09202 18.782C4.51984 19 5.07989 19 6.2 19Z"
+                                            stroke="#31353D" stroke-width="1.6" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                    Contact details to be updated
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"
+                                        fill="none">
+                                        <g clip-path="url(#clip0_328_3505)">
+                                            <path
+                                                d="M10 19C15.0741 19 19.1875 14.8866 19.1875 9.8125C19.1875 4.73838 15.0741 0.625 10 0.625C4.92588 0.625 0.8125 4.73838 0.8125 9.8125C0.8125 14.8866 4.92588 19 10 19Z"
+                                                stroke="#14141E" stroke-width="1.2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path
+                                                d="M7.78641 18.7322C6.54344 16.9094 5.71289 13.597 5.71289 9.81335C5.71289 6.02973 6.54344 2.71733 7.78641 0.894531"
+                                                stroke="#14141E" stroke-width="1.2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path d="M0.8125 9.8125H19.1875" stroke="#14141E" stroke-width="1.2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M2.22656 14.7109H17.7726" stroke="#14141E" stroke-width="1.2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M2.22656 4.91406H17.7726" stroke="#14141E" stroke-width="1.2"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                            <path
+                                                d="M12.2148 0.894531C13.4578 2.71733 14.2884 6.02973 14.2884 9.81335C14.2884 13.597 13.4578 16.9094 12.2148 18.7322"
+                                                stroke="#14141E" stroke-width="1.2" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </g>
+                                        <defs>
+                                            <clipPath id="clip0_328_3505">
+                                                <rect width="20" height="20" fill="white" />
+                                            </clipPath>
+                                        </defs>
+                                    </svg>
+                                    Public information will be shared via official NSP channels
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="space48"></div>
+            <div class="col-lg-12">
+                <div class="copyright-area">
+                    <a href="#">Copyright @2025 Neurological Society of Pune. All Rights Reserved</a>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a><span> | </span></li>
+                        <li><a href="#">Terms Of Condition</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--===== JS SCRIPT LINK =======-->
+    <script src="/assets/js/plugins/jquery-3-7-1.min.js"></script>
+    <script src="/assets/js/plugins/bootstrap.min.js"></script>
+    <script src="/assets/js/plugins/fontawesome.js"></script>
+    <script src="/assets/js/plugins/aos.js"></script>
+    <script src="/assets/js/plugins/counter.js"></script>
+    <script src="/assets/js/plugins/magnific-popup.js"></script>
+    <script src="/assets/js/plugins/nice-select.js"></script>
+    <script src="/assets/js/plugins/waypoints.js"></script>
+    <script src="/assets/js/plugins/slick-slider.js"></script>
+    <script src="/assets/js/plugins/circle-progress.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script>
+        window.addEventListener('load', function () {
+            document.body.classList.add('page-loaded');
+        });
+        AOS.init({
+            once: true,
+        });
+    </script>
+</body>
+
+</html>

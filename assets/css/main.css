@@ -9844,7 +9844,7 @@ only screen and (min-width: 768px) and (max-width: 991px),
     position: relative;
     z-index: 1;
     overflow: hidden;
-    padding: 225px 0 32px;
+    padding: 140px 0 32px;
     background: var(--ztc-bg-bg-19);
 }
 
