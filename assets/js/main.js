@@ -107,6 +107,7 @@
         AOS.init({
             disable: 'mobile'
         });
+        
 
         //========== NICE SELECT ============= //
         $('select').niceSelect();
