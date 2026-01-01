@@ -23,6 +23,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
     <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #02111A;
+            --accent-color: #eef7ff;
+            --text-color: #555;
+            --border-color: #e1e1e1;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text-color);
+            background-color: #f8f9fa;
+        }
+
         /* ===== Main menu: force one-line horizontal items ===== */
         .vl-main-menu nav ul {
             display: flex;
@@ -51,189 +65,318 @@
             text-decoration: none;
         }
 
-        /* === Contact Page Specific Styles === */
-
-        /* Page Header */
+        /* === Page Header === */
         .page-header-area {
-            background-color: #02111A;
-            background-image: linear-gradient(rgba(2, 17, 26, 0.8), rgba(2, 17, 26, 0.9));
-            padding: 140px 0 80px;
+            background-color: var(--secondary-color);
+            background-image: radial-gradient(circle at top right, rgba(0, 123, 255, 0.2), transparent 40%),
+                radial-gradient(circle at bottom left, rgba(0, 123, 255, 0.1), transparent 40%);
+            padding: 160px 0 100px;
             text-align: center;
             color: #fff;
+            position: relative;
+            overflow: hidden;
         }
 
-        .page-header-area h1 {
-            font-size: 3rem;
-            font-weight: 700;
+        .page-header-bg-shape {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .page-header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .page-header-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(to right, #ffffff, #8dbaf5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* === Contact Container === */
+        .contact-section-wrapper {
+            position: relative;
+            margin-top: -60px;
+            z-index: 10;
+            padding-bottom: 100px;
+        }
+
+        .contact-container-card {
+            background: #fff;
+            box-shadow: 0 20px 60px rgba(0, 17, 40, 0.08);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        /* Contact Info Side */
+        .contact-info-side {
+            background: var(--secondary-color);
             color: #fff;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info-side::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .contact-info-side::after {
+            content: '';
+            position: absolute;
+            bottom: -30px;
+            left: -30px;
+            width: 150px;
+            height: 150px;
+            background: rgba(0, 123, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .info-side-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .info-title {
+            font-size: 28px;
+            font-weight: 700;
             margin-bottom: 10px;
         }
 
-        /* Contact Section */
-        .contact-page-section {
-            padding: 100px 0;
-            background-color: #f9fbfc;
+        .info-subtitle {
+            font-size: 15px;
+            opacity: 0.7;
+            margin-bottom: 40px;
+            display: block;
         }
 
-        /* Left Side: Contact Info */
-        .contact-info-wrapper {
-            background: #fff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            height: 100%;
-        }
-
-        .contact-info-wrapper h3 {
-            font-size: 28px;
-            font-weight: 700;
-            color: #02111A;
-            margin-bottom: 30px;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .contact-info-wrapper h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 50px;
-            height: 3px;
-            background: #007bff;
-            border-radius: 2px;
-        }
-
-        .contact-detail-box {
+        .info-item {
             display: flex;
             align-items: flex-start;
             margin-bottom: 30px;
-            gap: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: 0.3s;
         }
 
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: #eef7ff;
-            color: #007bff;
-            border-radius: 50%;
+        .info-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+        }
+
+        .info-icon {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary-color), #0056b3);
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 18px;
+            margin-right: 15px;
             flex-shrink: 0;
-            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
         }
 
-        .contact-detail-box:hover .contact-icon {
-            background: #007bff;
+        .info-text span {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.6;
+            margin-bottom: 4px;
+        }
+
+        .info-text h5 {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0;
             color: #fff;
+            line-height: 1.4;
+        }
+
+        .social-connect {
+            margin-top: 50px;
+        }
+
+        .social-connect p {
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+
+        .social-icons-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .social-btn:hover {
+            background: var(--primary-color);
             transform: translateY(-3px);
         }
 
-        .contact-text p {
-            font-size: 14px;
-            color: #777;
-            margin: 0 0 5px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .contact-text h4 {
-            font-size: 18px;
-            font-weight: 700;
-            color: #02111A;
-            line-height: 1.4;
-            margin: 0;
-        }
-
-        /* Right Side: Form */
-        .contact-form-wrapper {
+        /* Contact Form Side */
+        .contact-form-side {
+            padding: 60px;
             background: #fff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            flex: 1;
         }
 
-        .contact-form-wrapper h3 {
-            font-size: 28px;
+        .form-title {
+            font-size: 26px;
             font-weight: 700;
-            color: #02111A;
-            margin-bottom: 20px;
+            color: var(--secondary-color);
+            margin-bottom: 30px;
         }
 
-        .form-group {
-            margin-bottom: 20px;
+        .custom-form-group {
+            margin-bottom: 25px;
+            position: relative;
         }
 
-        .contact-input {
+        .custom-form-control {
             width: 100%;
-            height: 50px;
-            border: 1px solid #e1e1e1;
-            border-radius: 8px;
+            height: 55px;
+            border: 2px solid #efefef;
+            border-radius: 10px;
             padding: 0 20px;
-            font-size: 16px;
-            color: #02111A;
-            transition: 0.3s;
+            font-size: 15px;
+            font-weight: 500;
+            color: var(--secondary-color);
+            transition: all 0.3s ease;
             background: #fdfdfd;
         }
 
-        .contact-input:focus {
-            border-color: #007bff;
+        .custom-form-control:focus {
+            border-color: var(--primary-color);
             outline: none;
-            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+            background: #fff;
+            box-shadow: 0 5px 20px rgba(0, 123, 255, 0.05);
         }
 
-        textarea.contact-input {
-            height: 150px;
-            padding-top: 15px;
+        .custom-form-control::placeholder {
+            color: #aaa;
+            font-weight: 400;
+        }
+
+        textarea.custom-form-control {
+            height: 160px;
+            padding-top: 20px;
             resize: none;
         }
 
-        .check-box-area {
+        .submit-btn-area {
+            margin-top: 10px;
+        }
+
+        .vl-btn-modern {
+            padding: 16px 35px;
+            background: var(--secondary-color);
+            color: #fff;
+            border-radius: 10px;
+            font-weight: 600;
+            border: none;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(2, 17, 26, 0.2);
+            width: 100%;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .vl-btn-modern:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(0, 123, 255, 0.3);
+        }
+
+        .check-terms {
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: #777;
         }
 
-        .check-box-area input {
-            width: 18px;
-            height: 18px;
+        .check-terms input {
             cursor: pointer;
+            accent-color: var(--primary-color);
+            width: 16px;
+            height: 16px;
         }
 
-        .check-box-area label {
-            font-size: 15px;
-            color: #555;
-            cursor: pointer;
-            margin: 0;
-        }
-
-        button.vl-btn7 {
-            border: none;
-            background: transparent;
-            padding: 0;
-            width: 100%;
-        }
-
-        /* Responsive */
+        /* Responsive Fixes */
         @media (max-width: 991px) {
+            .contact-form-side {
+                padding: 40px 30px;
+            }
+
+            .contact-info-side {
+                padding: 50px 30px;
+            }
+
             .page-header-area {
-                padding: 120px 0 60px;
+                padding: 130px 0 80px;
             }
 
-            .page-header-area h1 {
-                font-size: 2.2rem;
+            .page-header-title {
+                font-size: 2.5rem;
             }
 
-            .contact-page-section {
-                padding: 60px 0;
+            .contact-section-wrapper {
+                margin-top: -40px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .contact-info-side {
+                order: 2;
             }
 
-            .contact-info-wrapper {
-                margin-bottom: 30px;
+            .contact-form-side {
+                order: 1;
             }
         }
     </style>
@@ -267,7 +410,7 @@
                                 <ul>
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="about.html">About</a></li>
-                                    <li><a href="#">Committee</a></li>
+                                    <li><a href="committe.html">Committee</a></li>
                                     <li><a href="invited_faculties.html">Faculty</a></li>
                                     <li><a href="activities.html">Activities</a></li>
                                     <li><a href="contact.html" style="color: #007bff;">Contact</a></li>
@@ -296,6 +439,121 @@
     </header>
     <!--===== HEADER END =======-->
 
+    <!--===== PAGE HEADER =======-->
+    <section class="page-header-area">
+        <div class="page-header-bg-shape"></div>
+        <div class="container page-header-content">
+            <h1 class="page-header-title">Connect With Us</h1>
+            <p class="page-header-subtitle">Have questions or want to join our academic activities? <br> Reach out to
+                the Neurological Society of Pune team.</p>
+        </div>
+    </section>
+
+    <!--===== CONTACT SECTION =======-->
+    <section class="contact-section-wrapper">
+        <div class="container">
+            <div class="contact-container-card" data-aos="fade-up" data-aos-duration="1000">
+
+                <!-- Left Info Side -->
+                <div class="col-lg-5 contact-info-side">
+                    <div class="info-side-content">
+                        <h2 class="info-title">Contact Information</h2>
+                        <span class="info-subtitle">We are here to help and answer any question you might have. We look
+                            forward to hearing from you.</span>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div class="info-text">
+                                <span>Call us</span>
+                                <h5>+91 76859 00400</h5>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fa-regular fa-envelope"></i>
+                            </div>
+                            <div class="info-text">
+                                <span>Email us</span>
+                                <h5>ajit@ascenthospitality.in</h5>
+                            </div>
+                        </div>
+
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="info-text">
+                                <span>Visit us</span>
+                                <h5>"Arya" Plot No. 38B, Lane No. 8, Mahatma CHSL, 62+65 Kothrud, Pune 411038 India</h5>
+                            </div>
+                        </div>
+
+                        <div class="social-connect">
+                            <p>Follow us on social media:</p>
+                            <div class="social-icons-row">
+                                <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="#" class="social-btn"><i class="fa-brands fa-twitter"></i></a>
+                                <a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+                                <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Form Side -->
+                <div class="col-lg-7 contact-form-side">
+                    <h3 class="form-title">Send us a message</h3>
+                    <form action="#">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="custom-form-group">
+                                    <input type="text" class="custom-form-control" placeholder="Your Name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="custom-form-group">
+                                    <input type="email" class="custom-form-control" placeholder="Email Address"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="custom-form-group">
+                                    <input type="tel" class="custom-form-control" placeholder="Phone Number" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="custom-form-group">
+                                    <input type="text" class="custom-form-control" placeholder="Subject">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="custom-form-group">
+                                    <textarea class="custom-form-control" placeholder="How can we help you?"
+                                        required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="check-terms">
+                                    <input type="checkbox" id="terms_check" required>
+                                    <label for="terms_check">I agree to the terms and privacy policy.</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="vl-btn-modern">
+                                    Send Message <i class="fa-solid fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
     <!--===== MOBILE MENU STARTS =======-->
     <div class="homepage7-body">
         <div class="vl-offcanvas">
@@ -321,7 +579,6 @@
                     <span><a href="#"><i class="fa-regular fa-envelope"></i> ajit@ascenthospitality.in</a></span>
                     <span><a href="#"><i class="fa-solid fa-location-dot"></i> Kothrud, Pune, India</a></span>
                 </div>
-                <div class="space20"></div>
                 <!-- Social links -->
                 <div class="vl-offcanvas-social">
                     <h3 class="vl-offcanvas-sm-title">Follow Us</h3>
@@ -336,100 +593,6 @@
         <div class="vl-offcanvas-overlay"></div>
     </div>
     <!--===== MOBILE MENU ENDS =======-->
-
-    <!--===== CONTACT SECTION START =======-->
-    <section class="contact-page-section">
-        <div class="container">
-            <div class="row">
-                <!-- Left Side: Contact Info -->
-                <div class="col-lg-5" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="contact-info-wrapper">
-                        <h3>Get In Touch</h3>
-
-                        <div class="contact-detail-box">
-                            <div class="contact-icon">
-                                <i class="fa-solid fa-phone"></i>
-                            </div>
-                            <div class="contact-text">
-                                <p>Call us Anytime</p>
-                                <h4>+91 76859 00400</h4>
-                            </div>
-                        </div>
-
-                        <div class="contact-detail-box">
-                            <div class="contact-icon">
-                                <i class="fa-regular fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <p>Send Email</p>
-                                <h4>ajit@ascenthospitality.in</h4>
-                            </div>
-                        </div>
-
-                        <div class="contact-detail-box">
-                            <div class="contact-icon">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <div class="contact-text">
-                                <p>Our Locations</p>
-                                <h4>"Arya" Plot No. 38B, Lane No. 8, Mahatma CHSL, 62+65 Kothrud, Pune 411038 India</h4>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <!-- Right Side: Contact Form -->
-                <div class="col-lg-7" data-aos="fade-left" data-aos-duration="1000">
-                    <div class="contact-form-wrapper">
-                        <h3>Send Us a Message</h3>
-                        <form action="#">
-                            <div class="row">
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" class="contact-input" placeholder="Your Name" required>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="form-group">
-                                        <input type="email" class="contact-input" placeholder="Your Email" required>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="form-group">
-                                        <input type="tel" class="contact-input" placeholder="Phone No" required>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" class="contact-input" placeholder="Subject">
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <textarea class="contact-input" placeholder="Message" required></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="check-box-area">
-                                        <input type="checkbox" id="terms" required>
-                                        <label for="terms">I agree terms and conditions</label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-12">
-                                    <button type="submit" class="vl-btn7">
-                                        <span class="text">Send Now</span>
-                                        <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!--===== CONTACT SECTION END =======-->
 
     <!--===== FOOTER AREA STARTS =======-->
     <div class="vl-footer7-section-area">
