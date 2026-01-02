@@ -30,7 +30,7 @@
    Faculty Cards (No left color bar, No orange)
    FIX: responsive image cropping issue
    Uses your theme variables (blue/neutral)
-========================= */
+   ========================= */
 
         .faculty-section {
             padding: 48px 0;
@@ -70,6 +70,9 @@
             background: var(--ztc-bg-bg-11);
             border: 1px solid rgba(9, 30, 66, .10);
             position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         /* Image cover fix (desktop) */
@@ -77,10 +80,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-
-            /* FIX: better face framing (18% cuts forehead on many images) */
-            object-position: 50% 35%;
-
+            object-position: top center;
             display: block;
         }
 
@@ -140,39 +140,42 @@
         /* ==============
    Responsive Fix (Mobile)
    FIX: image becomes banner with aspect-ratio so it never looks cut like your screenshot
-============== */
+   ============== */
         @media (max-width: 767px) {
             .faculty-card-row {
                 flex-direction: column;
                 gap: 12px;
                 padding: 12px;
+                text-align: center;
             }
 
             .faculty-card-row__media {
                 flex: 0 0 auto;
                 width: 100%;
-
-                /* KEY FIX */
-                aspect-ratio: 16 / 9;
-                height: auto;
-
+                height: 250px;
+                /* Fixed height for consistency */
                 border-radius: 16px;
+                margin-bottom: 10px;
             }
 
             .faculty-card-row__media img {
-                /* keep face visible on banner */
-                object-position: 50% 28%;
+                object-fit: contain;
+                /* Ensure full image is visible */
+                object-position: center;
+                border-radius: 16px;
             }
 
             .faculty-card-row__body {
                 padding: 4px 6px 10px 6px;
+                align-items: center;
+                /* Center content on mobile */
             }
         }
 
         /* Very small phones (taller banner so face doesn't crop) */
         @media (max-width: 380px) {
             .faculty-card-row__media {
-                aspect-ratio: 4 / 3;
+                height: 200px;
             }
 
             .faculty-card-row__name {
@@ -207,6 +210,13 @@
             gap: 4px;
             font-weight: 600;
             text-decoration: none;
+        }
+
+        /* Mobile Menu Logo Visibility Fix */
+        .vl-offcanvas-logo img {
+            background-color: #02111A;
+            padding: 10px;
+            border-radius: 5px;
         }
     </style>
 
@@ -340,11 +350,11 @@
                                 <path
                                     d="M1.43959 4.08981C3.97405 5.54399 5.24127 6.27107 6.57492 6.60594C8.16664 7.00559 9.83338 7.00559 11.4251 6.60594C12.7587 6.27108 14.026 5.54399 16.5604 4.08982C14.9571 1.62862 12.1699 0 9 0C5.8301 0 3.04295 1.62862 1.43959 4.08981Z"
                                     fill="#02111A" />
-                            </svg> Invited Faculty
+                            </svg> Committee
                         </h5>
                         <div class="space16"></div>
                         <h2 class="vl-section-title" data-aos="zoom-in" data-aos-duration="1000">Meet Our Esteemed
-                            Invited Faculty
+                            Committee Members
                         </h2>
                     </div>
                 </div>
@@ -361,7 +371,7 @@
                         <div class="col-lg-6">
                             <article class="faculty-card-row">
                                 <div class="faculty-card-row__media">
-                                    <img src="/assets/img/logo/shashank.png" alt="Prof. Sashank Prasad" loading="lazy">
+                                    <img src="/assets/img/shashank.png" alt="Prof. Sashank Prasad" loading="lazy">
                                 </div>
 
                                 <div class="faculty-card-row__body">
@@ -403,7 +413,7 @@
                         <div class="col-lg-6">
                             <article class="faculty-card-row">
                                 <div class="faculty-card-row__media">
-                                    <img src="/assets/img/logo/sharath.jpg" alt="Dr. Sharath Kumar" loading="lazy">
+                                    <img src="/assets/sharath_kumar.svg" alt="Dr. Sharath Kumar" loading="lazy">
                                 </div>
 
                                 <div class="faculty-card-row__body">
@@ -424,7 +434,7 @@
                         <div class="col-lg-6">
                             <article class="faculty-card-row">
                                 <div class="faculty-card-row__media">
-                                    <img src="/assets/img/logo/albin.jpg" alt="Dr. Catherine Albin" loading="lazy">
+                                    <img src="/assets/catherine_albin.svg" alt="Dr. Catherine Albin" loading="lazy">
                                 </div>
 
                                 <div class="faculty-card-row__body">
@@ -446,7 +456,7 @@
                         <div class="col-lg-6">
                             <article class="faculty-card-row">
                                 <div class="faculty-card-row__media">
-                                    <img src="/assets/img/logo/neeraj.jpg" alt="Prof. Neeraj Kumar" loading="lazy">
+                                    <img src="/assets/neeraj_kumar.svg" alt="Prof. Neeraj Kumar" loading="lazy">
                                 </div>
 
                                 <div class="faculty-card-row__body">
@@ -468,7 +478,7 @@
                         <div class="col-lg-6">
                             <article class="faculty-card-row">
                                 <div class="faculty-card-row__media">
-                                    <img src="/assets/img/logo/steven.jpg" alt="Prof. Steven L Lewis" loading="lazy">
+                                    <img src="/assets/Stevenlewis.svg" alt="Prof. Steven L Lewis" loading="lazy">
                                 </div>
 
                                 <div class="faculty-card-row__body">
