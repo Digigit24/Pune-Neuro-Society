@@ -26,6 +26,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 
     <style>
+        /* === Activities Page Styles === */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #02111A;
+            --text-color: #555;
+            --card-bg: #fff;
+            --hover-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+        }
+
         /* ===== Main menu: one-line horizontal items ===== */
         .vl-main-menu nav ul {
             display: flex;
@@ -54,87 +63,111 @@
             text-decoration: none;
         }
 
-        /* === Activities Page Styles === */
-
         /* Page Header */
         .page-header-area {
-            background-color: #02111A;
-            background-image: linear-gradient(rgba(2, 17, 26, 0.8), rgba(2, 17, 26, 0.9));
-            padding: 140px 0 80px;
+            background: linear-gradient(135deg, #02111A 0%, #092e45 100%);
+            padding: 160px 0 100px;
             text-align: center;
             color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-header-area::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
         }
 
         .page-header-area h1 {
-            font-size: 3rem;
-            font-weight: 700;
+            font-size: 3.5rem;
+            font-weight: 800;
             color: #fff;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
         }
 
         /* Activities Section */
         .ao-inner-page-section {
-            padding-top: 100px;
-            padding-bottom: 90px;
-            background-color: #f9fbfc;
+            padding-top: 120px;
+            padding-bottom: 100px;
+            background-color: #f8faff;
         }
 
         .ao-title-head-center {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 70px;
         }
 
         .ao-title-head-sm-title {
-            color: #007bff;
-            font-weight: 600;
+            color: var(--primary-color);
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             margin-bottom: 15px;
             display: inline-block;
             background: rgba(0, 123, 255, 0.1);
-            padding: 6px 16px;
+            padding: 8px 20px;
             border-radius: 30px;
-            font-size: 14px;
+            font-size: 13px;
         }
 
         .ao-title-head-lg-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #02111A;
+            font-size: 2.75rem;
+            font-weight: 800;
+            color: var(--secondary-color);
             margin: 0;
+            line-height: 1.3;
         }
 
         /* Activity Cards */
         .activity-card {
-            background: #fff;
-            border-radius: 16px;
+            background: var(--card-bg);
+            border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             height: 100%;
             display: flex;
             flex-direction: column;
-            margin-bottom: 30px;
-            border: 1px solid #eef2f6;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
         }
 
         .activity-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-            border-color: rgba(0, 123, 255, 0.3);
+            transform: translateY(-8px);
+            box-shadow: var(--hover-shadow);
+            border-color: transparent;
         }
 
         .activity-image {
             position: relative;
-            height: 220px;
+            height: 240px;
             overflow: hidden;
+        }
+
+        .activity-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent 60%, rgba(0, 0, 0, 0.3));
+            pointer-events: none;
         }
 
         .activity-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
         .activity-card:hover .activity-image img {
@@ -143,60 +176,74 @@
 
         .activity-badge {
             position: absolute;
-            top: 16px;
-            right: 16px;
+            top: 20px;
+            right: 20px;
             background: rgba(255, 255, 255, 0.95);
-            color: #007bff;
+            color: var(--primary-color);
             padding: 6px 14px;
-            border-radius: 30px;
-            font-size: 12px;
-            font-weight: 700;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 800;
             text-transform: uppercase;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+            letter-spacing: 0.5px;
         }
 
         .activity-content {
-            padding: 30px 24px;
+            padding: 30px 28px;
             flex-grow: 1;
             position: relative;
+            display: flex;
+            flex-direction: column;
         }
 
+        /* Floating Icon overlap */
         .activity-icon {
-            width: 54px;
-            height: 54px;
-            background: #f0f7ff;
-            border-radius: 12px;
+            width: 60px;
+            height: 60px;
+            background: #fff;
+            border-radius: 16px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #007bff;
-            font-size: 24px;
-            margin-bottom: 24px;
+            color: var(--primary-color);
+            font-size: 26px;
+            margin-top: -60px;
+            /* Overlap image */
+            margin-bottom: 20px;
             transition: 0.3s;
+            position: relative;
+            z-index: 5;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            border: 2px solid #fff;
         }
 
         .activity-card:hover .activity-icon {
-            background: #007bff;
+            background: var(--primary-color);
             color: #fff;
+            transform: scale(1.1);
         }
 
         .activity-title {
             font-size: 20px;
             font-weight: 700;
-            color: #02111A;
+            color: var(--secondary-color);
             margin-bottom: 12px;
             line-height: 1.4;
         }
 
         .activity-description {
-            font-size: 15px;
-            color: #555;
-            line-height: 1.6;
-            margin: 0;
+            font-size: 13px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            flex-grow: 1;
+            /* Push footer down */
         }
 
         .activity-footer {
-            padding: 16px 24px;
+            padding: 20px 28px;
             background: #fcfcfc;
             border-top: 1px solid #f0f0f0;
             display: flex;
@@ -206,16 +253,83 @@
 
         .activity-meta span {
             font-size: 13px;
-            color: #777;
-            font-weight: 500;
+            color: #888;
+            font-weight: 600;
             display: inline-flex;
             align-items: center;
-            gap: 6px;
-            margin-right: 12px;
+            gap: 8px;
+            background: #f0f4f8;
+            padding: 6px 12px;
+            border-radius: 6px;
         }
 
         .activity-meta span i {
-            color: #007bff;
+            color: var(--primary-color);
+            font-size: 14px;
+        }
+
+        /* Updated Footer CSS from Index */
+        .vl-footer7-section-area {
+            padding: 50px 0;
+        }
+
+        .vl-footer7-section-area .social-links {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .vl-footer7-section-area .social-links li {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        .vl-footer7-section-area .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background-color: #fff;
+            border: 1px solid #e5e5e5;
+            border-radius: 50%;
+            color: #02111A;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            text-decoration: none;
+            line-height: 1;
+        }
+
+        .vl-footer7-section-area .social-links a:hover {
+            background-color: #02111A;
+            color: #fff;
+            border-color: #02111A;
+        }
+
+        .vl-footer7-section-area .social-links a i {
+            line-height: 1;
+        }
+
+        .vl-footer7-section-area .footer-widget-area ul li a {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .vl-footer7-section-area .footer-widget-area ul li a svg {
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        /* Mobile Menu Logo Visibility Fix */
+        .vl-offcanvas-logo img {
+            background-color: #02111A;
+            padding: 10px;
+            border-radius: 5px;
         }
 
         @media (max-width: 991px) {
@@ -223,12 +337,20 @@
                 padding: 120px 0 60px;
             }
 
+            .page-header-area h1 {
+                font-size: 2.5rem;
+            }
+
             .ao-inner-page-section {
-                padding: 60px 0;
+                padding: 80px 0;
             }
 
             .ao-title-head-lg-title {
                 font-size: 2rem;
+            }
+
+            .activity-image {
+                height: 200px;
             }
         }
     </style>

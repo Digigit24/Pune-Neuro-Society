@@ -30,7 +30,7 @@
    Faculty Cards (No left color bar, No orange)
    FIX: responsive image cropping issue
    Uses your theme variables (blue/neutral)
-========================= */
+   ========================= */
 
     .faculty-section {
       padding: 48px 0;
@@ -70,6 +70,9 @@
       background: var(--ztc-bg-bg-11);
       border: 1px solid rgba(9, 30, 66, .10);
       position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* Image cover fix (desktop) */
@@ -77,10 +80,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-
-      /* FIX: better face framing (18% cuts forehead on many images) */
-      object-position: 50% 35%;
-
+      object-position: top center;
       display: block;
     }
 
@@ -140,39 +140,42 @@
     /* ==============
    Responsive Fix (Mobile)
    FIX: image becomes banner with aspect-ratio so it never looks cut like your screenshot
-============== */
+   ============== */
     @media (max-width: 767px) {
       .faculty-card-row {
         flex-direction: column;
         gap: 12px;
         padding: 12px;
+        text-align: center;
       }
 
       .faculty-card-row__media {
         flex: 0 0 auto;
         width: 100%;
-
-        /* KEY FIX */
-        aspect-ratio: 16 / 9;
-        height: auto;
-
+        height: 250px;
+        /* Fixed height for consistency */
         border-radius: 16px;
+        margin-bottom: 10px;
       }
 
       .faculty-card-row__media img {
-        /* keep face visible on banner */
-        object-position: 50% 28%;
+        object-fit: contain;
+        /* Ensure full image is visible */
+        object-position: center;
+        border-radius: 16px;
       }
 
       .faculty-card-row__body {
         padding: 4px 6px 10px 6px;
+        align-items: center;
+        /* Center content on mobile */
       }
     }
 
     /* Very small phones (taller banner so face doesn't crop) */
     @media (max-width: 380px) {
       .faculty-card-row__media {
-        aspect-ratio: 4 / 3;
+        height: 200px;
       }
 
       .faculty-card-row__name {
@@ -207,6 +210,13 @@
       gap: 4px;
       font-weight: 600;
       text-decoration: none;
+    }
+
+    /* Mobile Menu Logo Visibility Fix */
+    .vl-offcanvas-logo img {
+      background-color: #02111A;
+      padding: 10px;
+      border-radius: 5px;
     }
   </style>
 
@@ -249,8 +259,8 @@
                 <ul>
                   <li><a href="index.html">Home</a></li>
                   <li><a href="about.html">About</a></li>
-                  <li><a href="committe.html">Committee</a></li>
-                  <li><a href="invited_faculties.html" style="color: #007bff;">Faculty</a></li>
+                  <li><a href="committe.html" style="color: #007bff;">Committee</a></li>
+                  <li><a href="invited_faculties.html">Faculty</a></li>
                   <li><a href="activities.html">Activities</a></li>
                   <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -339,10 +349,11 @@
                 <path
                   d="M1.43959 4.08981C3.97405 5.54399 5.24127 6.27107 6.57492 6.60594C8.16664 7.00559 9.83338 7.00559 11.4251 6.60594C12.7587 6.27108 14.026 5.54399 16.5604 4.08982C14.9571 1.62862 12.1699 0 9 0C5.8301 0 3.04295 1.62862 1.43959 4.08981Z"
                   fill="#02111A" />
-              </svg> Invited Faculty
+              </svg> Faculty
             </h5>
             <div class="space16"></div>
-            <h2 class="vl-section-title" data-aos="zoom-in" data-aos-duration="1000">Meet Our Esteemed Invited Faculty
+            <h2 class="vl-section-title" data-aos="zoom-in" data-aos-duration="1000">Meet Our Esteemed
+              Faculty Members
             </h2>
           </div>
         </div>
@@ -359,14 +370,15 @@
             <div class="col-lg-6">
               <article class="faculty-card-row">
                 <div class="faculty-card-row__media">
-                  <img src="/assets/img/logo/shashank.png" alt="Prof. Sashank Prasad" loading="lazy">
+                  <img src="/assets/img/shashank.png" alt="Prof. Sashank Prasad" loading="lazy">
                 </div>
 
                 <div class="faculty-card-row__body">
                   <h3 class="faculty-card-row__name">Prof. Sashank Prasad</h3>
                   <p class="faculty-card-row__role">Associate Professor, Harvard Medical School</p>
                   <p class="faculty-card-row__desc">
-                    Associate Professor, Harvard Medical School, Philadelphia, USA. Director, Partners Neurology
+                    Associate Professor, Harvard Medical School, Philadelphia, USA. Director,
+                    Partners Neurology
                     Residency Program.
                     Recognized expert in Neuro-Ophthalmology and Medical Education.
                   </p>
@@ -383,10 +395,13 @@
 
                 <div class="faculty-card-row__body">
                   <h3 class="faculty-card-row__name">Dr. Ashish Atre</h3>
-                  <p class="faculty-card-row__role">Senior Consultant Neuro-Radiology and Paediatric Imaging</p>
+                  <p class="faculty-card-row__role">Senior Consultant Neuro-Radiology and Paediatric
+                    Imaging</p>
                   <p class="faculty-card-row__desc">
-                    Dr. Ashish Atre is a Senior Consultant in Neuro-Radiology and Paediatric Imaging at Pune.
-                    He is Chief Radiologist at Star Imaging and Research Centre and Hon. Associate Professor at
+                    Dr. Ashish Atre is a Senior Consultant in Neuro-Radiology and Paediatric Imaging
+                    at Pune.
+                    He is Chief Radiologist at Star Imaging and Research Centre and Hon. Associate
+                    Professor at
                     Sassoon General Hospital and BJ Medical College, Pune.
                   </p>
                 </div>
@@ -397,15 +412,17 @@
             <div class="col-lg-6">
               <article class="faculty-card-row">
                 <div class="faculty-card-row__media">
-                  <img src="/assets/img/logo/sharath.jpg" alt="Dr. Sharath Kumar" loading="lazy">
+                  <img src="/assets/sharath_kumar.svg" alt="Dr. Sharath Kumar" loading="lazy">
                 </div>
 
                 <div class="faculty-card-row__body">
                   <h3 class="faculty-card-row__name">Dr. Sharath Kumar</h3>
                   <p class="faculty-card-row__role">Interventional Neuro-Radiologist</p>
                   <p class="faculty-card-row__desc">
-                    Dr. Sharath Kumar is a renowned Interventional Neuro-Radiologist who has performed over 5000
-                    Endovascular Neurosurgery procedures. He has extensive clinical knowledge and skills with vast
+                    Dr. Sharath Kumar is a renowned Interventional Neuro-Radiologist who has
+                    performed over 5000
+                    Endovascular Neurosurgery procedures. He has extensive clinical knowledge and
+                    skills with vast
                     experience in the interdisciplinary branch of Radiology.
                   </p>
                 </div>
@@ -416,15 +433,18 @@
             <div class="col-lg-6">
               <article class="faculty-card-row">
                 <div class="faculty-card-row__media">
-                  <img src="/assets/img/logo/albin.jpg" alt="Dr. Catherine Albin" loading="lazy">
+                  <img src="/assets/catherine_albin.svg" alt="Dr. Catherine Albin" loading="lazy">
                 </div>
 
                 <div class="faculty-card-row__body">
                   <h3 class="faculty-card-row__name">Dr. Catherine Albin</h3>
-                  <p class="faculty-card-row__role">Neurointensivist, Emory University School of Medicine</p>
+                  <p class="faculty-card-row__role">Neurointensivist, Emory University School of
+                    Medicine</p>
                   <p class="faculty-card-row__desc">
-                    Dr. Catherine Albin, MD is a Neurointensivist from Emory University School of Medicine where she
-                    is a member of the Department of Neurocritical Care. Her research focuses on educational innovations
+                    Dr. Catherine Albin, MD is a Neurointensivist from Emory University School of
+                    Medicine where she
+                    is a member of the Department of Neurocritical Care. Her research focuses on
+                    educational innovations
                     in Acute Neurologic Emergencies.
                   </p>
                 </div>
@@ -435,15 +455,18 @@
             <div class="col-lg-6">
               <article class="faculty-card-row">
                 <div class="faculty-card-row__media">
-                  <img src="/assets/img/logo/neeraj.jpg" alt="Prof. Neeraj Kumar" loading="lazy">
+                  <img src="/assets/neeraj_kumar.svg" alt="Prof. Neeraj Kumar" loading="lazy">
                 </div>
 
                 <div class="faculty-card-row__body">
                   <h3 class="faculty-card-row__name">Prof. Neeraj Kumar</h3>
-                  <p class="faculty-card-row__role">Professor of Neurology, Mayo Clinic Alix School of Medicine</p>
+                  <p class="faculty-card-row__role">Professor of Neurology, Mayo Clinic Alix School of
+                    Medicine</p>
                   <p class="faculty-card-row__desc">
-                    Dr. Neeraj Kumar, MD, FAAN, is a Professor of Neurology at the Mayo Clinic Alix School of Medicine
-                    in Rochester, Minnesota. His clinical interests include disorders of the spine, neurotoxicology,
+                    Dr. Neeraj Kumar, MD, FAAN, is a Professor of Neurology at the Mayo Clinic Alix
+                    School of Medicine
+                    in Rochester, Minnesota. His clinical interests include disorders of the spine,
+                    neurotoxicology,
                     and neurological conditions related to nutrition.
                   </p>
                 </div>
@@ -454,15 +477,18 @@
             <div class="col-lg-6">
               <article class="faculty-card-row">
                 <div class="faculty-card-row__media">
-                  <img src="/assets/img/logo/steven.jpg" alt="Prof. Steven L Lewis" loading="lazy">
+                  <img src="/assets/Stevenlewis.svg" alt="Prof. Steven L Lewis" loading="lazy">
                 </div>
 
                 <div class="faculty-card-row__body">
                   <h3 class="faculty-card-row__name">Prof. Steven L Lewis</h3>
-                  <p class="faculty-card-row__role">Secretary-General, World Federation of Neurology (WFN)</p>
+                  <p class="faculty-card-row__role">Secretary-General, World Federation of Neurology
+                    (WFN)</p>
                   <p class="faculty-card-row__desc">
-                    Dr. Lewis is the Secretary-General of the World Federation of Neurology (WFN), Chair of the WFN
-                    Education Committee, and the Editor of World Neurology. He has also been the recipient of various
+                    Dr. Lewis is the Secretary-General of the World Federation of Neurology (WFN),
+                    Chair of the WFN
+                    Education Committee, and the Editor of World Neurology. He has also been the
+                    recipient of various
                     prestigious awards for his contributions to neurologic education.
                   </p>
                 </div>
@@ -489,8 +515,10 @@
             <img src="/assets/img/logo/21 Logo.png" alt="">
             <div class="space16"></div>
             <p>
-              Neurological Society of Pune (NSP) is a registered society of neurologists and neurosurgeons,
-              established in 2010 to propagate advances in neurology and set high standards in neurology education.
+              Neurological Society of Pune (NSP) is a registered society of neurologists and
+              neurosurgeons,
+              established in 2010 to propagate advances in neurology and set high standards in neurology
+              education.
             </p>
             <div class="space24"></div>
             <ul class="social-links">
