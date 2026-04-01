@@ -55,20 +55,22 @@
 
         //========== PAGE PROGRESS STARTS ============= //
         var progressPath = document.querySelector(".progress-wrap path");
-        var pathLength = progressPath.getTotalLength();
-        progressPath.style.transition = progressPath.style.WebkitTransition = "none";
-        progressPath.style.strokeDasharray = pathLength + " " + pathLength;
-        progressPath.style.strokeDashoffset = pathLength;
-        progressPath.getBoundingClientRect();
-        progressPath.style.transition = progressPath.style.WebkitTransition = "stroke-dashoffset 10ms linear";
-        var updateProgress = function() {
-            var scroll = $(window).scrollTop();
-            var height = $(document).height() - $(window).height();
-            var progress = pathLength - (scroll * pathLength) / height;
-            progressPath.style.strokeDashoffset = progress;
-        };
-        updateProgress();
-        $(window).scroll(updateProgress);
+        if (progressPath) {
+            var pathLength = progressPath.getTotalLength();
+            progressPath.style.transition = progressPath.style.WebkitTransition = "none";
+            progressPath.style.strokeDasharray = pathLength + " " + pathLength;
+            progressPath.style.strokeDashoffset = pathLength;
+            progressPath.getBoundingClientRect();
+            progressPath.style.transition = progressPath.style.WebkitTransition = "stroke-dashoffset 10ms linear";
+            var updateProgress = function() {
+                var scroll = $(window).scrollTop();
+                var height = $(document).height() - $(window).height();
+                var progress = pathLength - (scroll * pathLength) / height;
+                progressPath.style.strokeDashoffset = progress;
+            };
+            updateProgress();
+            $(window).scroll(updateProgress);
+        }
         var offset = 50;
         $(window).on("scroll", function() {
             if ($(this).scrollTop() > offset) {
@@ -103,7 +105,6 @@
             });
         }
         //========== VIDEO POPUP ENDS ============= //
-        AOS.init;
         AOS.init({
             disable: 'mobile'
         });
@@ -127,8 +128,8 @@
         autoplay: true,
         autoplaySpeed: 2000,
         infinite: true,
-        prevArrow: $(".next-arrow"),
-        nextArrow: $(".prev-arrow"),
+        prevArrow: $(".prev-arrow"),
+        nextArrow: $(".next-arrow"),
         responsive: [{
                 breakpoint: 1024,
                 settings: {
@@ -167,8 +168,8 @@
         autoplay: true,
         autoplaySpeed: 2000,
         infinite: true,
-        prevArrow: $(".next-arrow1"),
-        nextArrow: $(".prev-arrow1"),
+        prevArrow: $(".prev-arrow1"),
+        nextArrow: $(".next-arrow1"),
     });
 
 
@@ -186,8 +187,8 @@
         cssEase: 'linear',
         fade: true,
         draggable: true,
-        prevArrow: $(".next-arrow-hero"),
-        nextArrow: $(".prev-arrow-hero"),
+        prevArrow: $(".prev-arrow-hero"),
+        nextArrow: $(".next-arrow-hero"),
     });
 
 
@@ -280,8 +281,8 @@
         autoplay: true,
         autoplaySpeed: 2000,
         infinite: true,
-        prevArrow: $(".next-arrow-case3"),
-        nextArrow: $(".prev-arrow-case3"),
+        prevArrow: $(".prev-arrow-case3"),
+        nextArrow: $(".next-arrow-case3"),
         responsive: [{
                 breakpoint: 1024,
                 settings: {
@@ -387,8 +388,8 @@
         autoplay: true,
         autoplaySpeed: 2000,
         infinite: true,
-        prevArrow: $(".next-arrow-ser4"),
-        nextArrow: $(".prev-arrow-ser4"),
+        prevArrow: $(".prev-arrow-ser4"),
+        nextArrow: $(".next-arrow-ser4"),
         responsive: [{
                 breakpoint: 1024,
                 settings: {
