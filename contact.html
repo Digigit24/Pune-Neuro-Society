@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="/assets/css/plugins/slick-slider.css">
     <link rel="stylesheet" href="/assets/css/plugins/nice-select.css">
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
         :root {
@@ -395,7 +395,7 @@
     <div class="preloader">
         <div class="loading-container">
             <div class="loading"></div>
-            <div id="loading-icon"><img src="/assets/img/logo/preloader.png" alt=""></div>
+            <div id="loading-icon"><img src="/assets/img/logo/preloader.png" alt="Preloader"></div>
         </div>
     </div>
     <!--===== PRELOADER ENDS =======-->
@@ -435,7 +435,7 @@
                             </div>
                         </div>
                         <div class="vl-header-action-item d-block d-lg-none">
-                            <button type="button" class="vl-offcanvas-toggle">
+                            <button type="button" class="vl-offcanvas-toggle" aria-label="Open navigation menu">
                                 <i class="fa-solid fa-bars-staggered"></i>
                             </button>
                         </div>
@@ -513,38 +513,41 @@
                 <!-- Right Form Side -->
                 <div class="col-lg-7 contact-form-side">
                     <h3 class="form-title">Send us a message</h3>
-                    <form action="#">
+                    <form action="https://formspree.io/f/contact-nsp" method="POST">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="custom-form-group">
-                                    <input type="text" class="custom-form-control" placeholder="Your Name" required>
+                                    <label for="contact_name" class="visually-hidden" style="position:absolute; width:1px; height:1px; overflow:hidden;">Your Name</label>
+                                    <input type="text" id="contact_name" name="name" class="custom-form-control" placeholder="Your Name" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="custom-form-group">
-                                    <input type="email" class="custom-form-control" placeholder="Email Address"
-                                        required>
+                                    <label for="contact_email" class="visually-hidden" style="position:absolute; width:1px; height:1px; overflow:hidden;">Email Address</label>
+                                    <input type="email" id="contact_email" name="email" class="custom-form-control" placeholder="Email Address" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="custom-form-group">
-                                    <input type="tel" class="custom-form-control" placeholder="Phone Number" required>
+                                    <label for="contact_phone" class="visually-hidden" style="position:absolute; width:1px; height:1px; overflow:hidden;">Phone Number</label>
+                                    <input type="tel" id="contact_phone" name="phone" class="custom-form-control" placeholder="Phone Number" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="custom-form-group">
-                                    <input type="text" class="custom-form-control" placeholder="Subject">
+                                    <label for="contact_subject" class="visually-hidden" style="position:absolute; width:1px; height:1px; overflow:hidden;">Subject</label>
+                                    <input type="text" id="contact_subject" name="subject" class="custom-form-control" placeholder="Subject">
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="custom-form-group">
-                                    <textarea class="custom-form-control" placeholder="How can we help you?"
-                                        required></textarea>
+                                    <label for="contact_message" class="visually-hidden" style="position:absolute; width:1px; height:1px; overflow:hidden;">How can we help you?</label>
+                                    <textarea id="contact_message" name="message" class="custom-form-control" placeholder="How can we help you?" required></textarea>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="check-terms">
-                                    <input type="checkbox" id="terms_check" required>
+                                    <input type="checkbox" id="terms_check" name="terms" required>
                                     <label for="terms_check">I agree to the terms and privacy policy.</label>
                                 </div>
                             </div>
@@ -556,7 +559,6 @@
                         </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </section>
@@ -567,7 +569,7 @@
             <div class="vl-offcanvas-wrapper">
                 <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-90">
                     <div class="vl-offcanvas-logo">
-                        <a href="index.html"><img src="/assets/img/logo/21-Logo.png" alt=""></a>
+                        <a href="index.html"><img src="/assets/img/logo/21-Logo.png" alt="Neurological Society of Pune Logo"></a>
                     </div>
                     <div class="vl-offcanvas-close">
                         <button class="vl-offcanvas-close-toggle"><i class="fa-solid fa-xmark"></i></button>
@@ -590,10 +592,10 @@
                 <div class="vl-offcanvas-social">
                     <h3 class="vl-offcanvas-sm-title">Follow Us</h3>
                     <div class="space20"></div>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://facebook.com/PuneNeuroSociety" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/puneneurosociety" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com/company/pune-neuro-society" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://instagram.com/puneneurosociety" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
@@ -608,7 +610,7 @@
                 <!-- About NSP -->
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-logo-area">
-                        <img src="/assets/img/logo/21-Logo.png" alt="">
+                        <img src="/assets/img/logo/21-Logo.png" alt="Neurological Society of Pune Logo">
                         <div class="space16"></div>
                         <p>
                             Neurological Society of Pune (NSP) is a registered society of neurologists and
@@ -618,10 +620,10 @@
                         </p>
                         <div class="space24"></div>
                         <ul class="social-links">
-                            <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                            <li><a href="https://facebook.com/PuneNeuroSociety" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+                            <li><a href="https://linkedin.com/company/pune-neuro-society" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a href="https://instagram.com/puneneurosociety" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="https://youtube.com/c/PuneNeuroSociety" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -635,7 +637,7 @@
                             <li><a href="about.html">About NSP</a></li>
                             <li><a href="activities.html">Academic Activities</a></li>
                             <li><a href="invited_faculties.html">Invited Faculty</a></li>
-                            <li><a href="#">News & Updates</a></li>
+                            <li><a href="activities.html#news">News & Updates</a></li>
                             <li><a href="contact.html">Contact NSP</a></li>
                         </ul>
                     </div>
@@ -647,11 +649,11 @@
                     <div class="footer-widget-area foot-padding2">
                         <h3>Key Activities</h3>
                         <ul>
-                            <li><a href="#">Monthly Neuromeets</a></li>
-                            <li><a href="#">NSP Approach Meet</a></li>
-                            <li><a href="#">PG Approach Meeting</a></li>
-                            <li><a href="#">Invited Lectures</a></li>
-                            <li><a href="#">Public Awareness Drives</a></li>
+                            <li><a href="activities.html#monthly-neuromeets">Monthly Neuromeets</a></li>
+                            <li><a href="activities.html#nsp-approach-meet">NSP Approach Meet</a></li>
+                            <li><a href="activities.html#pg-approach-meeting">PG Approach Meeting</a></li>
+                            <li><a href="activities.html#invited-lectures">Invited Lectures</a></li>
+                            <li><a href="activities.html#public-awareness">Public Awareness Drives</a></li>
                         </ul>
                     </div>
                 </div>
@@ -699,7 +701,7 @@
                                             stroke="#31353D" stroke-width="1.6" stroke-linecap="round"
                                             stroke-linejoin="round" />
                                     </svg>
-                                    Contact details to be updated
+                                    info@pune-neuro-society.org
                                 </a>
                             </li>
                             <li>
@@ -740,14 +742,17 @@
                 </div>
             </div>
             <div class="space48"></div>
+            <div class="row">
             <div class="col-lg-12">
                 <div class="copyright-area">
-                    <a href="#">Copyright &copy; 2026 Neurological Society of Pune. All Rights Reserved</a>
+                    <span>Copyright &copy; 2026 Neurological Society of Pune. All Rights Reserved</span>
                     <ul>
-                        <li><a href="#">Privacy Policy</a><span> | </span></li>
-                        <li><a href="#">Terms and Conditions</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a><span> | </span></li>
+                        <li><a href="terms.html">Terms and Conditions</a></li>
                     </ul>
                 </div>
+            </div>
+            </div>
             </div>
         </div>
     </div>

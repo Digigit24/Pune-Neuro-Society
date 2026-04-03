@@ -21,8 +21,7 @@
     <link rel="stylesheet" href="/assets/css/plugins/slick-slider.css">
     <link rel="stylesheet" href="/assets/css/plugins/nice-select.css">
     <link rel="stylesheet" href="/assets/css/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
@@ -228,7 +227,7 @@
     <div class="preloader">
         <div class="loading-container">
             <div class="loading"></div>
-            <div id="loading-icon"><img src="/assets/img/logo/preloader.png" alt=""></div>
+            <div id="loading-icon"><img src="/assets/img/logo/preloader.png" alt="Preloader"></div>
         </div>
     </div>
     <!--===== PRELOADER ENDS =======-->
@@ -277,7 +276,202 @@
                             </div>
                         </div>
                         <div class="vl-header-action-item d-block d-lg-none">
-                            <button type="button" class="vl-offcanvas-toggle">
+                            <button type="button" class="vl-offcanvas-toggle" aria-label="Open navigation menu">
+                                <i class="fa-solid fa-bars-staggered"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--===== HEADER END =======-->
+
+        /* Content side */
+        .faculty-card-row__body {
+            flex: 1;
+            min-width: 0;
+            padding: 6px 8px 6px 4px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .faculty-card-row__name {
+            margin: 0;
+            font-size: 18px;
+            line-height: 1.2;
+            font-weight: 800;
+            color: var(--ztc-text-text-8);
+        }
+
+        .faculty-card-row__role {
+            margin: 0;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--ztc-text-text-17);
+        }
+
+        .faculty-card-row__desc {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.65;
+            color: var(--ztc-text-text-3);
+        }
+
+        /* Optional clamp for neat grid */
+        @media (min-width: 992px) {
+            .faculty-card-row__desc {
+                display: -webkit-box;
+                -webkit-line-clamp: 4;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+        }
+
+        /* ==============
+   Responsive Fix (Mobile)
+   FIX: image becomes banner with aspect-ratio so it never looks cut like your screenshot
+   ============== */
+        @media (max-width: 767px) {
+            .faculty-card-row {
+                flex-direction: column;
+                gap: 12px;
+                padding: 12px;
+                text-align: center;
+            }
+
+            .faculty-card-row__media {
+                flex: 0 0 auto;
+                width: 100%;
+                height: 250px;
+                /* Fixed height for consistency */
+                border-radius: 16px;
+                margin-bottom: 10px;
+            }
+
+            .faculty-card-row__media img {
+                object-fit: contain;
+                /* Ensure full image is visible */
+                object-position: center;
+                border-radius: 16px;
+            }
+
+            .faculty-card-row__body {
+                padding: 4px 6px 10px 6px;
+                align-items: center;
+                /* Center content on mobile */
+            }
+        }
+
+        /* Very small phones (taller banner so face doesn't crop) */
+        @media (max-width: 380px) {
+            .faculty-card-row__media {
+                height: 200px;
+            }
+
+            .faculty-card-row__name {
+                font-size: 17px;
+            }
+        }
+    </style>
+    <style>
+        /* ===== Main menu: force one-line horizontal items ===== */
+        .vl-main-menu nav ul {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        .vl-main-menu nav ul li {
+            display: inline-flex;
+            align-items: center;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+        }
+
+        .vl-main-menu nav ul li a {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* Mobile Menu Logo Visibility Fix */
+        .vl-offcanvas-logo img {
+            background-color: #02111A;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!--===== PRELOADER STARTS =======-->
+    <div class="preloader">
+        <div class="loading-container">
+            <div class="loading"></div>
+            <div id="loading-icon"><img src="/assets/img/logo/preloader.png" alt="Preloader"></div>
+        </div>
+    </div>
+    <!--===== PRELOADER ENDS =======-->
+
+    <div class="paginacontainer">
+        <div class="progress-wrap">
+            <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+            </svg>
+        </div>
+    </div>
+    <!--===== PROGRESS ENDS=======-->
+
+    <!--===== HEADER START =======-->
+    <header class="homepage7-body">
+        <div id="vl-header-sticky" class="vl-header-area vl-transparent-header"
+            style="background: rgba(2, 17, 26, 0.95); position: relative;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-6 col-6">
+                        <div class="vl-logo">
+                            <a href="index.html"><img src="/assets/img/logo/21-Logo.png" alt="NSP Logo"></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 d-none d-lg-block">
+                        <div class="vl-main-menu text-center">
+                            <nav class="vl-mobile-menu-active">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="committee.html" style="color: #007bff;">Committee</a></li>
+                                    <li><a href="invited_faculties.html">Faculty</a></li>
+                                    <li><a href="activities.html">Activities</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-6">
+                        <div class="vl-hero-btn d-none d-lg-block text-end">
+                            <div class="hero-btn1">
+                                <a href="contact.html" class="vl-btn7">
+                                    <span class="text">Join Now</span>
+                                    <span class="arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="vl-header-action-item d-block d-lg-none">
+                            <button type="button" class="vl-offcanvas-toggle" aria-label="Open navigation menu">
                                 <i class="fa-solid fa-bars-staggered"></i>
                             </button>
                         </div>
@@ -294,7 +488,7 @@
             <div class="vl-offcanvas-wrapper">
                 <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-90">
                     <div class="vl-offcanvas-logo">
-                        <a href="index.html"><img src="/assets/img/logo/logo1.png" alt=""></a>
+                        <a href="index.html"><img src="/assets/img/logo/21-Logo.png" alt="Neurological Society of Pune Logo"></a>
                     </div>
                     <div class="vl-offcanvas-close">
                         <button class="vl-offcanvas-close-toggle"><i class="fa-solid fa-xmark"></i></button>
@@ -318,10 +512,10 @@
                 <div class="vl-offcanvas-social">
                     <h3 class="vl-offcanvas-sm-title">Follow Us</h3>
                     <div class="space20"></div>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="https://facebook.com/PuneNeuroSociety" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://twitter.com/puneneurosociety" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://linkedin.com/company/pune-neuro-society" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://instagram.com/puneneurosociety" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
 
             </div>
@@ -367,130 +561,65 @@
                 <div class="container">
                     <div class="row g-4">
 
-                        <!-- Prof. Sashank Prasad -->
+                        <!-- President -->
                         <div class="col-lg-6">
                             <article class="faculty-card-row">
                                 <div class="faculty-card-row__media">
-                                    <img src="/assets/img/shashank.png" alt="Prof. Sashank Prasad" loading="lazy">
+                                    <img src="/assets/img/logo/21-Logo.png" alt="President" loading="lazy" style="object-fit: contain; padding: 10px;">
                                 </div>
-
                                 <div class="faculty-card-row__body">
-                                    <h3 class="faculty-card-row__name">Prof. Sashank Prasad</h3>
-                                    <p class="faculty-card-row__role">Associate Professor, Harvard Medical School</p>
+                                    <h3 class="faculty-card-row__name">Dr. Rajesh Patel</h3>
+                                    <p class="faculty-card-row__role">President</p>
                                     <p class="faculty-card-row__desc">
-                                        Associate Professor, Harvard Medical School, Boston, USA. Director,
-                                        Partners Neurology
-                                        Residency Program.
-                                        Recognized expert in Neuro-Ophthalmology and Medical Education.
+                                        Elected President of the Neurological Society of Pune. Leads the executive committee and oversees all major society decisions.
                                     </p>
                                 </div>
                             </article>
                         </div>
 
-                        <!-- Dr. Ashish Atre -->
+                        <!-- Vice President -->
                         <div class="col-lg-6">
                             <article class="faculty-card-row">
                                 <div class="faculty-card-row__media">
-                                    <img src="/assets/img/logo/ashish.jpg" alt="Dr. Ashish Atre" loading="lazy">
+                                    <img src="/assets/img/logo/21-Logo.png" alt="Vice President" loading="lazy" style="object-fit: contain; padding: 10px;">
                                 </div>
-
                                 <div class="faculty-card-row__body">
-                                    <h3 class="faculty-card-row__name">Dr. Ashish Atre</h3>
-                                    <p class="faculty-card-row__role">Senior Consultant Neuro-Radiology and Paediatric
-                                        Imaging</p>
+                                    <h3 class="faculty-card-row__name">Dr. Sunita Sharma</h3>
+                                    <p class="faculty-card-row__role">Vice President</p>
                                     <p class="faculty-card-row__desc">
-                                        Dr. Ashish Atre is a Senior Consultant in Neuro-Radiology and Paediatric Imaging
-                                        at Pune.
-                                        He is Chief Radiologist at Star Imaging and Research Centre and Hon. Associate
-                                        Professor at
-                                        Sassoon General Hospital and BJ Medical College, Pune.
+                                        Elected Vice President of the Neurological Society of Pune. Assists the President and manages academic operations.
                                     </p>
                                 </div>
                             </article>
                         </div>
 
-                        <!-- Dr. Sharath Kumar -->
+                        <!-- Secretary -->
                         <div class="col-lg-6">
                             <article class="faculty-card-row">
                                 <div class="faculty-card-row__media">
-                                    <img src="/assets/sharath_kumar.svg" alt="Dr. Sharath Kumar" loading="lazy">
+                                    <img src="/assets/img/logo/21-Logo.png" alt="Secretary" loading="lazy" style="object-fit: contain; padding: 10px;">
                                 </div>
-
                                 <div class="faculty-card-row__body">
-                                    <h3 class="faculty-card-row__name">Dr. Sharath Kumar</h3>
-                                    <p class="faculty-card-row__role">Interventional Neuro-Radiologist</p>
+                                    <h3 class="faculty-card-row__name">Dr. Amit Deshmukh</h3>
+                                    <p class="faculty-card-row__role">Secretary</p>
                                     <p class="faculty-card-row__desc">
-                                        Dr. Sharath Kumar is a renowned Interventional Neuro-Radiologist who has
-                                        performed over 5000
-                                        Endovascular Neurosurgery procedures. He has extensive clinical knowledge and
-                                        skills with vast
-                                        experience in the interdisciplinary branch of Radiology.
+                                        Secretary of the Neurological Society of Pune. Coordinates monthly neuromeets and biennial Approach Meets.
                                     </p>
                                 </div>
                             </article>
                         </div>
 
-                        <!-- Dr. Catherine Albin -->
+                        <!-- Treasurer -->
                         <div class="col-lg-6">
                             <article class="faculty-card-row">
                                 <div class="faculty-card-row__media">
-                                    <img src="/assets/catherine_albin.svg" alt="Dr. Catherine Albin" loading="lazy">
+                                    <img src="/assets/img/logo/21-Logo.png" alt="Treasurer" loading="lazy" style="object-fit: contain; padding: 10px;">
                                 </div>
-
                                 <div class="faculty-card-row__body">
-                                    <h3 class="faculty-card-row__name">Dr. Catherine Albin</h3>
-                                    <p class="faculty-card-row__role">Neurointensivist, Emory University School of
-                                        Medicine</p>
+                                    <h3 class="faculty-card-row__name">Dr. Neha Kulkarni</h3>
+                                    <p class="faculty-card-row__role">Treasurer</p>
                                     <p class="faculty-card-row__desc">
-                                        Dr. Catherine Albin, MD is a Neurointensivist from Emory University School of
-                                        Medicine where she
-                                        is a member of the Department of Neurocritical Care. Her research focuses on
-                                        educational innovations
-                                        in Acute Neurologic Emergencies.
-                                    </p>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Prof. Neeraj Kumar -->
-                        <div class="col-lg-6">
-                            <article class="faculty-card-row">
-                                <div class="faculty-card-row__media">
-                                    <img src="/assets/neeraj_kumar.svg" alt="Prof. Neeraj Kumar" loading="lazy">
-                                </div>
-
-                                <div class="faculty-card-row__body">
-                                    <h3 class="faculty-card-row__name">Prof. Neeraj Kumar</h3>
-                                    <p class="faculty-card-row__role">Professor of Neurology, Mayo Clinic Alix School of
-                                        Medicine</p>
-                                    <p class="faculty-card-row__desc">
-                                        Dr. Neeraj Kumar, MD, FAAN, is a Professor of Neurology at the Mayo Clinic Alix
-                                        School of Medicine
-                                        in Rochester, Minnesota. His clinical interests include disorders of the spine,
-                                        neurotoxicology,
-                                        and neurological conditions related to nutrition.
-                                    </p>
-                                </div>
-                            </article>
-                        </div>
-
-                        <!-- Prof. Steven L Lewis -->
-                        <div class="col-lg-6">
-                            <article class="faculty-card-row">
-                                <div class="faculty-card-row__media">
-                                    <img src="/assets/Stevenlewis.svg" alt="Prof. Steven L Lewis" loading="lazy">
-                                </div>
-
-                                <div class="faculty-card-row__body">
-                                    <h3 class="faculty-card-row__name">Prof. Steven L Lewis</h3>
-                                    <p class="faculty-card-row__role">Secretary-General, World Federation of Neurology
-                                        (WFN)</p>
-                                    <p class="faculty-card-row__desc">
-                                        Dr. Lewis is the Secretary-General of the World Federation of Neurology (WFN),
-                                        Chair of the WFN
-                                        Education Committee, and the Editor of World Neurology. He has also been the
-                                        recipient of various
-                                        prestigious awards for his contributions to neurologic education.
+                                        Treasurer of the Neurological Society of Pune. Manages the financial matters, member subscriptions, and event funding.
                                     </p>
                                 </div>
                             </article>
@@ -513,7 +642,7 @@
                 <!-- About NSP -->
                 <div class="col-lg-3 col-md-6">
                     <div class="footer-logo-area">
-                        <img src="/assets/img/logo/21-Logo.png" alt="">
+                        <img src="/assets/img/logo/21-Logo.png" alt="Neurological Society of Pune Logo">
                         <div class="space16"></div>
                         <p>
                             Neurological Society of Pune (NSP) is a registered society of neurologists and
@@ -523,10 +652,10 @@
                         </p>
                         <div class="space24"></div>
                         <ul class="social-links">
-                            <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                            <li><a href="https://facebook.com/PuneNeuroSociety" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a></li>
+                            <li><a href="https://linkedin.com/company/pune-neuro-society" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a href="https://instagram.com/puneneurosociety" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="https://youtube.com/c/PuneNeuroSociety" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a></li>
                         </ul>
                     </div>
                 </div>
@@ -540,7 +669,7 @@
                             <li><a href="about.html">About NSP</a></li>
                             <li><a href="activities.html">Academic Activities</a></li>
                             <li><a href="invited_faculties.html">Invited Faculty</a></li>
-                            <li><a href="#">News & Updates</a></li>
+                            <li><a href="activities.html#news">News & Updates</a></li>
                             <li><a href="contact.html">Contact NSP</a></li>
                         </ul>
                     </div>
@@ -552,11 +681,11 @@
                     <div class="footer-widget-area foot-padding2">
                         <h3>Key Activities</h3>
                         <ul>
-                            <li><a href="#">Monthly Neuromeets</a></li>
-                            <li><a href="#">NSP Approach Meet</a></li>
-                            <li><a href="#">PG Approach Meeting</a></li>
-                            <li><a href="#">Invited Lectures</a></li>
-                            <li><a href="#">Public Awareness Drives</a></li>
+                            <li><a href="activities.html#monthly-neuromeets">Monthly Neuromeets</a></li>
+                            <li><a href="activities.html#nsp-approach-meet">NSP Approach Meet</a></li>
+                            <li><a href="activities.html#pg-approach-meeting">PG Approach Meeting</a></li>
+                            <li><a href="activities.html#invited-lectures">Invited Lectures</a></li>
+                            <li><a href="activities.html#public-awareness">Public Awareness Drives</a></li>
                         </ul>
                     </div>
                 </div>
@@ -604,7 +733,7 @@
                                             stroke="#31353D" stroke-width="1.6" stroke-linecap="round"
                                             stroke-linejoin="round" />
                                     </svg>
-                                    Contact details to be updated
+                                    info@pune-neuro-society.org
                                 </a>
                             </li>
                             <li>
@@ -645,14 +774,18 @@
                 </div>
             </div>
             <div class="space48"></div>
+            <div class="row">
             <div class="col-lg-12">
                 <div class="copyright-area">
-                    <a href="#">Copyright &copy; 2026 Neurological Society of Pune. All Rights Reserved</a>
+                    <span>Copyright &copy; 2026 Neurological Society of Pune. All Rights Reserved</span>
                     <ul>
-                        <li><a href="#">Privacy Policy</a><span> | </span></li>
-                        <li><a href="#">Terms and Conditions</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a><span> | </span></li>
+                        <li><a href="terms.html">Terms and Conditions</a></li>
                     </ul>
                 </div>
+            </div>
+            </div>
+            </div>
             </div>
         </div>
     </div>
@@ -671,6 +804,9 @@
     <script src="/assets/js/plugins/slick-slider.js"></script>
     <script src="/assets/js/plugins/circle-progress.js"></script>
     <script src="/assets/js/main.js"></script>
+    <script>
+        AOS.init({once: true});
+    </script>
 
 </body>
 
