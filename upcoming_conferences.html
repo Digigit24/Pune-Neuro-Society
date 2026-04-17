@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICTRIMS 2026 - Neurological Society of Pune</title>
+
+    <link rel="shortcut icon" href="/assets/img/logo/21-Logo.png" type="image/x-icon">
+    <meta name="title" content="ICTRIMS 2026 - Upcoming Conference by Neurological Society of Pune">
+    <meta name="description" content="ICTRIMS 2026 - Joint Meeting of IAN Sub-Section on CNS Auto-Immune Disorders. June 12-14, 2026 at Hotel Hyatt Regency, Pune.">
+
+    <link rel="stylesheet" href="/assets/css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/plugins/aos.css">
+    <link rel="stylesheet" href="/assets/css/plugins/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/plugins/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/css/plugins/slick-slider.css">
+    <link rel="stylesheet" href="/assets/css/plugins/nice-select.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .vl-main-menu nav ul { display:flex; align-items:center; justify-content:center; gap:18px; padding:0; margin:0; list-style:none; }
+        .vl-main-menu nav ul li { display:inline-flex; align-items:center; margin:0; padding:0; white-space:nowrap; }
+        .vl-main-menu nav ul li a { display:inline-flex; align-items:center; gap:4px; font-weight:600; text-decoration:none; }
+        .vl-offcanvas-logo img { background-color:#02111A; padding:10px; border-radius:5px; }
+
+        .conf-hero { position:relative; background:linear-gradient(135deg,#02111A 0%,#0a3d62 40%,#0e6655 100%); padding:180px 0 110px; text-align:center; color:#fff; overflow:hidden; }
+        .conf-hero::before { content:''; position:absolute; inset:0; background:url('/assets/img/homepage/news-2.jpg') center/cover no-repeat; opacity:0.15; }
+        .conf-hero::after { content:''; position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(180deg,transparent,rgba(2,17,26,.6)); }
+        .conf-hero .container { position:relative; z-index:2; }
+        .conf-hero__badge { display:inline-block; background:rgba(46,204,113,.2); border:1px solid rgba(46,204,113,.5); color:#2ecc71; padding:8px 24px; border-radius:30px; font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:20px; animation:pulse 2s infinite; }
+        @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(46,204,113,.3);} 50%{box-shadow:0 0 0 12px rgba(46,204,113,0);} }
+        .conf-hero h1 { font-size:4rem; font-weight:900; letter-spacing:-2px; margin-bottom:10px; }
+        .conf-hero h1 span { color:#5dade2; }
+        .conf-hero__subtitle { font-size:1.15rem; color:rgba(255,255,255,.8); max-width:700px; margin:0 auto 30px; line-height:1.6; }
+        .conf-hero__meta { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; margin-bottom:36px; }
+        .conf-hero__meta-item { display:flex; align-items:center; gap:10px; font-size:1.05rem; color:rgba(255,255,255,.9); }
+        .conf-hero__meta-item i { font-size:1.2rem; color:#2ecc71; }
+
+        .conf-section { padding:80px 0; }
+        .conf-section--alt { background:#f5f8fb; }
+        .conf-section--dark { background:linear-gradient(135deg,#02111A,#0a3d62); color:#fff; }
+        .conf-section__heading { text-align:center; margin-bottom:50px; }
+        .conf-section__heading h2 { font-size:2.25rem; font-weight:800; color:#02111A; margin-bottom:10px; }
+        .conf-section--dark .conf-section__heading h2 { color:#fff; }
+        .conf-section__heading p { color:#5a6a7a; font-size:1.05rem; }
+        .conf-section--dark .conf-section__heading p { color:rgba(255,255,255,.7); }
+        .conf-section__heading .line { width:80px; height:4px; background:linear-gradient(90deg,#007bff,#2ecc71); border-radius:2px; margin:16px auto 0; }
+
+        .welcome-text { max-width:850px; margin:0 auto; text-align:center; font-size:1.08rem; color:#444; line-height:1.9; }
+        .welcome-text p { margin-bottom:20px; }
+        .welcome-contact { display:flex; justify-content:center; gap:30px; flex-wrap:wrap; margin-top:30px; }
+        .welcome-contact a { display:flex; align-items:center; gap:8px; color:#007bff; font-weight:600; text-decoration:none; font-size:.95rem; }
+        .welcome-contact a:hover { color:#0056b3; }
+
+        .faculty-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:28px; }
+        .faculty-item { background:#fff; border-radius:18px; padding:30px 20px 24px; text-align:center; box-shadow:0 4px 20px rgba(0,0,0,.06); transition:transform .3s, box-shadow .3s; border:1px solid #eef2f7; position:relative; overflow:hidden; }
+        .faculty-item::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,#007bff,#2ecc71); opacity:0; transition:opacity .3s; }
+        .faculty-item:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(0,123,255,.15); }
+        .faculty-item:hover::before { opacity:1; }
+        .faculty-item__photo { width:110px; height:110px; border-radius:50%; overflow:hidden; margin:0 auto 16px; border:3px solid #e0e7ef; transition:border-color .3s; background:#e8eef3; }
+        .faculty-item:hover .faculty-item__photo { border-color:#007bff; }
+        .faculty-item__photo img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
+        .faculty-item__flag { display:inline-block; padding:3px 12px; border-radius:20px; font-size:11px; font-weight:700; color:#fff; background:#5dade2; margin-bottom:14px; letter-spacing:.5px; }
+        .faculty-item h4 { font-size:1rem; font-weight:800; color:#02111A; margin-bottom:6px; }
+        .faculty-item__inst { font-size:.85rem; color:#007bff; font-weight:600; margin-bottom:6px; }
+        .faculty-item__spec { font-size:.82rem; color:#666; line-height:1.5; }
+
+        .oc-section { padding:60px 0; background:#fff; }
+        .oc-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:16px; margin-bottom:30px; }
+        .oc-card { background:linear-gradient(135deg,#fff,#f0f7ff); border:1px solid #d4e4f1; border-radius:14px; padding:20px 22px; text-align:center; min-width:180px; flex:0 1 200px; transition:all .3s; border-top:3px solid #007bff; }
+        .oc-card:hover { box-shadow:0 12px 30px rgba(0,123,255,.12); transform:translateY(-3px); }
+        .oc-card__role { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#007bff; margin-bottom:6px; }
+        .oc-card__name { font-size:.9rem; font-weight:700; color:#02111A; }
+        .oc-members { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:10px; }
+        .oc-members .name-tag { display:inline-block; background:linear-gradient(135deg,#f0f7ff,#e8f4fd); border:1px solid #c8ddf0; border-radius:8px; padding:8px 16px; font-size:.88rem; font-weight:600; color:#02111A; transition:all .25s; border-left:3px solid #007bff; }
+        .oc-members .name-tag:hover { background:linear-gradient(135deg,#007bff,#0056b3); color:#fff; border-color:#007bff; transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,123,255,.25); }
+
+        .national-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; max-width:1000px; margin:0 auto; }
+        .national-grid .name-tag { display:inline-block; background:#fff; border:1px solid #d4e4f1; border-radius:8px; padding:8px 16px; font-size:.85rem; font-weight:600; color:#02111A; transition:all .25s; box-shadow:0 2px 8px rgba(0,0,0,.04); border-left:3px solid #17a2b8; }
+        .national-grid .name-tag:hover { background:linear-gradient(135deg,#17a2b8,#138496); color:#fff; border-color:#17a2b8; transform:translateY(-2px); box-shadow:0 4px 12px rgba(23,162,184,.25); }
+        .national-grid .name-tag small { font-weight:400; color:#5a6a7a; margin-left:4px; }
+        .national-grid .name-tag:hover small { color:rgba(255,255,255,.8); }
+
+        .logos-bar { padding:40px 0; background:#fff; border-top:1px solid #eef2f7; border-bottom:1px solid #eef2f7; }
+        .logos-bar__inner { display:flex; align-items:center; justify-content:center; gap:40px; flex-wrap:wrap; }
+        .logos-bar__item { display:flex; align-items:center; gap:12px; padding:12px 24px; background:#f8fafc; border-radius:12px; border:1px solid #e8eef3; }
+        .logos-bar__item img { height:50px; width:auto; }
+        .logos-bar__item span { font-size:.85rem; font-weight:700; color:#02111A; line-height:1.3; }
+
+        .schedule-tabs { display:flex; justify-content:center; gap:12px; margin-bottom:40px; flex-wrap:wrap; }
+        .schedule-tab { padding:14px 32px; border-radius:50px; font-weight:700; font-size:.95rem; cursor:pointer; border:2px solid #c8ddf0; background:#fff; color:#333; transition:all .3s; box-shadow:0 2px 8px rgba(0,0,0,.04); }
+        .schedule-tab.active { background:linear-gradient(135deg,#007bff,#0056b3); color:#fff; border-color:#007bff; box-shadow:0 6px 20px rgba(0,123,255,.3); }
+        .schedule-tab:hover:not(.active) { border-color:#007bff; color:#007bff; background:#f0f7ff; }
+        .schedule-day { display:none; }
+        .schedule-day.active { display:block; }
+        .schedule-item { display:flex; gap:20px; padding:18px 24px; border-radius:12px; background:#fff; margin-bottom:12px; box-shadow:0 2px 10px rgba(0,0,0,.04); border-left:4px solid #007bff; align-items:center; transition:box-shadow .3s; }
+        .schedule-item:hover { box-shadow:0 6px 20px rgba(0,0,0,.08); }
+        .schedule-item__time { font-weight:800; color:#007bff; white-space:nowrap; min-width:110px; font-size:.9rem; }
+        .schedule-item__title { font-weight:700; color:#02111A; font-size:.95rem; }
+        .schedule-item--break { border-left-color:#e67e22; background:#fffaf3; }
+        .schedule-item--break .schedule-item__time { color:#e67e22; }
+
+        .reg-table { width:100%; border-collapse:separate; border-spacing:0; border-radius:12px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,.1); }
+        .reg-table th { background:linear-gradient(135deg,#007bff,#0056b3); color:#fff; padding:16px 20px; font-weight:700; font-size:.9rem; text-align:center; }
+        .reg-table td { padding:14px 20px; text-align:center; font-size:.95rem; border-bottom:1px solid #eef2f7; color:#333; }
+        .reg-table tr:last-child td { border-bottom:none; }
+        .reg-table tbody tr:hover { background:#f0f7ff; }
+        .reg-table .cat-col { text-align:left; font-weight:700; color:#02111A; }
+
+        .venue-card { background:#fff; border-radius:20px; padding:40px; box-shadow:0 8px 30px rgba(0,0,0,.08); display:flex; align-items:center; gap:40px; }
+        .venue-card__info { flex:1; }
+        .venue-card__info h3 { font-size:1.5rem; font-weight:800; color:#02111A; margin-bottom:16px; }
+        .venue-card__info p { color:#555; line-height:1.7; margin-bottom:8px; }
+        .venue-card__info .venue-detail { display:flex; align-items:center; gap:10px; margin-bottom:12px; color:#333; }
+        .venue-card__info .venue-detail i { color:#007bff; width:20px; }
+        .venue-card__map { flex:1; border-radius:14px; overflow:hidden; min-height:280px; }
+        .venue-card__map iframe { width:100%; height:100%; min-height:280px; border:0; }
+
+        @media(max-width:1199px) { .faculty-grid { grid-template-columns:repeat(3,1fr); } .oc-card { flex:0 1 170px; min-width:150px; } }
+        @media(max-width:991px) {
+            .conf-hero h1 { font-size:2.8rem; }
+            .conf-hero { padding:140px 0 70px; }
+            .faculty-grid { grid-template-columns:repeat(2,1fr); }
+            .venue-card { flex-direction:column; }
+            .venue-card__map { width:100%; }
+        }
+        @media(max-width:576px) {
+            .conf-hero h1 { font-size:2rem; }
+            .conf-hero__meta { gap:20px; }
+            .faculty-grid { grid-template-columns:1fr; }
+            .schedule-item { flex-direction:column; gap:6px; }
+            .schedule-item__time { min-width:auto; }
+            .reg-table th, .reg-table td { padding:10px 12px; font-size:.82rem; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="preloader"><div class="loading-container"><div class="loading"></div><div id="loading-icon"><img src="/assets/img/logo/preloader.png" alt="Preloader"></div></div></div>
+
+    <header class="homepage7-body">
+        <div id="vl-header-sticky" class="vl-header-area vl-transparent-header" style="background:rgba(2,17,26,0.95);position:relative;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-2 col-md-6 col-6">
+                        <div class="vl-logo"><a href="index.html"><img src="/assets/img/logo/21-Logo.png" alt="NSP Logo"></a></div>
+                    </div>
+                    <div class="col-lg-8 d-none d-lg-block">
+                        <div class="vl-main-menu text-center">
+                            <nav class="vl-mobile-menu-active">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="committee.html">Committee</a></li>
+                                    <li><a href="invited_faculties.html">Faculty</a></li>
+                                    <li><a href="activities.html">Activities</a></li>
+                                    <li><a href="upcoming_conferences.html" style="color:#007bff;">Conferences</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-6">
+                        <div class="vl-hero-btn d-none d-lg-block text-end">
+                            <div class="hero-btn1"><a href="contact.html" class="vl-btn7"><span class="text">Join Now</span></a></div>
+                        </div>
+                        <div class="vl-header-action-item d-block d-lg-none">
+                            <button type="button" class="vl-offcanvas-toggle" aria-label="Open navigation menu"><i class="fa-solid fa-bars-staggered"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="conf-hero">
+        <div class="container">
+            <span class="conf-hero__badge" data-aos="fade-down" data-aos-duration="600">Upcoming Conference</span>
+            <h1 data-aos="zoom-in" data-aos-duration="800">ICTRIMS <span>2026</span></h1>
+            <p class="conf-hero__subtitle" data-aos="fade-up" data-aos-duration="900">Joint Meeting of IAN Sub-Section on CNS Auto-Immune Disorders &amp; ICTRIMS &mdash; 15th Edition</p>
+            <div class="conf-hero__meta" data-aos="fade-up" data-aos-duration="1000">
+                <div class="conf-hero__meta-item"><i class="fa-regular fa-calendar"></i> June 12 &ndash; 14, 2026</div>
+                <div class="conf-hero__meta-item"><i class="fa-solid fa-location-dot"></i> Hotel Hyatt Regency, Pune</div>
+                <div class="conf-hero__meta-item"><i class="fa-solid fa-users"></i> 40+ Expert Faculty</div>
+            </div>
+        </div>
+    </section>
+    <div class="logos-bar" data-aos="fade-up" data-aos-duration="600">
+        <div class="container" style="text-align:center;">
+            <img src="/assets/img/ictrims/logos-strip.png" alt="NSP, IAN, ICTRIMS, European Charcot Foundation" style="max-width:700px;width:100%;height:auto;">
+        </div>
+    </div>
+
+    <section class="conf-section">
+        <div class="container">
+            <div class="conf-section__heading" data-aos="fade-up"><h2>Welcome to ICTRIMS 2026</h2><div class="line"></div></div>
+            <div class="welcome-text" data-aos="fade-up" data-aos-delay="100">
+                <p>Dear Friends and Colleagues, greetings from the Neurological Society of Pune! We are truly grateful for the tremendous response to ICTRIMS 2026. The enthusiastic interest from colleagues across the country has made this 15th Meeting of ICTRIMS especially exciting for us.</p>
+                <p>We are delighted to share the detailed Scientific Program, featuring an outstanding lineup of internationally and nationally renowned experts. These distinguished faculty members will present the latest advances in the diagnosis and management of central demyelinating and autoimmune neurological diseases.</p>
+                <p>ICTRIMS 2026 promises to be a highly engaging academic experience, with cutting-edge lectures, interactive case-based discussions, and meaningful networking opportunities with leaders and peers in the field. Most importantly, the sessions are designed to provide practical, clinically relevant insights that you can immediately apply in the day-to-day care of your patients.</p>
+                <p>If you have not yet completed your registration, we strongly encourage you to do so at the earliest to ensure your participation in this enriching scientific event. We look forward to welcoming you to Pune for an inspiring and memorable ICTRIMS 2026.</p>
+            </div>
+            <div class="welcome-contact" data-aos="fade-up" data-aos-delay="200">
+                <a href="tel:+917685900400"><i class="fa-solid fa-phone"></i> +91 76859 00400</a>
+                <a href="mailto:ajit@ascenthospitality.in"><i class="fa-solid fa-envelope"></i> ajit@ascenthospitality.in</a>
+                <a href="mailto:neurosocietypune@gmail.com"><i class="fa-solid fa-envelope"></i> neurosocietypune@gmail.com</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="oc-section">
+        <div class="container">
+            <div class="conf-section__heading" data-aos="fade-up"><h2>Conference Organising Committee</h2><div class="line"></div></div>
+            <div class="oc-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="oc-card"><div class="oc-card__role">Patron</div><div class="oc-card__name">Dr. RS Wadia</div></div>
+                <div class="oc-card"><div class="oc-card__role">Patron</div><div class="oc-card__name">Dr. PG Divate</div></div>
+                <div class="oc-card"><div class="oc-card__role">Organising Chairman</div><div class="oc-card__name">Dr. Nasli Ichaporia</div></div>
+                <div class="oc-card"><div class="oc-card__role">Co-Chairman</div><div class="oc-card__name">Dr. Sudhir Kothari</div></div>
+                <div class="oc-card"><div class="oc-card__role">Co-Chairman</div><div class="oc-card__name">Brig (Retd) SP Gorthi</div></div>
+                <div class="oc-card"><div class="oc-card__role">Organising Secretary</div><div class="oc-card__name">Dr. Shripad Pujari</div></div>
+            </div>
+            <p style="text-align:center;font-weight:700;color:#02111A;margin-bottom:10px;">Organising Committee</p>
+            <div class="oc-members" data-aos="fade-up" data-aos-delay="150">
+                <span class="name-tag">Dr. Rahul Kulkarni</span><span class="name-tag">Dr. Hemant Sant</span><span class="name-tag">Dr. Nandan Yardi</span><span class="name-tag">Dr. Mangesh Udar</span><span class="name-tag">Dr. Satish Nirhale</span><span class="name-tag">Surg. V Adm. (Retd) Shalesh Rohatgi</span><span class="name-tag">Dr. Sunil Bandishti</span><span class="name-tag">Dr. Prajwal Rao</span><span class="name-tag">Dr. Santosh Sontakke</span><span class="name-tag">Dr. Nilesh Bhandari</span><span class="name-tag">Dr. Amitkumar Pande</span><span class="name-tag">Dr. Dhairyashil Saste</span><span class="name-tag">Dr. Poornima Gauri</span><span class="name-tag">Dr. Sujit Jagtap</span><span class="name-tag">Dr. Nilesh Palasdeokar</span><span class="name-tag">Dr. Sandeep Borse</span><span class="name-tag">Dr. Dulari Gupta</span><span class="name-tag">Dr. Radhika Lotlikar</span><span class="name-tag">Dr. Varsha Patil</span><span class="name-tag">Dr. Chitrangada Yadav</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="conf-section conf-section--alt">
+        <div class="container">
+            <div class="conf-section__heading" data-aos="fade-up"><h2>International Faculty</h2><p>World-renowned experts in Neuroimmunology &amp; CNS Autoimmune Disorders</p><div class="line"></div></div>
+            <div class="faculty-grid">
+                <div class="faculty-item" data-aos="fade-up" data-aos-delay="0"><div class="faculty-item__photo"><img src="/assets/img/ictrims/montalban.jpg" alt="Prof. Xavier Montalban" loading="lazy"></div><span class="faculty-item__flag">International</span><h4>Prof. Xavier Montalban</h4><div class="faculty-item__inst">CEMCAT, Barcelona, Spain</div><div class="faculty-item__spec">Director, MS Center of Catalonia. Professor of Neurology, UAB. Coordinator, Neuroimmunology, VHIR.</div></div>
+                <div class="faculty-item" data-aos="fade-up" data-aos-delay="50"><div class="faculty-item__photo"><img src="/assets/img/ictrims/hartung.jpg" alt="Prof. Hans-Peter Hartung" loading="lazy"></div><span class="faculty-item__flag">International</span><h4>Prof. Hans-Peter Hartung</h4><div class="faculty-item__inst">Heinrich-Heine-University, D&uuml;sseldorf</div><div class="faculty-item__spec">Professor of Neurology. Research: Pathogenesis of Autoimmune diseases &mdash; MS, GBS, CIDP.</div></div>
+                <div class="faculty-item" data-aos="fade-up" data-aos-delay="100"><div class="faculty-item__photo"><img src="/assets/img/ictrims/granziera.jpg" alt="Prof. Cristina Granziera" loading="lazy"></div><span class="faculty-item__flag">International</span><h4>Prof. Cristina Granziera</h4><div class="faculty-item__inst">University Hospital of Basel</div><div class="faculty-item__spec">Professor in Neurology &amp; Biomedical Engineering. Co-CEO, Research Center for Clinical Neuroimmunology (RC2NB).</div></div>
+                <div class="faculty-item" data-aos="fade-up" data-aos-delay="150"><div class="faculty-item__photo"><img src="/assets/img/ictrims/chan.jpg" alt="Prof. Andrew Chan" loading="lazy"></div><span class="faculty-item__flag">International</span><h4>Prof. Andrew Chan</h4><div class="faculty-item__inst">University of Bern, Switzerland</div><div class="faculty-item__spec">Head, Medical Division Neuro, Inselspital. Research: Experimental, translational &amp; clinical Neuro-Immunology, MS.</div></div>
+                <div class="faculty-item" data-aos="fade-up" data-aos-delay="0"><div class="faculty-item__photo"><img src="/assets/img/ictrims/rommer.jpg" alt="Prof. Paulus S Rommer" loading="lazy"></div><span class="faculty-item__flag">International</span><h4>Prof. Paulus S Rommer</h4><div class="faculty-item__inst">Medical University of Vienna</div><div class="faculty-item__spec">Associate Professor of Neurology. Research: MS, NMOSD &amp; Neuro-Immunological diseases.</div></div>
+                <div class="faculty-item" data-aos="fade-up" data-aos-delay="50"><div class="faculty-item__photo"><img src="/assets/img/ictrims/bodini.jpg" alt="Prof. Benedetta Bodini" loading="lazy"></div><span class="faculty-item__flag">International</span><h4>Prof. Benedetta Bodini</h4><div class="faculty-item__inst">Sorbonne University, Paris</div><div class="faculty-item__spec">Professor of Neuro-Imaging. Work covers Ultra-High-Field MRI, PET in MS, AI &amp; deep learning for cortical myelin repair.</div></div>
+                <div class="faculty-item" data-aos="fade-up" data-aos-delay="100"><div class="faculty-item__photo"><img src="/assets/img/ictrims/irani.jpg" alt="Prof. Sarosh Irani" loading="lazy"></div><span class="faculty-item__flag">International</span><h4>Prof. Sarosh Irani</h4><div class="faculty-item__inst">Mayo Clinic, Jacksonville, USA</div><div class="faculty-item__spec">Professor of Neurology. Recognised clinical features in LGI1/CASPR2 autoantibodies. Pioneer in early Immunotherapy for Autoimmune Neurological diseases.</div></div>
+                <div class="faculty-item" data-aos="fade-up" data-aos-delay="150"><div class="faculty-item__photo"><img src="/assets/img/ictrims/spatola.jpg" alt="Prof. Mariana Spatola" loading="lazy"></div><span class="faculty-item__flag">International</span><h4>Prof. Mariana Spatola</h4><div class="faculty-item__inst">Hospital Clinic, Barcelona</div><div class="faculty-item__spec">Neurologist &amp; researcher at IDIBAPS. Research: Autoimmune Encephalitis pathogenesis &amp; virus-triggered brain Autoimmunity.</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="conf-section">
+        <div class="container">
+            <div class="conf-section__heading" data-aos="fade-up"><h2>National Faculty</h2><p>42 distinguished neurologists from across India</p><div class="line"></div></div>
+            <div class="national-grid" data-aos="fade-up" data-aos-delay="100">
+                <span class="name-tag">Dr. Aastha Takkar <small>Chandigarh</small></span><span class="name-tag">Dr. Achal Srivastava <small>New Delhi</small></span><span class="name-tag">Dr. Anita Mahadevan <small>Bengaluru</small></span><span class="name-tag">Dr. Anshu Rohatgi <small>New Delhi</small></span><span class="name-tag">Dr. Ayush Agrawal <small>New Delhi</small></span><span class="name-tag">Dr. C S Agrawal <small>New Delhi</small></span><span class="name-tag">Dr. Deepak Arjundas <small>Chennai</small></span><span class="name-tag">Dr. Dheeraj Khurana <small>Chandigarh</small></span><span class="name-tag">Dr. Kamakshi Dhamija <small>Ghaziabad</small></span><span class="name-tag">Dr. Lakshmi Narasimhan <small>Chennai</small></span><span class="name-tag">Dr. Lekha Pandit <small>Mangaluru</small></span><span class="name-tag">Dr. M V Padma Srivastava <small>New Delhi</small></span><span class="name-tag">Dr. Manish Mahajan <small>New Delhi</small></span><span class="name-tag">Dr. Nasli Ichaporia <small>Pune</small></span><span class="name-tag">Dr. Netravathi M <small>Bengaluru</small></span><span class="name-tag">Dr. Nirmal Surya <small>Mumbai</small></span><span class="name-tag">Dr. P N Sylaja <small>Thiruvananthapuram</small></span><span class="name-tag">Dr. Pawan Ojha <small>Vashi</small></span><span class="name-tag">Dr. Prachet Kulkarni <small>Coimbatore</small></span><span class="name-tag">Dr. Prajwal Rao <small>Pune</small></span><span class="name-tag">Dr. Pritam Raja <small>Bengaluru</small></span><span class="name-tag">Dr. Rahul Baviskar <small>Nashik</small></span><span class="name-tag">Dr. Rahul Kulkarni <small>Pune</small></span><span class="name-tag">Dr. Rohit Bhatia <small>New Delhi</small></span><span class="name-tag">Dr. S P Gorthi <small>Pune</small></span><span class="name-tag">Dr. Samsher Dwivedi <small>Dehradun</small></span><span class="name-tag">Dr. Sangita Ravat <small>Mumbai</small></span><span class="name-tag">Dr. Shripad Pujari <small>Pune</small></span><span class="name-tag">Dr. Sita Jayalakshmi <small>Hyderabad</small></span><span class="name-tag">Dr. Sudheeran Kannoth <small>Kochi</small></span><span class="name-tag">Dr. Soumya Sundaram <small>Thiruvananthapuram</small></span><span class="name-tag">Dr. Sruthi Nair <small>Thiruvananthapuram</small></span><span class="name-tag">Dr. Sucharita Ray <small>Chandigarh</small></span><span class="name-tag">Dr. Sumit Singh <small>New Delhi</small></span><span class="name-tag">Dr. Suresh Kumar <small>Kochi</small></span><span class="name-tag">Dr. Suvarna Alladi <small>Bengaluru</small></span><span class="name-tag">Dr. Tapas Banerjee <small>Kolkata</small></span><span class="name-tag">Dr. Thomas Mathew <small>Bengaluru</small></span><span class="name-tag">Dr. U Meenakshisundaram <small>Chennai</small></span><span class="name-tag">Dr. Varsha Patil <small>Mumbai</small></span><span class="name-tag">Dr. Vikram Kamath <small>Bengaluru</small></span><span class="name-tag">Dr. Vivek Lal <small>Chandigarh</small></span>
+            </div>
+        </div>
+    </section>
+
+    <section class="conf-section conf-section--alt">
+        <div class="container">
+            <div class="conf-section__heading" data-aos="fade-up"><h2>Scientific Program</h2><p>Three days of cutting-edge lectures, debates, and interactive case discussions across Hall A &amp; Hall B</p><div class="line"></div></div>
+            <div class="schedule-tabs" data-aos="fade-up">
+                <div class="schedule-tab active" onclick="showDay('day1',this)">Day 1 &mdash; Fri, Jun 12</div>
+                <div class="schedule-tab" onclick="showDay('day2',this)">Day 2 &mdash; Sat, Jun 13</div>
+                <div class="schedule-tab" onclick="showDay('day3',this)">Day 3 &mdash; Sun, Jun 14</div>
+            </div>
+            <div id="day1" class="schedule-day active" data-aos="fade-up">
+                <h5 style="color:#007bff;margin-bottom:16px;font-weight:700;">Hall A</h5>
+                <div class="schedule-item"><div class="schedule-item__time">10:30 &ndash; 10:45</div><div class="schedule-item__title">Quiz &mdash; Sensitising to Acronyms &bull; Dr. Prajwal Rao</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">10:45 &ndash; 11:05</div><div class="schedule-item__title">Cell Trafficking and Immune Cells in CNS Inflammatory Disorders &bull; Dr. Benedetta Bodini</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">11:05 &ndash; 11:25</div><div class="schedule-item__title">Knowing IgG Subtypes for CNS Inflammatory Disorders &bull; Dr. Sruthi Nair</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">11:25 &ndash; 11:45</div><div class="schedule-item__title">Pathogenesis of Early and Late Multiple Sclerosis &bull; Dr. Lekha Pandit</div></div>
+                <div class="schedule-item" style="border-left-color:#e74c3c;"><div class="schedule-item__time">11:45 &ndash; 12:00</div><div class="schedule-item__title" style="color:#e74c3c;font-weight:800;">Inauguration Ceremony</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">12:00 &ndash; 12:20</div><div class="schedule-item__title">Fluid Bio-Markers in Multiple Sclerosis &bull; Prof. Hans-Peter Hartung</div></div>
+                <div class="schedule-item schedule-item--break"><div class="schedule-item__time">13:00 &ndash; 14:00</div><div class="schedule-item__title">Lunch &amp; Sponsored Symposium (Siponimod) &bull; Dr. Anshu Rohatgi, Dr. MV Padma Srivastava</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">14:00 &ndash; 16:00</div><div class="schedule-item__title">Session II &mdash; Neuro-Ophthalmology: Optic Neuritis, EOMs, Painful Ophthalmoplegia, OCT &bull; Dr. Vivek Lal, Dr. U Meenakshisundaram, Dr. Sumit Singh, Dr. Aastha Takkar</div></div>
+                <div class="schedule-item schedule-item--break"><div class="schedule-item__time">16:00 &ndash; 16:20</div><div class="schedule-item__title">Tea / Coffee Break</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">16:20 &ndash; 18:20</div><div class="schedule-item__title">Session III &mdash; NMOSD &amp; MOGAD: Pathogenesis, Diagnostic Criteria, Management &bull; Dr. Suresh Kumar, Prof. Paulus Rommer, Dr. Netravathi M, Dr. Manish Mahajan, Dr. Rohit Bhatia</div></div>
+                <div class="schedule-item" style="border-left-color:#27ae60;"><div class="schedule-item__time">19:00</div><div class="schedule-item__title" style="color:#27ae60;">Welcome Dinner</div></div>
+                <h5 style="color:#17a2b8;margin:24px 0 16px;font-weight:700;">Hall B</h5>
+                <div class="schedule-item"><div class="schedule-item__time">14:00 &ndash; 16:00</div><div class="schedule-item__title">Session I &mdash; Systemic Disorders: Infections, CNS Vasculitides, Pachymeningitis, Rasmussen's Encephalitis &bull; Dr. Rahul Kulkarni, Dr. P N Sylaja, Dr. R Lakshmi Narasimhan, Dr. Sangita Ravat</div></div>
+            </div>
+            <div id="day2" class="schedule-day">
+                <h5 style="color:#007bff;margin-bottom:16px;font-weight:700;">Hall A</h5>
+                <div class="schedule-item"><div class="schedule-item__time">09:00 &ndash; 10:20</div><div class="schedule-item__title">Session IV &mdash; Auto-Immune Encephalitis I: AIE Through Videos, Auto-Immune Dementia, Overdiagnosis of AIE &bull; Dr. Nasli Ichaporia, Dr. Suvarna Alladi, Prof. Sarosh Irani</div></div>
+                <div class="schedule-item schedule-item--break"><div class="schedule-item__time">10:20 &ndash; 10:45</div><div class="schedule-item__title">Tea / Coffee Break</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">10:45 &ndash; 13:45</div><div class="schedule-item__title">Session V &mdash; European Charcot Foundation Symposium: 2025 MS Diagnostic Criteria, MRI in MS, PET CT, Future Immunotherapies, Investigational NMOSD/MOGAD Therapies &bull; Prof. Xavier Montalban, Prof. Cristina Granziera, Prof. Benedetta Bodini, Prof. Hans-Peter Hartung, Prof. Paulus Rommer</div></div>
+                <div class="schedule-item schedule-item--break"><div class="schedule-item__time">13:45 &ndash; 14:45</div><div class="schedule-item__title">Lunch Break</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">14:45 &ndash; 16:05</div><div class="schedule-item__title">Session VI &mdash; MS Therapy I: PPMS Management, BTK Inhibitors, Induction vs Escalation &bull; Prof. Andrew Chan, Prof. Xavier Montalban, Dr. Nasli Ichaporia</div></div>
+                <div class="schedule-item schedule-item--break"><div class="schedule-item__time">16:05 &ndash; 16:25</div><div class="schedule-item__title">Tea / Coffee Break</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">16:25 &ndash; 18:15</div><div class="schedule-item__title">Session VII &mdash; Imaging: AI &amp; Advanced MRI, GAD in Follow-up MRI Debate, Imaging in AIE, Quiz &bull; Prof. Cristina Granziera, Dr. Rahul Baviskar, Dr. Pritam Raja</div></div>
+                <div class="schedule-item" style="border-left-color:#27ae60;"><div class="schedule-item__time">19:00</div><div class="schedule-item__title" style="color:#27ae60;">Banquet Dinner</div></div>
+                <h5 style="color:#17a2b8;margin:24px 0 16px;font-weight:700;">Hall B</h5>
+                <div class="schedule-item"><div class="schedule-item__time">09:00 &ndash; 10:20</div><div class="schedule-item__title">Session II &mdash; AIE II: Cell Surface Antigens, Auto-Immune Epilepsy, Immune Mediated Ataxias &bull; Prof. Paulus Rommer, Dr. Sita Jayalakshmi, Dr. Achal Srivastava</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">14:45 &ndash; 16:05</div><div class="schedule-item__title">Session III &mdash; MS Therapy II: Remyelination, Choosing DMTs, Self-Administered HETs &bull; Prof. Hans-Peter Hartung, Dr. Dheeraj Khurana, Dr. Anshu Rohatgi</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">16:25 &ndash; 18:15</div><div class="schedule-item__title">Session IV &mdash; Miscellaneous: AIE Management, MOGAD Immunotherapy Debate, Neurofascin Antibodies &bull; Prof. Mariana Spatola, Dr. Varsha Patil, Dr. Soumya Sundaram, Dr. Thomas Mathew</div></div>
+            </div>
+            <div id="day3" class="schedule-day">
+                <h5 style="color:#007bff;margin-bottom:16px;font-weight:700;">Hall A</h5>
+                <div class="schedule-item"><div class="schedule-item__time">09:00 &ndash; 10:20</div><div class="schedule-item__title">Session VIII &mdash; Precipitants of AIE, GFAP Astrocytopathy, Panel Discussion, RAW &amp; PIRA Debate &bull; Prof. Sarosh Irani, Dr. Sudheeran Kannoth, Dr. Thomas Mathew</div></div>
+                <div class="schedule-item schedule-item--break"><div class="schedule-item__time">10:40 &ndash; 11:00</div><div class="schedule-item__title">Tea / Coffee Break</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">11:00 &ndash; 12:00</div><div class="schedule-item__title">Session IX &mdash; MS Therapy III: Managing HET Risks, CIS Management, Rehab Advances &bull; Prof. Xavier Montalban, Brig. SP Gorthi, Dr. Nirmal Surya</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">12:40 &ndash; 13:15</div><div class="schedule-item__title">CPC Case Analysis &bull; Dr. M V Padma Srivastava &bull; Discussion: Dr. Netravathi M &amp; Dr. Anita Mahadevan</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">13:15 &ndash; 13:45</div><div class="schedule-item__title">Quiz</div></div>
+                <div class="schedule-item" style="border-left-color:#e74c3c;"><div class="schedule-item__time">13:45</div><div class="schedule-item__title" style="color:#e74c3c;font-weight:800;">Valedictory Function</div></div>
+                <div class="schedule-item" style="border-left-color:#27ae60;"><div class="schedule-item__time">13:50</div><div class="schedule-item__title" style="color:#27ae60;">Farewell Lunch</div></div>
+                <h5 style="color:#17a2b8;margin:24px 0 16px;font-weight:700;">Hall B</h5>
+                <div class="schedule-item"><div class="schedule-item__time">09:00 &ndash; 10:20</div><div class="schedule-item__title">Session V &mdash; MS Outcome Measures, MS Mimics, Neuromodulation, High EDSS Debate &bull; Dr. Kamakshi Dhamija, Dr. Tapas Banerjee, Dr. Pawan Ojha</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">11:00 &ndash; 12:40</div><div class="schedule-item__title">Session VI &mdash; MS Therapy IV: SPMS Pathobiology, Prodromal MS &amp; RIS, Ancillary Symptoms &bull; Prof. Benedetta Bodini, Dr. Shripad Pujari, Dr. Ayush Agarwal</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="conf-section">
+        <div class="container">
+            <div class="conf-section__heading" data-aos="fade-up"><h2>Abstract Submission Guidelines</h2><div class="line"></div></div>
+            <div class="row justify-content-center"><div class="col-lg-9" data-aos="fade-up" data-aos-delay="100">
+                <div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,.06);border:1px solid #eef2f7;font-size:.95rem;color:#444;line-height:1.8;">
+                    <p style="margin-bottom:16px;">The Scientific Committee invites Abstracts from PG Students and Delegates for Platform Presentations and E-Poster Presentations.</p>
+                    <ul style="padding-left:20px;">
+                        <li>Only <strong>Registered Delegates</strong> can submit abstracts.</li>
+                        <li><strong>Deadline: April 30, 2026.</strong> Submit as MS Word attachment to <a href="mailto:neurosocietypune@gmail.com" style="color:#007bff;font-weight:600;">neurosocietypune@gmail.com</a></li>
+                        <li>Limit: <strong>250 words</strong>, max <strong>5 co-authors</strong>.</li>
+                        <li>Only the presenting author receives a certificate.</li>
+                        <li>Original, unpublished material is encouraged. Case reports accepted only if they bring novel information.</li>
+                        <li>Acceptance confirmation by email before <strong>May 15, 2026</strong>.</li>
+                    </ul>
+                </div>
+            </div></div>
+        </div>
+    </section>
+
+    <section class="conf-section conf-section--alt">
+        <div class="container">
+            <div class="conf-section__heading" data-aos="fade-up"><h2>Venue</h2><div class="line"></div></div>
+            <div class="venue-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="venue-card__info">
+                    <h3>Hotel Hyatt Regency, Pune</h3>
+                    <div class="venue-detail"><i class="fa-solid fa-location-dot"></i> Weikfield IT Park, Nagar Road, Pune</div>
+                    <div class="venue-detail"><i class="fa-regular fa-calendar"></i> June 12 &ndash; 14, 2026</div>
+                    <div class="venue-detail"><i class="fa-solid fa-phone"></i> Helpline: +91 76859 00400</div>
+                    <div class="venue-detail"><i class="fa-solid fa-envelope"></i> ajit@ascenthospitality.in</div>
+                    <p style="margin-top:16px;color:#666;">Conference Secretariat: Ascent Hospitality Pvt. Ltd., Arya, Plot No. 38B, Lane No. 8, Kothrud, Pune 411038</p>
+                </div>
+                <div class="venue-card__map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3782.5!2d73.92!3d18.56!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c1b0c0c0c0c1%3A0x0!2sHyatt+Regency+Pune!5e0!3m2!1sen!2sin!4v1" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--===== FOOTER =======-->
+    <div class="vl-footer7-section-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-logo-area">
+                        <img src="/assets/img/logo/21-Logo.png" alt="NSP Logo">
+                        <div class="space16"></div>
+                        <p>Neurological Society of Pune (NSP) is a registered society of neurologists and neurosurgeons, established in 2010.</p>
+                        <div class="space24"></div>
+                        <ul class="social-links">
+                            <li><a href="https://www.facebook.com/NSI.Pune/"><i class="fa-brands fa-facebook-f"></i></a></li>
+                            <li><a href="https://in.linkedin.com/in/neurological-society-pune-776842234"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a href="https://www.instagram.com/neurosociety_pune/"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="https://www.youtube.com/@neurologicalsocietyofpune"><i class="fa-brands fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg col-md-6">
+                    <div class="space30 d-lg-none d-block"></div>
+                    <div class="footer-widget-area foot-padding1">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="about.html">About NSP</a></li>
+                            <li><a href="activities.html">Academic Activities</a></li>
+                            <li><a href="invited_faculties.html">Invited Faculty</a></li>
+                            <li><a href="upcoming_conferences.html">ICTRIMS 2026</a></li>
+                            <li><a href="contact.html">Contact NSP</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg col-md-6">
+                    <div class="space30 d-lg-none d-block"></div>
+                    <div class="footer-widget-area foot-padding2">
+                        <h3>Key Activities</h3>
+                        <ul>
+                            <li><a href="activities.html">Monthly Neuromeets</a></li>
+                            <li><a href="activities.html">NSP Approach Meet</a></li>
+                            <li><a href="activities.html">PG Approach Meeting</a></li>
+                            <li><a href="activities.html">Invited Lectures</a></li>
+                            <li><a href="activities.html">Public Awareness Drives</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg col-md-6">
+                    <div class="space30 d-lg-none d-block"></div>
+                    <div class="footer-widget-area">
+                        <h3>Contact NSP</h3>
+                        <ul>
+                            <li><a href="tel:+917685900400"><i class="fa-solid fa-phone"></i> +91 76859 00400</a></li>
+                            <li><a href="#"><i class="fa-solid fa-location-dot"></i> Pune, India</a></li>
+                            <li><a href="mailto:info@pune-neuro-society.org"><i class="fa-solid fa-envelope"></i> info@pune-neuro-society.org</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="space48"></div>
+            <div class="row"><div class="col-lg-12">
+                <div class="copyright-area">
+                    <span>Copyright &copy; 2026 Neurological Society of Pune. All Rights Reserved</span>
+                    <ul><li><a href="privacy.html">Privacy Policy</a><span> | </span></li><li><a href="terms.html">Terms and Conditions</a></li></ul>
+                </div>
+            </div></div>
+        </div>
+    </div>
+
+    <script src="/assets/js/plugins/jquery-3-7-1.min.js"></script>
+    <script src="/assets/js/plugins/bootstrap.min.js"></script>
+    <script src="/assets/js/plugins/fontawesome.js"></script>
+    <script src="/assets/js/plugins/aos.js"></script>
+    <script src="/assets/js/plugins/counter.js"></script>
+    <script src="/assets/js/plugins/magnific-popup.js"></script>
+    <script src="/assets/js/plugins/nice-select.js"></script>
+    <script src="/assets/js/plugins/waypoints.js"></script>
+    <script src="/assets/js/plugins/slick-slider.js"></script>
+    <script src="/assets/js/plugins/circle-progress.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script>
+        AOS.init({once:true});
+        function showDay(id,el){
+            document.querySelectorAll('.schedule-day').forEach(function(d){d.classList.remove('active');});
+            document.querySelectorAll('.schedule-tab').forEach(function(t){t.classList.remove('active');});
+            document.getElementById(id).classList.add('active');
+            el.classList.add('active');
+        }
+    </script>
+</html>
