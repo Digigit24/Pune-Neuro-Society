@@ -25,57 +25,43 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-        /* =========================
-   Faculty Cards (No left color bar, No orange)
-   FIX: responsive image cropping issue
-   Uses your theme variables (blue/neutral)
-   ========================= */
-
         .faculty-section {
             padding: 48px 0;
             background: var(--ztc-bg-bg-15);
         }
 
-        /* Card wrapper */
-        .faculty-card-row {
-            position: relative;
-            display: flex;
-            align-items: stretch;
-            gap: 16px;
-
-            padding: 14px;
+        .faculty-card {
+            text-align: center;
+            padding: 16px;
             border-radius: 18px;
             border: 1px solid var(--ztc-border-border-1);
-
             background: linear-gradient(135deg, var(--ztc-bg-bg-1), var(--ztc-bg-bg-19));
             box-shadow: 0 10px 26px rgba(2, 17, 26, .08);
-
             overflow: hidden;
             transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .faculty-card-row:hover {
+        .faculty-card:hover {
             transform: translateY(-4px);
             border-color: rgba(8, 82, 161, .35);
             box-shadow: 0 18px 42px rgba(2, 17, 26, .14);
         }
 
-        /* Image column (desktop) */
-        .faculty-card-row__media {
-            flex: 0 0 170px;
-            height: 170px;
-            border-radius: 16px;
+        .faculty-card__photo {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            border-radius: 14px;
             overflow: hidden;
             background: var(--ztc-bg-bg-11);
             border: 1px solid rgba(9, 30, 66, .10);
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            margin-bottom: 16px;
         }
 
-        /* Image cover fix (desktop) */
-        .faculty-card-row__media img {
+        .faculty-card__photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -83,102 +69,31 @@
             display: block;
         }
 
-        /* Soft overlay for depth */
-        .faculty-card-row__media::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(180deg, rgba(9, 30, 66, .04), rgba(9, 30, 66, .16));
-            pointer-events: none;
-        }
-
-        /* Content side */
-        .faculty-card-row__body {
-            flex: 1;
-            min-width: 0;
-            padding: 6px 8px 6px 4px;
-
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            gap: 8px;
-        }
-
-        .faculty-card-row__name {
+        .faculty-card__name {
             margin: 0;
             font-size: 18px;
-            line-height: 1.2;
+            line-height: 1.3;
             font-weight: 800;
             color: var(--ztc-text-text-8);
         }
 
-        .faculty-card-row__role {
-            margin: 0;
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--ztc-text-text-17);
-        }
-
-        .faculty-card-row__desc {
-            margin: 0;
-            font-size: 14px;
-            line-height: 1.65;
-            color: var(--ztc-text-text-3);
-        }
-
-        /* Optional clamp for neat grid */
-        @media (min-width: 992px) {
-            .faculty-card-row__desc {
-                display: -webkit-box;
-                -webkit-line-clamp: 4;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
-            }
-        }
-
-        /* ==============
-   Responsive Fix (Mobile)
-   FIX: image becomes banner with aspect-ratio so it never looks cut like your screenshot
-   ============== */
         @media (max-width: 767px) {
-            .faculty-card-row {
-                flex-direction: column;
-                gap: 12px;
+            .faculty-card {
                 padding: 12px;
-                text-align: center;
             }
 
-            .faculty-card-row__media {
-                flex: 0 0 auto;
-                width: 100%;
-                height: 250px;
-                /* Fixed height for consistency */
-                border-radius: 16px;
-                margin-bottom: 10px;
+            .faculty-card__photo {
+                aspect-ratio: 3 / 4;
             }
 
-            .faculty-card-row__media img {
-                object-fit: contain;
-                /* Ensure full image is visible */
-                object-position: center;
-                border-radius: 16px;
-            }
-
-            .faculty-card-row__body {
-                padding: 4px 6px 10px 6px;
-                align-items: center;
-                /* Center content on mobile */
+            .faculty-card__name {
+                font-size: 16px;
             }
         }
 
-        /* Very small phones (taller banner so face doesn't crop) */
         @media (max-width: 380px) {
-            .faculty-card-row__media {
-                height: 200px;
-            }
-
-            .faculty-card-row__name {
-                font-size: 17px;
+            .faculty-card__name {
+                font-size: 15px;
             }
         }
     </style>
@@ -359,74 +274,107 @@
                 </div>
             </div>
 
-            <!-- =========================
-     Faculty Profiles (LEFT image + RIGHT content)
-========================= -->
             <section class="faculty-section">
                 <div class="container">
                     <div class="row g-4">
 
-                        <!-- President -->
-                        <div class="col-lg-6">
-                            <article class="faculty-card-row">
-                                <div class="faculty-card-row__media">
-                                    <img src="/assets/img/logo/21-Logo.png" alt="President" loading="lazy" style="object-fit: contain; padding: 10px;">
+                        <!-- Dr. Hemant Sant -->
+                        <div class="col-lg-4 col-md-6">
+                            <article class="faculty-card" data-aos="fade-up" data-aos-duration="800">
+                                <div class="faculty-card__photo">
+                                    <img src="/assets/img/faculty/hemant-sant.jpeg" alt="Dr. Hemant Sant" loading="lazy">
                                 </div>
-                                <div class="faculty-card-row__body">
-                                    <h3 class="faculty-card-row__name">Dr. Rajesh Patel</h3>
-                                    <p class="faculty-card-row__role">President</p>
-                                    <p class="faculty-card-row__desc">
-                                        Elected President of the Neurological Society of Pune. Leads the executive committee and oversees all major society decisions.
-                                    </p>
-                                </div>
+                                <h3 class="faculty-card__name">Dr. Hemant Sant</h3>
                             </article>
                         </div>
 
-                        <!-- Vice President -->
-                        <div class="col-lg-6">
-                            <article class="faculty-card-row">
-                                <div class="faculty-card-row__media">
-                                    <img src="/assets/img/logo/21-Logo.png" alt="Vice President" loading="lazy" style="object-fit: contain; padding: 10px;">
+                        <!-- Dr. Santosh Sontakke -->
+                        <div class="col-lg-4 col-md-6">
+                            <article class="faculty-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                                <div class="faculty-card__photo">
+                                    <img src="/assets/img/faculty/santosh-sontakke.jpeg" alt="Dr. Santosh Sontakke" loading="lazy">
                                 </div>
-                                <div class="faculty-card-row__body">
-                                    <h3 class="faculty-card-row__name">Dr. Sunita Sharma</h3>
-                                    <p class="faculty-card-row__role">Vice President</p>
-                                    <p class="faculty-card-row__desc">
-                                        Elected Vice President of the Neurological Society of Pune. Assists the President and manages academic operations.
-                                    </p>
-                                </div>
+                                <h3 class="faculty-card__name">Dr. Santosh Sontakke</h3>
                             </article>
                         </div>
 
-                        <!-- Secretary -->
-                        <div class="col-lg-6">
-                            <article class="faculty-card-row">
-                                <div class="faculty-card-row__media">
-                                    <img src="/assets/img/logo/21-Logo.png" alt="Secretary" loading="lazy" style="object-fit: contain; padding: 10px;">
+                        <!-- Dr. Sudhir Kothari -->
+                        <div class="col-lg-4 col-md-6">
+                            <article class="faculty-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                                <div class="faculty-card__photo">
+                                    <img src="/assets/img/faculty/sudhir-kothari.jpeg" alt="Dr. Sudhir Kothari" loading="lazy">
                                 </div>
-                                <div class="faculty-card-row__body">
-                                    <h3 class="faculty-card-row__name">Dr. Amit Deshmukh</h3>
-                                    <p class="faculty-card-row__role">Secretary</p>
-                                    <p class="faculty-card-row__desc">
-                                        Secretary of the Neurological Society of Pune. Coordinates monthly neuromeets and biennial Approach Meets.
-                                    </p>
-                                </div>
+                                <h3 class="faculty-card__name">Dr. Sudhir Kothari</h3>
                             </article>
                         </div>
 
-                        <!-- Treasurer -->
-                        <div class="col-lg-6">
-                            <article class="faculty-card-row">
-                                <div class="faculty-card-row__media">
-                                    <img src="/assets/img/logo/21-Logo.png" alt="Treasurer" loading="lazy" style="object-fit: contain; padding: 10px;">
+                        <!-- Dr. Amit Pande -->
+                        <div class="col-lg-4 col-md-6">
+                            <article class="faculty-card" data-aos="fade-up" data-aos-duration="800">
+                                <div class="faculty-card__photo">
+                                    <img src="/assets/img/faculty/amit-pande.jpeg" alt="Dr. Amit Pande" loading="lazy">
                                 </div>
-                                <div class="faculty-card-row__body">
-                                    <h3 class="faculty-card-row__name">Dr. Neha Kulkarni</h3>
-                                    <p class="faculty-card-row__role">Treasurer</p>
-                                    <p class="faculty-card-row__desc">
-                                        Treasurer of the Neurological Society of Pune. Manages the financial matters, member subscriptions, and event funding.
-                                    </p>
+                                <h3 class="faculty-card__name">Dr. Amit Pande</h3>
+                            </article>
+                        </div>
+
+                        <!-- Dr. Dhairyashil Saste -->
+                        <div class="col-lg-4 col-md-6">
+                            <article class="faculty-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                                <div class="faculty-card__photo">
+                                    <img src="/assets/img/faculty/dhairyashil-saste.jpeg" alt="Dr. Dhairyashil Saste" loading="lazy">
                                 </div>
+                                <h3 class="faculty-card__name">Dr. Dhairyashil Saste</h3>
+                            </article>
+                        </div>
+
+                        <!-- Dr. Mangesh Udar -->
+                        <div class="col-lg-4 col-md-6">
+                            <article class="faculty-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                                <div class="faculty-card__photo">
+                                    <img src="/assets/img/faculty/mangesh-udar.jpeg" alt="Dr. Mangesh Udar" loading="lazy">
+                                </div>
+                                <h3 class="faculty-card__name">Dr. Mangesh Udar</h3>
+                            </article>
+                        </div>
+
+                        <!-- Dr. Pradeep Divate -->
+                        <div class="col-lg-4 col-md-6">
+                            <article class="faculty-card" data-aos="fade-up" data-aos-duration="800">
+                                <div class="faculty-card__photo">
+                                    <img src="/assets/img/faculty/pradeep-divate.jpeg" alt="Dr. Pradeep Divate" loading="lazy">
+                                </div>
+                                <h3 class="faculty-card__name">Dr. Pradeep Divate</h3>
+                            </article>
+                        </div>
+
+                        <!-- Dr. Prajwal Rao -->
+                        <div class="col-lg-4 col-md-6">
+                            <article class="faculty-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                                <div class="faculty-card__photo">
+                                    <img src="/assets/img/faculty/prajwal-rao.jpeg" alt="Dr. Prajwal Rao" loading="lazy">
+                                </div>
+                                <h3 class="faculty-card__name">Dr. Prajwal Rao</h3>
+                            </article>
+                        </div>
+
+                        <!-- Dr. Shripad Pujari -->
+                        <div class="col-lg-4 col-md-6">
+                            <article class="faculty-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                                <div class="faculty-card__photo">
+                                    <img src="/assets/img/faculty/shripad-pujari.jpeg" alt="Dr. Shripad Pujari" loading="lazy">
+                                </div>
+                                <h3 class="faculty-card__name">Dr. Shripad Pujari</h3>
+                            </article>
+                        </div>
+
+                        <!-- Dr. Nandan Yardi -->
+                        <div class="col-lg-4 col-md-6">
+                            <article class="faculty-card" data-aos="fade-up" data-aos-duration="800">
+                                <div class="faculty-card__photo">
+                                    <img src="/assets/img/faculty/nandan-yardi.jpeg" alt="Dr. Nandan Yardi" loading="lazy">
+                                </div>
+                                <h3 class="faculty-card__name">Dr. Nandan Yardi</h3>
                             </article>
                         </div>
 
