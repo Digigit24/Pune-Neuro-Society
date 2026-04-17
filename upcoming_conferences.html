@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-        .vl-main-menu nav ul { display:flex; align-items:center; justify-content:center; gap:24px; padding:0; margin:0; list-style:none; }
+        .vl-main-menu nav ul { display:flex; align-items:center; justify-content:center; gap:18px; padding:0; margin:0; list-style:none; }
         .vl-main-menu nav ul li { display:inline-flex; align-items:center; margin:0; padding:0; white-space:nowrap; }
         .vl-main-menu nav ul li a { display:inline-flex; align-items:center; gap:4px; font-weight:600; text-decoration:none; }
         .vl-offcanvas-logo img { background-color:#02111A; padding:10px; border-radius:5px; }
@@ -54,13 +54,28 @@
         .welcome-contact a { display:flex; align-items:center; gap:8px; color:#007bff; font-weight:600; text-decoration:none; font-size:.95rem; }
         .welcome-contact a:hover { color:#0056b3; }
 
-        .faculty-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
-        .faculty-item { background:#fff; border-radius:16px; padding:28px 20px; text-align:center; box-shadow:0 4px 20px rgba(0,0,0,.06); transition:transform .3s, box-shadow .3s; border:1px solid #eef2f7; }
+        .faculty-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:28px; }
+        .faculty-item { background:#fff; border-radius:18px; padding:30px 20px 24px; text-align:center; box-shadow:0 4px 20px rgba(0,0,0,.06); transition:transform .3s, box-shadow .3s; border:1px solid #eef2f7; }
         .faculty-item:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(0,0,0,.12); }
+        .faculty-item__photo { width:110px; height:110px; border-radius:50%; overflow:hidden; margin:0 auto 16px; border:3px solid #e0e7ef; transition:border-color .3s; background:#e8eef3; }
+        .faculty-item:hover .faculty-item__photo { border-color:#007bff; }
+        .faculty-item__photo img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
         .faculty-item__flag { display:inline-block; padding:3px 12px; border-radius:20px; font-size:11px; font-weight:700; color:#fff; background:#5dade2; margin-bottom:14px; letter-spacing:.5px; }
         .faculty-item h4 { font-size:1rem; font-weight:800; color:#02111A; margin-bottom:6px; }
         .faculty-item__inst { font-size:.85rem; color:#007bff; font-weight:600; margin-bottom:6px; }
         .faculty-item__spec { font-size:.82rem; color:#666; line-height:1.5; }
+
+        .oc-section { padding:60px 0; background:#fff; }
+        .oc-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:16px; margin-bottom:30px; }
+        .oc-card { background:#f8fafc; border:1px solid #eef2f7; border-radius:12px; padding:16px 20px; text-align:center; min-width:180px; flex:0 1 200px; transition:box-shadow .3s; }
+        .oc-card:hover { box-shadow:0 8px 24px rgba(0,0,0,.08); }
+        .oc-card__role { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#007bff; margin-bottom:6px; }
+        .oc-card__name { font-size:.9rem; font-weight:700; color:#02111A; }
+        .oc-members { display:flex; flex-wrap:wrap; justify-content:center; gap:8px 16px; margin-top:10px; }
+        .oc-members span { font-size:.85rem; color:#444; }
+
+        .national-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:6px 20px; max-width:900px; margin:0 auto; }
+        .national-grid span { font-size:.88rem; color:#333; padding:4px 0; }
 
         .schedule-tabs { display:flex; justify-content:center; gap:12px; margin-bottom:40px; flex-wrap:wrap; }
         .schedule-tab { padding:12px 28px; border-radius:50px; font-weight:700; font-size:.95rem; cursor:pointer; border:2px solid #dee2e6; background:#fff; color:#333; transition:all .3s; }
@@ -90,7 +105,7 @@
         .venue-card__map { flex:1; border-radius:14px; overflow:hidden; min-height:280px; }
         .venue-card__map iframe { width:100%; height:100%; min-height:280px; border:0; }
 
-        @media(max-width:1199px) { .faculty-grid { grid-template-columns:repeat(3,1fr); } }
+        @media(max-width:1199px) { .faculty-grid { grid-template-columns:repeat(3,1fr); } .oc-card { flex:0 1 170px; min-width:150px; } }
         @media(max-width:991px) {
             .conf-hero h1 { font-size:2.8rem; }
             .conf-hero { padding:140px 0 70px; }
@@ -166,12 +181,32 @@
             <div class="conf-section__heading" data-aos="fade-up"><h2>Welcome to ICTRIMS 2026</h2><div class="line"></div></div>
             <div class="welcome-text" data-aos="fade-up" data-aos-delay="100">
                 <p>Dear Friends and Colleagues, greetings from the Neurological Society of Pune! We are truly grateful for the tremendous response to ICTRIMS 2026. The enthusiastic interest from colleagues across the country has made this 15th Meeting of ICTRIMS especially exciting for us.</p>
-                <p>We are delighted to share a detailed Scientific Program featuring an outstanding lineup of internationally and nationally renowned experts. These distinguished faculty members will present the latest advances in the diagnosis and management of central demyelinating and autoimmune neurological diseases.</p>
-                <p>ICTRIMS 2026 promises cutting-edge lectures, interactive case-based discussions, and meaningful networking opportunities &mdash; with practical, clinically relevant insights you can immediately apply in patient care.</p>
+                <p>We are delighted to share the detailed Scientific Program, featuring an outstanding lineup of internationally and nationally renowned experts. These distinguished faculty members will present the latest advances in the diagnosis and management of central demyelinating and autoimmune neurological diseases.</p>
+                <p>ICTRIMS 2026 promises to be a highly engaging academic experience, with cutting-edge lectures, interactive case-based discussions, and meaningful networking opportunities with leaders and peers in the field. Most importantly, the sessions are designed to provide practical, clinically relevant insights that you can immediately apply in the day-to-day care of your patients.</p>
+                <p>If you have not yet completed your registration, we strongly encourage you to do so at the earliest to ensure your participation in this enriching scientific event. We look forward to welcoming you to Pune for an inspiring and memorable ICTRIMS 2026.</p>
             </div>
             <div class="welcome-contact" data-aos="fade-up" data-aos-delay="200">
                 <a href="tel:+917685900400"><i class="fa-solid fa-phone"></i> +91 76859 00400</a>
                 <a href="mailto:ajit@ascenthospitality.in"><i class="fa-solid fa-envelope"></i> ajit@ascenthospitality.in</a>
+                <a href="mailto:neurosocietypune@gmail.com"><i class="fa-solid fa-envelope"></i> neurosocietypune@gmail.com</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="oc-section">
+        <div class="container">
+            <div class="conf-section__heading" data-aos="fade-up"><h2>Conference Organising Committee</h2><div class="line"></div></div>
+            <div class="oc-grid" data-aos="fade-up" data-aos-delay="100">
+                <div class="oc-card"><div class="oc-card__role">Patron</div><div class="oc-card__name">Dr. RS Wadia</div></div>
+                <div class="oc-card"><div class="oc-card__role">Patron</div><div class="oc-card__name">Dr. PG Divate</div></div>
+                <div class="oc-card"><div class="oc-card__role">Organising Chairman</div><div class="oc-card__name">Dr. Nasli Ichaporia</div></div>
+                <div class="oc-card"><div class="oc-card__role">Co-Chairman</div><div class="oc-card__name">Dr. Sudhir Kothari</div></div>
+                <div class="oc-card"><div class="oc-card__role">Co-Chairman</div><div class="oc-card__name">Brig (Retd) SP Gorthi</div></div>
+                <div class="oc-card"><div class="oc-card__role">Organising Secretary</div><div class="oc-card__name">Dr. Shripad Pujari</div></div>
+            </div>
+            <p style="text-align:center;font-weight:700;color:#02111A;margin-bottom:10px;">Organising Committee</p>
+            <div class="oc-members" data-aos="fade-up" data-aos-delay="150">
+                <span>Dr. Rahul Kulkarni</span><span>&bull;</span><span>Dr. Hemant Sant</span><span>&bull;</span><span>Dr. Nandan Yardi</span><span>&bull;</span><span>Dr. Mangesh Udar</span><span>&bull;</span><span>Dr. Satish Nirhale</span><span>&bull;</span><span>Surg. V Adm. (Retd) Shalesh Rohatgi</span><span>&bull;</span><span>Dr. Sunil Bandishti</span><span>&bull;</span><span>Dr. Prajwal Rao</span><span>&bull;</span><span>Dr. Santosh Sontakke</span><span>&bull;</span><span>Dr. Nilesh Bhandari</span><span>&bull;</span><span>Dr. Amitkumar Pande</span><span>&bull;</span><span>Dr. Dhairyashil Saste</span><span>&bull;</span><span>Dr. Poornima Gauri</span><span>&bull;</span><span>Dr. Sujit Jagtap</span><span>&bull;</span><span>Dr. Nilesh Palasdeokar</span><span>&bull;</span><span>Dr. Sandeep Borse</span><span>&bull;</span><span>Dr. Dulari Gupta</span><span>&bull;</span><span>Dr. Radhika Lotlikar</span><span>&bull;</span><span>Dr. Varsha Patil</span><span>&bull;</span><span>Dr. Chitrangada Yadav</span>
             </div>
         </div>
     </section>
@@ -180,48 +215,98 @@
         <div class="container">
             <div class="conf-section__heading" data-aos="fade-up"><h2>International Faculty</h2><p>World-renowned experts in Neuroimmunology &amp; CNS Autoimmune Disorders</p><div class="line"></div></div>
             <div class="faculty-grid">
-                <div class="faculty-item" data-aos="fade-up" data-aos-delay="0"><span class="faculty-item__flag">International</span><h4>Prof. Xavier Montalban</h4><div class="faculty-item__inst">CEMCAT, Barcelona, Spain</div><div class="faculty-item__spec">MS &amp; Neuroimmunology</div></div>
-                <div class="faculty-item" data-aos="fade-up" data-aos-delay="50"><span class="faculty-item__flag">International</span><h4>Prof. Hans-Peter Hartung</h4><div class="faculty-item__inst">Heinrich-Heine-University, D&uuml;sseldorf</div><div class="faculty-item__spec">Autoimmune diseases of CNS &amp; PNS</div></div>
-                <div class="faculty-item" data-aos="fade-up" data-aos-delay="100"><span class="faculty-item__flag">International</span><h4>Prof. Cristina Granziera</h4><div class="faculty-item__inst">University Hospital of Basel</div><div class="faculty-item__spec">Clinical Neuroimmunology &amp; Biomedical Engineering</div></div>
-                <div class="faculty-item" data-aos="fade-up" data-aos-delay="150"><span class="faculty-item__flag">International</span><h4>Prof. Andrew Chan</h4><div class="faculty-item__inst">University of Bern, Switzerland</div><div class="faculty-item__spec">MS &amp; Translational Neuro-Immunology</div></div>
-                <div class="faculty-item" data-aos="fade-up" data-aos-delay="0"><span class="faculty-item__flag">International</span><h4>Prof. Paulus S Rommer</h4><div class="faculty-item__inst">Medical University of Vienna</div><div class="faculty-item__spec">MS, NMOSD &amp; Neuro-Immunology</div></div>
-                <div class="faculty-item" data-aos="fade-up" data-aos-delay="50"><span class="faculty-item__flag">International</span><h4>Prof. Benedetta Bodini</h4><div class="faculty-item__inst">Sorbonne University, Paris</div><div class="faculty-item__spec">Neuro-Imaging, AI &amp; Deep Learning in MS</div></div>
-                <div class="faculty-item" data-aos="fade-up" data-aos-delay="100"><span class="faculty-item__flag">International</span><h4>Prof. Sarosh Irani</h4><div class="faculty-item__inst">Mayo Clinic, Jacksonville, USA</div><div class="faculty-item__spec">Autoimmune Encephalitis &amp; Immunotherapy</div></div>
-                <div class="faculty-item" data-aos="fade-up" data-aos-delay="150"><span class="faculty-item__flag">International</span><h4>Prof. Mariana Spatola</h4><div class="faculty-item__inst">Hospital Clinic, Barcelona</div><div class="faculty-item__spec">Autoimmune Encephalitis &amp; Brain Autoimmunity</div></div>
+                <div class="faculty-item" data-aos="fade-up" data-aos-delay="0"><div class="faculty-item__photo"><img src="/assets/img/ictrims/montalban.jpg" alt="Prof. Xavier Montalban" loading="lazy"></div><span class="faculty-item__flag">International</span><h4>Prof. Xavier Montalban</h4><div class="faculty-item__inst">CEMCAT, Barcelona, Spain</div><div class="faculty-item__spec">Director, MS Center of Catalonia. Professor of Neurology, UAB. Coordinator, Neuroimmunology, VHIR.</div></div>
+                <div class="faculty-item" data-aos="fade-up" data-aos-delay="50"><div class="faculty-item__photo"><img src="/assets/img/ictrims/hartung.jpg" alt="Prof. Hans-Peter Hartung" loading="lazy"></div><span class="faculty-item__flag">International</span><h4>Prof. Hans-Peter Hartung</h4><div class="faculty-item__inst">Heinrich-Heine-University, D&uuml;sseldorf</div><div class="faculty-item__spec">Professor of Neurology. Research: Pathogenesis of Autoimmune diseases &mdash; MS, GBS, CIDP.</div></div>
+                <div class="faculty-item" data-aos="fade-up" data-aos-delay="100"><div class="faculty-item__photo"><img src="/assets/img/ictrims/granziera.jpg" alt="Prof. Cristina Granziera" loading="lazy"></div><span class="faculty-item__flag">International</span><h4>Prof. Cristina Granziera</h4><div class="faculty-item__inst">University Hospital of Basel</div><div class="faculty-item__spec">Professor in Neurology &amp; Biomedical Engineering. Co-CEO, Research Center for Clinical Neuroimmunology (RC2NB).</div></div>
+                <div class="faculty-item" data-aos="fade-up" data-aos-delay="150"><div class="faculty-item__photo"><img src="/assets/img/ictrims/chan.jpg" alt="Prof. Andrew Chan" loading="lazy"></div><span class="faculty-item__flag">International</span><h4>Prof. Andrew Chan</h4><div class="faculty-item__inst">University of Bern, Switzerland</div><div class="faculty-item__spec">Head, Medical Division Neuro, Inselspital. Research: Experimental, translational &amp; clinical Neuro-Immunology, MS.</div></div>
+                <div class="faculty-item" data-aos="fade-up" data-aos-delay="0"><div class="faculty-item__photo"><img src="/assets/img/ictrims/rommer.jpg" alt="Prof. Paulus S Rommer" loading="lazy"></div><span class="faculty-item__flag">International</span><h4>Prof. Paulus S Rommer</h4><div class="faculty-item__inst">Medical University of Vienna</div><div class="faculty-item__spec">Associate Professor of Neurology. Research: MS, NMOSD &amp; Neuro-Immunological diseases.</div></div>
+                <div class="faculty-item" data-aos="fade-up" data-aos-delay="50"><div class="faculty-item__photo"><img src="/assets/img/ictrims/bodini.jpg" alt="Prof. Benedetta Bodini" loading="lazy"></div><span class="faculty-item__flag">International</span><h4>Prof. Benedetta Bodini</h4><div class="faculty-item__inst">Sorbonne University, Paris</div><div class="faculty-item__spec">Professor of Neuro-Imaging. Work covers Ultra-High-Field MRI, PET in MS, AI &amp; deep learning for cortical myelin repair.</div></div>
+                <div class="faculty-item" data-aos="fade-up" data-aos-delay="100"><div class="faculty-item__photo"><img src="/assets/img/ictrims/irani.jpg" alt="Prof. Sarosh Irani" loading="lazy"></div><span class="faculty-item__flag">International</span><h4>Prof. Sarosh Irani</h4><div class="faculty-item__inst">Mayo Clinic, Jacksonville, USA</div><div class="faculty-item__spec">Professor of Neurology. Recognised clinical features in LGI1/CASPR2 autoantibodies. Pioneer in early Immunotherapy for Autoimmune Neurological diseases.</div></div>
+                <div class="faculty-item" data-aos="fade-up" data-aos-delay="150"><div class="faculty-item__photo"><img src="/assets/img/ictrims/spatola.jpg" alt="Prof. Mariana Spatola" loading="lazy"></div><span class="faculty-item__flag">International</span><h4>Prof. Mariana Spatola</h4><div class="faculty-item__inst">Hospital Clinic, Barcelona</div><div class="faculty-item__spec">Neurologist &amp; researcher at IDIBAPS. Research: Autoimmune Encephalitis pathogenesis &amp; virus-triggered brain Autoimmunity.</div></div>
             </div>
         </div>
     </section>
 
     <section class="conf-section">
         <div class="container">
-            <div class="conf-section__heading" data-aos="fade-up"><h2>Scientific Program</h2><p>Three days of cutting-edge lectures, debates, and interactive case discussions</p><div class="line"></div></div>
+            <div class="conf-section__heading" data-aos="fade-up"><h2>National Faculty</h2><p>42 distinguished neurologists from across India</p><div class="line"></div></div>
+            <div class="national-grid" data-aos="fade-up" data-aos-delay="100">
+                <span>Dr. Aastha Takkar, Chandigarh</span><span>Dr. Achal Srivastava, New Delhi</span><span>Dr. Anita Mahadevan, Bengaluru</span><span>Dr. Anshu Rohatgi, New Delhi</span><span>Dr. Ayush Agrawal, New Delhi</span><span>Dr. C S Agrawal, New Delhi</span><span>Dr. Deepak Arjundas, Chennai</span><span>Dr. Dheeraj Khurana, Chandigarh</span><span>Dr. Kamakshi Dhamija, Ghaziabad</span><span>Dr. Lakshmi Narasimhan, Chennai</span><span>Dr. Lekha Pandit, Mangaluru</span><span>Dr. M V Padma Srivastava, New Delhi</span><span>Dr. Manish Mahajan, New Delhi</span><span>Dr. Nasli Ichaporia, Pune</span><span>Dr. Netravathi M, Bengaluru</span><span>Dr. Nirmal Surya, Mumbai</span><span>Dr. P N Sylaja, Thiruvananthapuram</span><span>Dr. Pawan Ojha, Vashi</span><span>Dr. Prachet Kulkarni, Coimbatore</span><span>Dr. Prajwal Rao, Pune</span><span>Dr. Pritam Raja, Bengaluru</span><span>Dr. Rahul Baviskar, Nashik</span><span>Dr. Rahul Kulkarni, Pune</span><span>Dr. Rohit Bhatia, New Delhi</span><span>Dr. S P Gorthi, Pune</span><span>Dr. Samsher Dwivedi, Dehradun</span><span>Dr. Sangita Ravat, Mumbai</span><span>Dr. Shripad Pujari, Pune</span><span>Dr. Sita Jayalakshmi, Hyderabad</span><span>Dr. Sudheeran Kannoth, Kochi</span><span>Dr. Soumya Sundaram, Thiruvananthapuram</span><span>Dr. Sruthi Nair, Thiruvananthapuram</span><span>Dr. Sucharita Ray, Chandigarh</span><span>Dr. Sumit Singh, New Delhi</span><span>Dr. Suresh Kumar, Kochi</span><span>Dr. Suvarna Alladi, Bengaluru</span><span>Dr. Tapas Banerjee, Kolkata</span><span>Dr. Thomas Mathew, Bengaluru</span><span>Dr. U Meenakshisundaram, Chennai</span><span>Dr. Varsha Patil, Mumbai</span><span>Dr. Vikram Kamath, Bengaluru</span><span>Dr. Vivek Lal, Chandigarh</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="conf-section conf-section--alt">
+        <div class="container">
+            <div class="conf-section__heading" data-aos="fade-up"><h2>Scientific Program</h2><p>Three days of cutting-edge lectures, debates, and interactive case discussions across Hall A &amp; Hall B</p><div class="line"></div></div>
             <div class="schedule-tabs" data-aos="fade-up">
                 <div class="schedule-tab active" onclick="showDay('day1',this)">Day 1 &mdash; Fri, Jun 12</div>
                 <div class="schedule-tab" onclick="showDay('day2',this)">Day 2 &mdash; Sat, Jun 13</div>
                 <div class="schedule-tab" onclick="showDay('day3',this)">Day 3 &mdash; Sun, Jun 14</div>
             </div>
             <div id="day1" class="schedule-day active" data-aos="fade-up">
-                <div class="schedule-item"><div class="schedule-item__time">10:30 &ndash; 13:00</div><div class="schedule-item__title">Session I &mdash; Basic Science: Cell Trafficking, IgG Subtypes, Pathogenesis of MS, Fluid Bio-Markers</div></div>
-                <div class="schedule-item"><div class="schedule-item__time">11:45</div><div class="schedule-item__title">Inauguration Ceremony</div></div>
-                <div class="schedule-item schedule-item--break"><div class="schedule-item__time">13:00 &ndash; 14:00</div><div class="schedule-item__title">Lunch Break &amp; Sponsored Symposium</div></div>
-                <div class="schedule-item"><div class="schedule-item__time">14:00 &ndash; 16:00</div><div class="schedule-item__title">Session II &mdash; Neuro-Ophthalmology: MOG &amp; AQP4, MOGAD Phenotypes, Optic Neuritis</div></div>
+                <h5 style="color:#007bff;margin-bottom:16px;font-weight:700;">Hall A</h5>
+                <div class="schedule-item"><div class="schedule-item__time">10:30 &ndash; 10:45</div><div class="schedule-item__title">Quiz &mdash; Sensitising to Acronyms &bull; Dr. Prajwal Rao</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">10:45 &ndash; 11:05</div><div class="schedule-item__title">Cell Trafficking and Immune Cells in CNS Inflammatory Disorders &bull; Dr. Benedetta Bodini</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">11:05 &ndash; 11:25</div><div class="schedule-item__title">Knowing IgG Subtypes for CNS Inflammatory Disorders &bull; Dr. Sruthi Nair</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">11:25 &ndash; 11:45</div><div class="schedule-item__title">Pathogenesis of Early and Late Multiple Sclerosis &bull; Dr. Lekha Pandit</div></div>
+                <div class="schedule-item" style="border-left-color:#e74c3c;"><div class="schedule-item__time">11:45 &ndash; 12:00</div><div class="schedule-item__title" style="color:#e74c3c;font-weight:800;">Inauguration Ceremony</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">12:00 &ndash; 12:20</div><div class="schedule-item__title">Fluid Bio-Markers in Multiple Sclerosis &bull; Prof. Hans-Peter Hartung</div></div>
+                <div class="schedule-item schedule-item--break"><div class="schedule-item__time">13:00 &ndash; 14:00</div><div class="schedule-item__title">Lunch &amp; Sponsored Symposium (Siponimod) &bull; Dr. Anshu Rohatgi, Dr. MV Padma Srivastava</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">14:00 &ndash; 16:00</div><div class="schedule-item__title">Session II &mdash; Neuro-Ophthalmology: Optic Neuritis, EOMs, Painful Ophthalmoplegia, OCT &bull; Dr. Vivek Lal, Dr. U Meenakshisundaram, Dr. Sumit Singh, Dr. Aastha Takkar</div></div>
                 <div class="schedule-item schedule-item--break"><div class="schedule-item__time">16:00 &ndash; 16:20</div><div class="schedule-item__title">Tea / Coffee Break</div></div>
-                <div class="schedule-item"><div class="schedule-item__time">16:20 &ndash; 18:30</div><div class="schedule-item__title">Session III &mdash; MRI in MS: Advanced Techniques, Spinal Cord MRI, Cortical Lesions, AI in Imaging</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">16:20 &ndash; 18:20</div><div class="schedule-item__title">Session III &mdash; NMOSD &amp; MOGAD: Pathogenesis, Diagnostic Criteria, Management &bull; Dr. Suresh Kumar, Prof. Paulus Rommer, Dr. Netravathi M, Dr. Manish Mahajan, Dr. Rohit Bhatia</div></div>
+                <div class="schedule-item" style="border-left-color:#27ae60;"><div class="schedule-item__time">19:00</div><div class="schedule-item__title" style="color:#27ae60;">Welcome Dinner</div></div>
+                <h5 style="color:#17a2b8;margin:24px 0 16px;font-weight:700;">Hall B</h5>
+                <div class="schedule-item"><div class="schedule-item__time">14:00 &ndash; 16:00</div><div class="schedule-item__title">Session I &mdash; Systemic Disorders: Infections, CNS Vasculitides, Pachymeningitis, Rasmussen's Encephalitis &bull; Dr. Rahul Kulkarni, Dr. P N Sylaja, Dr. R Lakshmi Narasimhan, Dr. Sangita Ravat</div></div>
             </div>
             <div id="day2" class="schedule-day">
-                <div class="schedule-item"><div class="schedule-item__time">09:00 &ndash; 10:20</div><div class="schedule-item__title">Session IV &mdash; MS Therapy I: Disease Activity Definitions, Treatment Escalation vs Early HET</div></div>
-                <div class="schedule-item schedule-item--break"><div class="schedule-item__time">10:20 &ndash; 10:40</div><div class="schedule-item__title">Tea / Coffee Break</div></div>
-                <div class="schedule-item"><div class="schedule-item__time">10:40 &ndash; 13:00</div><div class="schedule-item__title">Session V &mdash; MS Therapy II: BTK Inhibitors, Pregnancy &amp; MS, Stopping DMT, Vaccination</div></div>
-                <div class="schedule-item schedule-item--break"><div class="schedule-item__time">13:00 &ndash; 14:00</div><div class="schedule-item__title">Lunch Break &amp; Sponsored Symposium</div></div>
-                <div class="schedule-item"><div class="schedule-item__time">14:00 &ndash; 16:00</div><div class="schedule-item__title">Session VI &mdash; NMOSD: Pathophysiology, Treatment Landscape, Pregnancy in NMOSD</div></div>
-                <div class="schedule-item"><div class="schedule-item__time">16:20 &ndash; 18:30</div><div class="schedule-item__title">Session VII &mdash; Paediatric Demyelination: MOGAD, MS in Children, Rare Demyelinating Disorders</div></div>
+                <h5 style="color:#007bff;margin-bottom:16px;font-weight:700;">Hall A</h5>
+                <div class="schedule-item"><div class="schedule-item__time">09:00 &ndash; 10:20</div><div class="schedule-item__title">Session IV &mdash; Auto-Immune Encephalitis I: AIE Through Videos, Auto-Immune Dementia, Overdiagnosis of AIE &bull; Dr. Nasli Ichaporia, Dr. Suvarna Alladi, Prof. Sarosh Irani</div></div>
+                <div class="schedule-item schedule-item--break"><div class="schedule-item__time">10:20 &ndash; 10:45</div><div class="schedule-item__title">Tea / Coffee Break</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">10:45 &ndash; 13:45</div><div class="schedule-item__title">Session V &mdash; European Charcot Foundation Symposium: 2025 MS Diagnostic Criteria, MRI in MS, PET CT, Future Immunotherapies, Investigational NMOSD/MOGAD Therapies &bull; Prof. Xavier Montalban, Prof. Cristina Granziera, Prof. Benedetta Bodini, Prof. Hans-Peter Hartung, Prof. Paulus Rommer</div></div>
+                <div class="schedule-item schedule-item--break"><div class="schedule-item__time">13:45 &ndash; 14:45</div><div class="schedule-item__title">Lunch Break</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">14:45 &ndash; 16:05</div><div class="schedule-item__title">Session VI &mdash; MS Therapy I: PPMS Management, BTK Inhibitors, Induction vs Escalation &bull; Prof. Andrew Chan, Prof. Xavier Montalban, Dr. Nasli Ichaporia</div></div>
+                <div class="schedule-item schedule-item--break"><div class="schedule-item__time">16:05 &ndash; 16:25</div><div class="schedule-item__title">Tea / Coffee Break</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">16:25 &ndash; 18:15</div><div class="schedule-item__title">Session VII &mdash; Imaging: AI &amp; Advanced MRI, GAD in Follow-up MRI Debate, Imaging in AIE, Quiz &bull; Prof. Cristina Granziera, Dr. Rahul Baviskar, Dr. Pritam Raja</div></div>
+                <div class="schedule-item" style="border-left-color:#27ae60;"><div class="schedule-item__time">19:00</div><div class="schedule-item__title" style="color:#27ae60;">Banquet Dinner</div></div>
+                <h5 style="color:#17a2b8;margin:24px 0 16px;font-weight:700;">Hall B</h5>
+                <div class="schedule-item"><div class="schedule-item__time">09:00 &ndash; 10:20</div><div class="schedule-item__title">Session II &mdash; AIE II: Cell Surface Antigens, Auto-Immune Epilepsy, Immune Mediated Ataxias &bull; Prof. Paulus Rommer, Dr. Sita Jayalakshmi, Dr. Achal Srivastava</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">14:45 &ndash; 16:05</div><div class="schedule-item__title">Session III &mdash; MS Therapy II: Remyelination, Choosing DMTs, Self-Administered HETs &bull; Prof. Hans-Peter Hartung, Dr. Dheeraj Khurana, Dr. Anshu Rohatgi</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">16:25 &ndash; 18:15</div><div class="schedule-item__title">Session IV &mdash; Miscellaneous: AIE Management, MOGAD Immunotherapy Debate, Neurofascin Antibodies &bull; Prof. Mariana Spatola, Dr. Varsha Patil, Dr. Soumya Sundaram, Dr. Thomas Mathew</div></div>
             </div>
             <div id="day3" class="schedule-day">
-                <div class="schedule-item"><div class="schedule-item__time">09:00 &ndash; 10:20</div><div class="schedule-item__title">Session VIII &mdash; Autoimmune Encephalitis: Precipitants of AIE, GFAP Astrocytopathy, Panel Discussion</div></div>
+                <h5 style="color:#007bff;margin-bottom:16px;font-weight:700;">Hall A</h5>
+                <div class="schedule-item"><div class="schedule-item__time">09:00 &ndash; 10:20</div><div class="schedule-item__title">Session VIII &mdash; Precipitants of AIE, GFAP Astrocytopathy, Panel Discussion, RAW &amp; PIRA Debate &bull; Prof. Sarosh Irani, Dr. Sudheeran Kannoth, Dr. Thomas Mathew</div></div>
                 <div class="schedule-item schedule-item--break"><div class="schedule-item__time">10:40 &ndash; 11:00</div><div class="schedule-item__title">Tea / Coffee Break</div></div>
-                <div class="schedule-item"><div class="schedule-item__time">11:00 &ndash; 13:45</div><div class="schedule-item__title">Session IX &mdash; MS Therapy III: Managing HET Risks, CIS Management, Rehab Advances, CPC &amp; Quiz</div></div>
-                <div class="schedule-item"><div class="schedule-item__time">13:45</div><div class="schedule-item__title">Valedictory Function &amp; Farewell Lunch</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">11:00 &ndash; 12:00</div><div class="schedule-item__title">Session IX &mdash; MS Therapy III: Managing HET Risks, CIS Management, Rehab Advances &bull; Prof. Xavier Montalban, Brig. SP Gorthi, Dr. Nirmal Surya</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">12:40 &ndash; 13:15</div><div class="schedule-item__title">CPC Case Analysis &bull; Dr. M V Padma Srivastava &bull; Discussion: Dr. Netravathi M &amp; Dr. Anita Mahadevan</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">13:15 &ndash; 13:45</div><div class="schedule-item__title">Quiz</div></div>
+                <div class="schedule-item" style="border-left-color:#e74c3c;"><div class="schedule-item__time">13:45</div><div class="schedule-item__title" style="color:#e74c3c;font-weight:800;">Valedictory Function</div></div>
+                <div class="schedule-item" style="border-left-color:#27ae60;"><div class="schedule-item__time">13:50</div><div class="schedule-item__title" style="color:#27ae60;">Farewell Lunch</div></div>
+                <h5 style="color:#17a2b8;margin:24px 0 16px;font-weight:700;">Hall B</h5>
+                <div class="schedule-item"><div class="schedule-item__time">09:00 &ndash; 10:20</div><div class="schedule-item__title">Session V &mdash; MS Outcome Measures, MS Mimics, Neuromodulation, High EDSS Debate &bull; Dr. Kamakshi Dhamija, Dr. Tapas Banerjee, Dr. Pawan Ojha</div></div>
+                <div class="schedule-item"><div class="schedule-item__time">11:00 &ndash; 12:40</div><div class="schedule-item__title">Session VI &mdash; MS Therapy IV: SPMS Pathobiology, Prodromal MS &amp; RIS, Ancillary Symptoms &bull; Prof. Benedetta Bodini, Dr. Shripad Pujari, Dr. Ayush Agarwal</div></div>
             </div>
+        </div>
+    </section>
+
+    <section class="conf-section">
+        <div class="container">
+            <div class="conf-section__heading" data-aos="fade-up"><h2>Abstract Submission Guidelines</h2><div class="line"></div></div>
+            <div class="row justify-content-center"><div class="col-lg-9" data-aos="fade-up" data-aos-delay="100">
+                <div style="background:#fff;border-radius:16px;padding:36px;box-shadow:0 4px 20px rgba(0,0,0,.06);border:1px solid #eef2f7;font-size:.95rem;color:#444;line-height:1.8;">
+                    <p style="margin-bottom:16px;">The Scientific Committee invites Abstracts from PG Students and Delegates for Platform Presentations and E-Poster Presentations.</p>
+                    <ul style="padding-left:20px;">
+                        <li>Only <strong>Registered Delegates</strong> can submit abstracts.</li>
+                        <li><strong>Deadline: April 30, 2026.</strong> Submit as MS Word attachment to <a href="mailto:neurosocietypune@gmail.com" style="color:#007bff;font-weight:600;">neurosocietypune@gmail.com</a></li>
+                        <li>Limit: <strong>250 words</strong>, max <strong>5 co-authors</strong>.</li>
+                        <li>Only the presenting author receives a certificate.</li>
+                        <li>Original, unpublished material is encouraged. Case reports accepted only if they bring novel information.</li>
+                        <li>Acceptance confirmation by email before <strong>May 15, 2026</strong>.</li>
+                    </ul>
+                </div>
+            </div></div>
         </div>
     </section>
 
@@ -238,7 +323,21 @@
                             <tr><td class="cat-col">Accompanying Person</td><td>&#8377;7,000</td><td>&#8377;9,000</td><td>&#8377;12,000</td></tr>
                         </tbody>
                     </table>
-                    <p style="text-align:center;margin-top:24px;color:rgba(255,255,255,.6);font-size:.9rem;">Cheque / DD favouring <strong>Neurological Society of Pune</strong>, payable at Pune. PG students must attach HOD letter.</p>
+                    <h4 style="text-align:center;margin:40px 0 20px;color:#fff;font-weight:700;">Accommodation (3N/4D Package)</h4>
+                    <table class="reg-table">
+                        <thead><tr><th class="cat-col">Room Type</th><th>Early Bird<br><small>Till Apr 30</small></th><th>Regular<br><small>Till May 31</small></th><th>Spot<br><small>After Jun 1</small></th></tr></thead>
+                        <tbody>
+                            <tr><td class="cat-col">Single Room</td><td>&#8377;50,000</td><td>&#8377;60,000</td><td>N/A</td></tr>
+                            <tr><td class="cat-col">Twin Sharing (per person)</td><td>&#8377;30,000</td><td>&#8377;33,000</td><td>N/A</td></tr>
+                            <tr><td class="cat-col">Double Room (Delegate + Spouse)</td><td>&#8377;60,000</td><td>&#8377;70,000</td><td>N/A</td></tr>
+                        </tbody>
+                    </table>
+                    <div style="margin-top:28px;color:rgba(255,255,255,.7);font-size:.88rem;line-height:1.8;">
+                        <p>&bull; Cheque / DD favouring <strong>Neurological Society of Pune</strong>, payable at Pune. Add &#8377;100 for outstation cheques.</p>
+                        <p>&bull; Accommodation: 2 PM Thu, June 11 to 10 AM Sun, June 14. Does NOT include Registration Fees.</p>
+                        <p>&bull; Registration includes Lunches (Fri-Sun) and Dinner (Fri &amp; Sat). Accommodation includes breakfast (Fri-Sun).</p>
+                        <p>&bull; PG Students must attach a letter from the Head of the Department.</p>
+                    </div>
                 </div>
             </div>
         </div>
