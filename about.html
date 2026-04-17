@@ -335,6 +335,124 @@
                 top: 20px;
             }
         }
+
+        .video-section {
+            padding: 80px 0;
+            background: var(--light-bg);
+        }
+
+        .video-section .section-heading {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .video-section .section-heading h4 {
+            color: var(--primary-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            display: inline-block;
+            background: rgba(0, 123, 255, 0.1);
+            padding: 6px 14px;
+            border-radius: 30px;
+        }
+
+        .video-section .section-heading h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        .video-facade {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            aspect-ratio: 16 / 9;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 12px 40px rgba(2, 17, 26, .15);
+            background: #000;
+        }
+
+        .video-facade__thumb {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .video-facade:hover .video-facade__thumb {
+            transform: scale(1.03);
+        }
+
+        .video-facade__play {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 123, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease, transform 0.3s ease;
+            z-index: 2;
+        }
+
+        .video-facade__play::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 14px 0 14px 24px;
+            border-color: transparent transparent transparent #fff;
+            margin-left: 4px;
+        }
+
+        .video-facade:hover .video-facade__play {
+            background: rgba(0, 123, 255, 1);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-facade__overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.4) 100%);
+            z-index: 1;
+        }
+
+        .video-facade iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        @media (max-width: 767px) {
+            .video-facade__play {
+                width: 60px;
+                height: 60px;
+            }
+
+            .video-facade__play::after {
+                border-width: 10px 0 10px 18px;
+            }
+
+            .video-section {
+                padding: 50px 0;
+            }
+
+            .video-section .section-heading h2 {
+                font-size: 1.75rem;
+            }
+        }
     </style>
 </head>
 
@@ -500,6 +618,23 @@
         </div>
     </section>
     <!--===== ABOUT SECTION ENDS =======-->
+
+    <!--===== VIDEO SECTION STARTS =======-->
+    <section class="video-section">
+        <div class="container">
+            <div class="section-heading">
+                <h4>Watch</h4>
+                <h2>A Glimpse Into Our Work</h2>
+            </div>
+
+            <div class="video-facade" id="videoFacade" data-video-url="https://videomanagement.celiyo.com/v/9d792ce6-0edb-4c44-ae9f-db59f5d70a8a/review?token=451402826345425b06a8a699c2cb38c18945cefa260078645d24e66d8b7ded10">
+                <img src="/assets/img/homepage/gallery-1.jpg" alt="Watch NSP Video" class="video-facade__thumb" loading="lazy">
+                <div class="video-facade__overlay"></div>
+                <div class="video-facade__play"></div>
+            </div>
+        </div>
+    </section>
+    <!--===== VIDEO SECTION ENDS =======-->
 
     <div class="vl-footer7-section-area">
         <div class="container">
@@ -671,6 +806,11 @@
         });
         AOS.init({
             once: true,
+        });
+
+        document.getElementById('videoFacade').addEventListener('click', function() {
+            var url = this.getAttribute('data-video-url');
+            this.innerHTML = '<iframe src="' + url + '" allow="autoplay; fullscreen" allowfullscreen></iframe>';
         });
     </script>
 </body>
