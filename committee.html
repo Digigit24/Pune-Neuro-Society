@@ -25,75 +25,357 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
-        .faculty-section {
-            padding: 48px 0;
-            background: var(--ztc-bg-bg-15);
+        /* ===== Committee Page Styles ===== */
+        .committee-section {
+            padding: 70px 0 90px;
         }
 
-        .faculty-card {
+        /* --- Tier Heading --- */
+        .committee-tier-heading {
             text-align: center;
-            padding: 16px;
-            border-radius: 18px;
-            border: 1px solid var(--ztc-border-border-1);
-            background: linear-gradient(135deg, var(--ztc-bg-bg-1), var(--ztc-bg-bg-19));
-            box-shadow: 0 10px 26px rgba(2, 17, 26, .08);
+            margin-bottom: 48px;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--ztc-text-text-8, #02111A);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 18px;
+        }
+
+        .committee-tier-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, #0852a1, #17a2b8);
+            border-radius: 4px;
+        }
+
+        .committee-tier-heading::before {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 36px;
+            height: 4px;
+            background: linear-gradient(90deg, #17a2b8, #0852a1);
+            border-radius: 4px;
+        }
+
+        /* --- Card base --- */
+        .committee-card {
+            text-align: center;
+            padding: 28px 22px 30px;
+            border-radius: 22px;
+            border: 1px solid rgba(9, 30, 66, .06);
+            background: linear-gradient(165deg, #ffffff 0%, #f6f8fc 50%, #eef2f9 100%);
+            box-shadow: 0 4px 20px rgba(2, 17, 26, .05),
+                        0 1px 4px rgba(2, 17, 26, .03);
             overflow: hidden;
-            transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+            transition: transform .35s cubic-bezier(.22, .61, .36, 1),
+                        box-shadow .35s cubic-bezier(.22, .61, .36, 1),
+                        border-color .35s ease;
             height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
+            position: relative;
         }
 
-        .faculty-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(8, 82, 161, .35);
-            box-shadow: 0 18px 42px rgba(2, 17, 26, .14);
+        .committee-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0852a1, #17a2b8);
+            border-radius: 22px 22px 0 0;
+            opacity: 0;
+            transition: opacity .35s ease;
         }
 
-        .faculty-card__photo {
+        .committee-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(8, 82, 161, .18);
+            box-shadow: 0 24px 56px rgba(2, 17, 26, .10),
+                        0 8px 20px rgba(8, 82, 161, .06);
+        }
+
+        .committee-card:hover::before {
+            opacity: 1;
+        }
+
+        /* --- Photo --- */
+        .committee-card__photo {
             width: 100%;
             aspect-ratio: 3 / 4;
-            border-radius: 14px;
+            border-radius: 16px;
             overflow: hidden;
-            background: var(--ztc-bg-bg-11);
-            border: 1px solid rgba(9, 30, 66, .10);
-            margin-bottom: 16px;
+            background: #e9ecf1;
+            border: 1px solid rgba(9, 30, 66, .06);
+            margin-bottom: 20px;
+            position: relative;
         }
 
-        .faculty-card__photo img {
+        .committee-card__photo img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: top center;
             display: block;
+            transition: transform .4s ease;
         }
 
-        .faculty-card__name {
+        .committee-card:hover .committee-card__photo img {
+            transform: scale(1.03);
+        }
+
+        /* --- Role badge pill --- */
+        .committee-card__role {
+            display: inline-block;
+            padding: 6px 20px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            position: relative;
+        }
+
+        .role--president {
+            background: linear-gradient(135deg, #0852a1 0%, #1a6fd1 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(8, 82, 161, .30);
+        }
+
+        .role--officer {
+            background: linear-gradient(135deg, #0a7e7e 0%, #17a2b8 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(23, 162, 184, .25);
+        }
+
+        .role--executive {
+            background: linear-gradient(135deg, #3d4f65 0%, #5a7089 100%);
+            color: #ffffff;
+            box-shadow: 0 4px 14px rgba(61, 79, 101, .20);
+        }
+
+        /* --- Name --- */
+        .committee-card__name {
             margin: 0;
-            font-size: 18px;
-            line-height: 1.3;
+            font-size: 17px;
+            line-height: 1.35;
             font-weight: 800;
-            color: var(--ztc-text-text-8);
+            color: var(--ztc-text-text-8, #02111A);
+        }
+
+        /* --- Prominent cards for President tier --- */
+        .committee-card--prominent {
+            padding: 32px 28px 36px;
+            border: 1px solid rgba(8, 82, 161, .12);
+            background: linear-gradient(165deg, #ffffff 0%, #edf3fb 50%, #e4ecf7 100%);
+            box-shadow: 0 8px 32px rgba(8, 82, 161, .08),
+                        0 2px 8px rgba(8, 82, 161, .04);
+        }
+
+        .committee-card--prominent::before {
+            height: 5px;
+            background: linear-gradient(90deg, #0852a1, #1565c0, #17a2b8);
+            opacity: 1;
+        }
+
+        .committee-card--prominent:hover {
+            box-shadow: 0 28px 64px rgba(8, 82, 161, .14),
+                        0 12px 24px rgba(8, 82, 161, .08);
+            border-color: rgba(8, 82, 161, .25);
+        }
+
+        .committee-card--prominent .committee-card__name {
+            font-size: 22px;
+        }
+
+        .committee-card--prominent .committee-card__role {
+            font-size: 12px;
+            padding: 7px 24px;
+        }
+
+        .committee-card--prominent .committee-card__photo {
+            border-radius: 18px;
+            margin-bottom: 24px;
+        }
+
+        /* --- Decorative divider between sections --- */
+        .committee-divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin: 16px 0 48px;
+        }
+
+        .committee-divider__line {
+            height: 1px;
+            width: 80px;
+            background: linear-gradient(90deg, transparent, rgba(8, 82, 161, .18), transparent);
+        }
+
+        .committee-divider__dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0852a1, #17a2b8);
+            opacity: 0.5;
+        }
+
+        /* --- Row layouts --- */
+        .committee-row-top {
+            display: flex;
+            justify-content: center;
+            gap: 36px;
+            margin-bottom: 56px;
+            flex-wrap: wrap;
+        }
+
+        .committee-row-top .committee-col {
+            flex: 0 1 310px;
+            max-width: 310px;
+        }
+
+        .committee-row-officers {
+            display: flex;
+            justify-content: center;
+            gap: 26px;
+            margin-bottom: 64px;
+            flex-wrap: wrap;
+        }
+
+        .committee-row-officers .committee-col {
+            flex: 0 1 235px;
+            max-width: 235px;
+        }
+
+        .committee-grid-exec {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 26px;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 1199px) {
+            .committee-grid-exec {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 991px) {
+            .committee-section {
+                padding: 50px 0 70px;
+            }
+
+            .committee-row-top .committee-col {
+                flex: 0 1 280px;
+            }
+
+            .committee-row-officers .committee-col {
+                flex: 0 1 210px;
+            }
+
+            .committee-grid-exec {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .committee-card--prominent .committee-card__name {
+                font-size: 20px;
+            }
         }
 
         @media (max-width: 767px) {
-            .faculty-card {
-                padding: 12px;
+            .committee-card {
+                padding: 18px 16px 22px;
+                border-radius: 18px;
             }
 
-            .faculty-card__photo {
-                aspect-ratio: 3 / 4;
+            .committee-card--prominent {
+                padding: 22px 18px 26px;
             }
 
-            .faculty-card__name {
-                font-size: 16px;
+            .committee-card--prominent .committee-card__name {
+                font-size: 19px;
+            }
+
+            .committee-card__name {
+                font-size: 15px;
+            }
+
+            .committee-row-top .committee-col {
+                flex: 0 1 260px;
+            }
+
+            .committee-row-officers .committee-col {
+                flex: 0 1 180px;
+            }
+
+            .committee-grid-exec {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 18px;
+            }
+
+            .committee-tier-heading {
+                font-size: 20px;
+                margin-bottom: 36px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .committee-row-officers {
+                gap: 18px;
+            }
+
+            .committee-row-officers .committee-col {
+                flex: 0 1 100%;
+                max-width: 280px;
+            }
+
+            .committee-grid-exec {
+                grid-template-columns: 1fr 1fr;
+                gap: 14px;
+            }
+
+            .committee-card__role {
+                font-size: 10px;
+                padding: 5px 14px;
+            }
+
+            .committee-card {
+                padding: 14px 12px 18px;
+                border-radius: 16px;
+            }
+
+            .committee-card__photo {
+                border-radius: 12px;
             }
         }
 
         @media (max-width: 380px) {
-            .faculty-card__name {
+            .committee-grid-exec {
+                grid-template-columns: 1fr;
+            }
+
+            .committee-card__name {
                 font-size: 15px;
+            }
+
+            .committee-row-top .committee-col {
+                flex: 0 1 100%;
+                max-width: 300px;
             }
         }
     </style>
@@ -246,7 +528,7 @@
 
 
 
-    <!--===== INVITED FACULTY AREA STARTS =======-->
+    <!--===== COMMITTEE AREA STARTS =======-->
     <div class="invited-faculty sp1">
         <div class="container">
             <div class="row align-items-center">
@@ -274,119 +556,192 @@
                 </div>
             </div>
 
-            <section class="faculty-section">
-                <div class="container">
-                    <div class="row g-4">
+            <section class="committee-section">
 
-                        <!-- Dr. Hemant Sant -->
-                        <div class="col-lg-4 col-md-6">
-                            <article class="faculty-card" data-aos="fade-up" data-aos-duration="800">
-                                <div class="faculty-card__photo">
-                                    <img src="/assets/img/faculty/hemant-sant.jpeg" alt="Dr. Hemant Sant" loading="lazy">
-                                </div>
-                                <h3 class="faculty-card__name">Dr. Hemant Sant</h3>
-                            </article>
-                        </div>
+                <!-- ========== OFFICE BEARERS ========== -->
+                <h3 class="committee-tier-heading" data-aos="fade-up" data-aos-duration="700">Office Bearers</h3>
 
-                        <!-- Dr. Santosh Sontakke -->
-                        <div class="col-lg-4 col-md-6">
-                            <article class="faculty-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
-                                <div class="faculty-card__photo">
-                                    <img src="/assets/img/faculty/santosh-sontakke.jpeg" alt="Dr. Santosh Sontakke" loading="lazy">
-                                </div>
-                                <h3 class="faculty-card__name">Dr. Santosh Sontakke</h3>
-                            </article>
-                        </div>
+                <!-- Top Tier: President Emeritus & President -->
+                <div class="committee-row-top">
 
-                        <!-- Dr. Sudhir Kothari -->
-                        <div class="col-lg-4 col-md-6">
-                            <article class="faculty-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-                                <div class="faculty-card__photo">
-                                    <img src="/assets/img/faculty/sudhir-kothari.jpeg" alt="Dr. Sudhir Kothari" loading="lazy">
-                                </div>
-                                <h3 class="faculty-card__name">Dr. Sudhir Kothari</h3>
-                            </article>
-                        </div>
-
-                        <!-- Dr. Amit Pande -->
-                        <div class="col-lg-4 col-md-6">
-                            <article class="faculty-card" data-aos="fade-up" data-aos-duration="800">
-                                <div class="faculty-card__photo">
-                                    <img src="/assets/img/faculty/amit-pande.jpeg" alt="Dr. Amit Pande" loading="lazy">
-                                </div>
-                                <h3 class="faculty-card__name">Dr. Amit Pande</h3>
-                            </article>
-                        </div>
-
-                        <!-- Dr. Dhairyashil Saste -->
-                        <div class="col-lg-4 col-md-6">
-                            <article class="faculty-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
-                                <div class="faculty-card__photo">
-                                    <img src="/assets/img/faculty/dhairyashil-saste.jpeg" alt="Dr. Dhairyashil Saste" loading="lazy">
-                                </div>
-                                <h3 class="faculty-card__name">Dr. Dhairyashil Saste</h3>
-                            </article>
-                        </div>
-
-                        <!-- Dr. Mangesh Udar -->
-                        <div class="col-lg-4 col-md-6">
-                            <article class="faculty-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-                                <div class="faculty-card__photo">
-                                    <img src="/assets/img/faculty/mangesh-udar.jpeg" alt="Dr. Mangesh Udar" loading="lazy">
-                                </div>
-                                <h3 class="faculty-card__name">Dr. Mangesh Udar</h3>
-                            </article>
-                        </div>
-
-                        <!-- Dr. Pradeep Divate -->
-                        <div class="col-lg-4 col-md-6">
-                            <article class="faculty-card" data-aos="fade-up" data-aos-duration="800">
-                                <div class="faculty-card__photo">
-                                    <img src="/assets/img/faculty/pradeep-divate.jpeg" alt="Dr. Pradeep Divate" loading="lazy">
-                                </div>
-                                <h3 class="faculty-card__name">Dr. Pradeep Divate</h3>
-                            </article>
-                        </div>
-
-                        <!-- Dr. Prajwal Rao -->
-                        <div class="col-lg-4 col-md-6">
-                            <article class="faculty-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
-                                <div class="faculty-card__photo">
-                                    <img src="/assets/img/faculty/prajwal-rao.jpeg" alt="Dr. Prajwal Rao" loading="lazy">
-                                </div>
-                                <h3 class="faculty-card__name">Dr. Prajwal Rao</h3>
-                            </article>
-                        </div>
-
-                        <!-- Dr. Shripad Pujari -->
-                        <div class="col-lg-4 col-md-6">
-                            <article class="faculty-card" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
-                                <div class="faculty-card__photo">
-                                    <img src="/assets/img/faculty/shripad-pujari.jpeg" alt="Dr. Shripad Pujari" loading="lazy">
-                                </div>
-                                <h3 class="faculty-card__name">Dr. Shripad Pujari</h3>
-                            </article>
-                        </div>
-
-                        <!-- Dr. Nandan Yardi -->
-                        <div class="col-lg-4 col-md-6">
-                            <article class="faculty-card" data-aos="fade-up" data-aos-duration="800">
-                                <div class="faculty-card__photo">
-                                    <img src="/assets/img/faculty/nandan-yardi.jpeg" alt="Dr. Nandan Yardi" loading="lazy">
-                                </div>
-                                <h3 class="faculty-card__name">Dr. Nandan Yardi</h3>
-                            </article>
-                        </div>
-
+                    <!-- Dr. RS Wadia - President Emeritus -->
+                    <div class="committee-col" data-aos="fade-up" data-aos-duration="800">
+                        <article class="committee-card committee-card--prominent">
+                            <div class="committee-card__photo">
+                                <img src="/assets/img/logo/21-Logo.png" alt="Dr. RS Wadia" loading="lazy"
+                                     style="object-fit: contain; padding: 20px; background: #02111A;">
+                            </div>
+                            <span class="committee-card__role role--president">President Emeritus</span>
+                            <h3 class="committee-card__name">Dr. RS Wadia</h3>
+                        </article>
                     </div>
+
+                    <!-- Dr. Rahul Kulkarni - President -->
+                    <div class="committee-col" data-aos="fade-up" data-aos-duration="800" data-aos-delay="150">
+                        <article class="committee-card committee-card--prominent">
+                            <div class="committee-card__photo">
+                                <img src="/assets/img/logo/21-Logo.png" alt="Dr. Rahul Kulkarni" loading="lazy"
+                                     style="object-fit: contain; padding: 20px; background: #02111A;">
+                            </div>
+                            <span class="committee-card__role role--president">President</span>
+                            <h3 class="committee-card__name">Dr. Rahul Kulkarni</h3>
+                        </article>
+                    </div>
+
                 </div>
+
+                <!-- Second Tier: VP / Secretary / Joint Secretary / Treasurer -->
+                <div class="committee-row-officers">
+
+                    <!-- Dr. Mangesh Udar - Vice President -->
+                    <div class="committee-col" data-aos="fade-up" data-aos-duration="800">
+                        <article class="committee-card">
+                            <div class="committee-card__photo">
+                                <img src="/assets/img/faculty/mangesh-udar.jpeg" alt="Dr. Mangesh Udar" loading="lazy">
+                            </div>
+                            <span class="committee-card__role role--officer">Vice President</span>
+                            <h3 class="committee-card__name">Dr. Mangesh Udar</h3>
+                        </article>
+                    </div>
+
+                    <!-- Dr. Shripad Pujari - Secretary -->
+                    <div class="committee-col" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                        <article class="committee-card">
+                            <div class="committee-card__photo">
+                                <img src="/assets/img/faculty/shripad-pujari.jpeg" alt="Dr. Shripad Pujari" loading="lazy">
+                            </div>
+                            <span class="committee-card__role role--officer">Secretary</span>
+                            <h3 class="committee-card__name">Dr. Shripad Pujari</h3>
+                        </article>
+                    </div>
+
+                    <!-- Dr. Prajwal Rao - Joint Secretary -->
+                    <div class="committee-col" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                        <article class="committee-card">
+                            <div class="committee-card__photo">
+                                <img src="/assets/img/faculty/prajwal-rao.jpeg" alt="Dr. Prajwal Rao" loading="lazy">
+                            </div>
+                            <span class="committee-card__role role--officer">Joint Secretary</span>
+                            <h3 class="committee-card__name">Dr. Prajwal Rao</h3>
+                        </article>
+                    </div>
+
+                    <!-- Dr. Nilesh Bhandari - Treasurer -->
+                    <div class="committee-col" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                        <article class="committee-card">
+                            <div class="committee-card__photo">
+                                <img src="/assets/img/logo/21-Logo.png" alt="Dr. Nilesh Bhandari" loading="lazy"
+                                     style="object-fit: contain; padding: 20px; background: #02111A;">
+                            </div>
+                            <span class="committee-card__role role--officer">Treasurer</span>
+                            <h3 class="committee-card__name">Dr. Nilesh Bhandari</h3>
+                        </article>
+                    </div>
+
+                </div>
+
+                <!-- ========== EXECUTIVE COMMITTEE ========== -->
+                <h3 class="committee-tier-heading" data-aos="fade-up" data-aos-duration="700">Executive Committee</h3>
+
+                <div class="committee-grid-exec">
+
+                    <!-- Dr. Amitkumar Pande -->
+                    <div data-aos="fade-up" data-aos-duration="800">
+                        <article class="committee-card">
+                            <div class="committee-card__photo">
+                                <img src="/assets/img/faculty/amit-pande.jpeg" alt="Dr. Amitkumar Pande" loading="lazy">
+                            </div>
+                            <span class="committee-card__role role--executive">Executive Member</span>
+                            <h3 class="committee-card__name">Dr. Amitkumar Pande</h3>
+                        </article>
+                    </div>
+
+                    <!-- Dr. Dhairyasheel Saste -->
+                    <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                        <article class="committee-card">
+                            <div class="committee-card__photo">
+                                <img src="/assets/img/faculty/dhairyashil-saste.jpeg" alt="Dr. Dhairyasheel Saste" loading="lazy">
+                            </div>
+                            <span class="committee-card__role role--executive">Executive Member</span>
+                            <h3 class="committee-card__name">Dr. Dhairyasheel Saste</h3>
+                        </article>
+                    </div>
+
+                    <!-- Dr. Hemant Sant -->
+                    <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                        <article class="committee-card">
+                            <div class="committee-card__photo">
+                                <img src="/assets/img/faculty/hemant-sant.jpeg" alt="Dr. Hemant Sant" loading="lazy">
+                            </div>
+                            <span class="committee-card__role role--executive">Executive Member</span>
+                            <h3 class="committee-card__name">Dr. Hemant Sant</h3>
+                        </article>
+                    </div>
+
+                    <!-- Dr. Nandan Yardi -->
+                    <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                        <article class="committee-card">
+                            <div class="committee-card__photo">
+                                <img src="/assets/img/faculty/nandan-yardi.jpeg" alt="Dr. Nandan Yardi" loading="lazy">
+                            </div>
+                            <span class="committee-card__role role--executive">Executive Member</span>
+                            <h3 class="committee-card__name">Dr. Nandan Yardi</h3>
+                        </article>
+                    </div>
+
+                    <!-- Dr. Santosh Sontakke -->
+                    <div data-aos="fade-up" data-aos-duration="800">
+                        <article class="committee-card">
+                            <div class="committee-card__photo">
+                                <img src="/assets/img/faculty/santosh-sontakke.jpeg" alt="Dr. Santosh Sontakke" loading="lazy">
+                            </div>
+                            <span class="committee-card__role role--executive">Executive Member</span>
+                            <h3 class="committee-card__name">Dr. Santosh Sontakke</h3>
+                        </article>
+                    </div>
+
+                    <!-- Dr. Satish Nirhale -->
+                    <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                        <article class="committee-card">
+                            <div class="committee-card__photo">
+                                <img src="/assets/img/logo/21-Logo.png" alt="Dr. Satish Nirhale" loading="lazy"
+                                     style="object-fit: contain; padding: 20px; background: #02111A;">
+                            </div>
+                            <span class="committee-card__role role--executive">Executive Member</span>
+                            <h3 class="committee-card__name">Dr. Satish Nirhale</h3>
+                        </article>
+                    </div>
+
+                    <!-- Dr. Sunil Bandishti -->
+                    <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                        <article class="committee-card">
+                            <div class="committee-card__photo">
+                                <img src="/assets/img/logo/21-Logo.png" alt="Dr. Sunil Bandishti" loading="lazy"
+                                     style="object-fit: contain; padding: 20px; background: #02111A;">
+                            </div>
+                            <span class="committee-card__role role--executive">Executive Member</span>
+                            <h3 class="committee-card__name">Dr. Sunil Bandishti</h3>
+                        </article>
+                    </div>
+
+                    <!-- Dr. Sudhir Kothari -->
+                    <div data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                        <article class="committee-card">
+                            <div class="committee-card__photo">
+                                <img src="/assets/img/faculty/sudhir-kothari.jpeg" alt="Dr. Sudhir Kothari" loading="lazy">
+                            </div>
+                            <span class="committee-card__role role--executive">Executive Member</span>
+                            <h3 class="committee-card__name">Dr. Sudhir Kothari</h3>
+                        </article>
+                    </div>
+
+                </div>
+
             </section>
-
-
 
         </div>
     </div>
-    <!--===== INVITED FACULTY AREA ENDS =======-->
+    <!--===== COMMITTEE AREA ENDS =======-->
 
     <!--===== FOOTER AREA STARTS =======-->
     <div class="vl-footer7-section-area">

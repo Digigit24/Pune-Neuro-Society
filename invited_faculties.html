@@ -26,19 +26,19 @@
 
   <style>
     .faculty-section {
-      padding: 48px 0;
-      background: var(--ztc-bg-bg-15);
+      padding: 60px 0 80px;
+      background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 100%);
     }
 
     .faculty-card {
       text-align: center;
-      padding: 12px;
-      border-radius: 14px;
-      border: 1px solid var(--ztc-border-border-1);
-      background: linear-gradient(135deg, var(--ztc-bg-bg-1), var(--ztc-bg-bg-19));
-      box-shadow: 0 10px 26px rgba(2, 17, 26, .08);
+      padding: 20px 16px;
+      border-radius: 20px;
+      border: 1px solid rgba(9, 30, 66, .08);
+      background: #fff;
+      box-shadow: 0 4px 20px rgba(2, 17, 26, .06);
       overflow: hidden;
-      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      transition: transform .3s ease, box-shadow .3s ease;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -46,19 +46,24 @@
     }
 
     .faculty-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(8, 82, 161, .35);
-      box-shadow: 0 18px 42px rgba(2, 17, 26, .14);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(2, 17, 26, .14);
     }
 
     .faculty-card__photo {
-      width: 100%;
-      aspect-ratio: 4 / 4;
-      border-radius: 10px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
       overflow: hidden;
-      background: var(--ztc-bg-bg-11);
-      border: 1px solid rgba(9, 30, 66, .10);
-      margin-bottom: 12px;
+      background: #e8eef3;
+      border: 4px solid #e0e7ef;
+      margin-bottom: 20px;
+      flex-shrink: 0;
+      transition: border-color .3s;
+    }
+
+    .faculty-card:hover .faculty-card__photo {
+      border-color: #007bff;
     }
 
     .faculty-card__photo img {
@@ -71,36 +76,44 @@
 
     .faculty-card__name {
       margin: 0;
-      font-size: 16px;
+      font-size: 18px;
       line-height: 1.3;
       font-weight: 800;
-      color: var(--ztc-text-text-8);
+      color: #02111A;
     }
 
     .faculty-card__role {
-      margin: 4px 0 0;
+      margin: 8px 0 0;
       font-size: 13px;
+      font-weight: 500;
+      color: #5a6a7a;
+      line-height: 1.5;
+      padding: 0 8px;
+    }
+
+    .faculty-card__institution {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 4px 14px;
+      background: rgba(0, 123, 255, 0.08);
+      color: #007bff;
+      border-radius: 20px;
+      font-size: 12px;
       font-weight: 600;
-      color: var(--ztc-text-text-3);
     }
 
     @media (max-width: 767px) {
       .faculty-card {
-        padding: 12px;
+        padding: 16px 12px;
       }
 
       .faculty-card__photo {
-        aspect-ratio: 3 / 4;
+        width: 130px;
+        height: 130px;
       }
 
       .faculty-card__name {
         font-size: 16px;
-      }
-    }
-
-    @media (max-width: 380px) {
-      .faculty-card__name {
-        font-size: 15px;
       }
     }
   </style>
@@ -273,16 +286,15 @@
               </svg> Faculty
             </h5>
             <div class="space16"></div>
-            <h2 class="vl-section-title" data-aos="zoom-in" data-aos-duration="1000">Meet Our Esteemed
-              Faculty Members
-            </h2>
+            <h2 class="vl-section-title" data-aos="zoom-in" data-aos-duration="1000">Distinguished Invited Faculty</h2>
+            <p style="color: #5a6a7a; margin-top: 16px; font-size: 16px;" data-aos="fade-up" data-aos-duration="1100">World-renowned neurologists and neuroscientists who have graced our platform</p>
           </div>
         </div>
       </div>
 
       <section class="faculty-section">
         <div class="container">
-          <div class="row g-4">
+          <div class="row g-4 justify-content-center">
 
             <!-- Dr. Catherine Albin -->
             <div class="col-lg-4 col-md-6">
@@ -291,7 +303,8 @@
                   <img src="/assets/img/logo/albin.jpg" alt="Dr. Catherine Albin" loading="lazy">
                 </div>
                 <h3 class="faculty-card__name">Dr. Catherine Albin</h3>
-                <p class="faculty-card__role">Neurointensivist, Emory University School of Medicine</p>
+                <p class="faculty-card__role">Neurointensivist</p>
+                <span class="faculty-card__institution">Emory University School of Medicine</span>
               </article>
             </div>
 
@@ -302,7 +315,8 @@
                   <img src="/assets/img/logo/steven.jpg" alt="Prof. Steven L Lewis" loading="lazy">
                 </div>
                 <h3 class="faculty-card__name">Prof. Steven L Lewis</h3>
-                <p class="faculty-card__role">Secretary-General, World Federation of Neurology (WFN)</p>
+                <p class="faculty-card__role">Secretary-General, World Federation of Neurology</p>
+                <span class="faculty-card__institution">WFN</span>
               </article>
             </div>
 
@@ -313,7 +327,8 @@
                   <img src="/assets/img/logo/ashish.jpg" alt="Dr. Ashish Atre" loading="lazy">
                 </div>
                 <h3 class="faculty-card__name">Dr. Ashish Atre</h3>
-                <p class="faculty-card__role">Senior Consultant Neuro-Radiology and Paediatric Imaging</p>
+                <p class="faculty-card__role">Senior Consultant Neuro-Radiology & Paediatric Imaging</p>
+                <span class="faculty-card__institution">Pune</span>
               </article>
             </div>
 
@@ -324,7 +339,8 @@
                   <img src="/assets/img/logo/neeraj.jpg" alt="Prof. Neeraj Kumar" loading="lazy">
                 </div>
                 <h3 class="faculty-card__name">Prof. Neeraj Kumar</h3>
-                <p class="faculty-card__role">Professor of Neurology, Mayo Clinic Alix School of Medicine</p>
+                <p class="faculty-card__role">Professor of Neurology</p>
+                <span class="faculty-card__institution">Mayo Clinic Alix School of Medicine</span>
               </article>
             </div>
 
@@ -336,6 +352,7 @@
                 </div>
                 <h3 class="faculty-card__name">Dr. Sharath Kumar</h3>
                 <p class="faculty-card__role">Interventional Neuro-Radiologist</p>
+                <span class="faculty-card__institution">5000+ Endovascular Procedures</span>
               </article>
             </div>
 
@@ -346,7 +363,8 @@
                   <img src="/assets/img/logo/shashank.png" alt="Prof. Sashank Prasad" loading="lazy">
                 </div>
                 <h3 class="faculty-card__name">Prof. Sashank Prasad</h3>
-                <p class="faculty-card__role">Professor of Clinical Neurology, Penn Medicine, Philadelphia</p>
+                <p class="faculty-card__role">Professor of Clinical Neurology</p>
+                <span class="faculty-card__institution">Penn Medicine, Philadelphia</span>
               </article>
             </div>
 
