@@ -25,18 +25,18 @@
         .vl-main-menu nav ul li a { display:inline-flex; align-items:center; gap:4px; font-weight:600; text-decoration:none; }
         .vl-offcanvas-logo img { background-color:#02111A; padding:10px; border-radius:5px; }
 
-        .conf-hero { position:relative; background:linear-gradient(135deg,#02111A 0%,#0a3d62 50%,#1a5276 100%); padding:180px 0 100px; text-align:center; color:#fff; overflow:hidden; }
-        .conf-hero::before { content:''; position:absolute; inset:0; background:url('/assets/img/homepage/news-2.jpg') center/cover no-repeat; opacity:0.12; }
+        .conf-hero { position:relative; background:linear-gradient(135deg,#02111A 0%,#0a3d62 40%,#0e6655 100%); padding:180px 0 110px; text-align:center; color:#fff; overflow:hidden; }
+        .conf-hero::before { content:''; position:absolute; inset:0; background:url('/assets/img/homepage/news-2.jpg') center/cover no-repeat; opacity:0.15; }
+        .conf-hero::after { content:''; position:absolute; bottom:0; left:0; right:0; height:120px; background:linear-gradient(180deg,transparent,rgba(2,17,26,.6)); }
         .conf-hero .container { position:relative; z-index:2; }
-        .conf-hero__badge { display:inline-block; background:rgba(0,123,255,.2); border:1px solid rgba(0,123,255,.4); color:#5dade2; padding:6px 20px; border-radius:30px; font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:20px; }
+        .conf-hero__badge { display:inline-block; background:rgba(46,204,113,.2); border:1px solid rgba(46,204,113,.5); color:#2ecc71; padding:8px 24px; border-radius:30px; font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:20px; animation:pulse 2s infinite; }
+        @keyframes pulse { 0%,100%{box-shadow:0 0 0 0 rgba(46,204,113,.3);} 50%{box-shadow:0 0 0 12px rgba(46,204,113,0);} }
         .conf-hero h1 { font-size:4rem; font-weight:900; letter-spacing:-2px; margin-bottom:10px; }
         .conf-hero h1 span { color:#5dade2; }
         .conf-hero__subtitle { font-size:1.15rem; color:rgba(255,255,255,.8); max-width:700px; margin:0 auto 30px; line-height:1.6; }
         .conf-hero__meta { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; margin-bottom:36px; }
         .conf-hero__meta-item { display:flex; align-items:center; gap:10px; font-size:1.05rem; color:rgba(255,255,255,.9); }
-        .conf-hero__meta-item i { font-size:1.2rem; color:#5dade2; }
-        .conf-hero__cta { display:inline-block; background:linear-gradient(135deg,#007bff,#0056b3); color:#fff; padding:16px 44px; border-radius:50px; font-weight:700; font-size:1rem; text-decoration:none; transition:all .3s; box-shadow:0 8px 30px rgba(0,123,255,.3); }
-        .conf-hero__cta:hover { transform:translateY(-3px); box-shadow:0 14px 40px rgba(0,123,255,.45); color:#fff; }
+        .conf-hero__meta-item i { font-size:1.2rem; color:#2ecc71; }
 
         .conf-section { padding:80px 0; }
         .conf-section--alt { background:#f5f8fb; }
@@ -46,7 +46,7 @@
         .conf-section--dark .conf-section__heading h2 { color:#fff; }
         .conf-section__heading p { color:#5a6a7a; font-size:1.05rem; }
         .conf-section--dark .conf-section__heading p { color:rgba(255,255,255,.7); }
-        .conf-section__heading .line { width:60px; height:4px; background:linear-gradient(90deg,#007bff,#5dade2); border-radius:2px; margin:16px auto 0; }
+        .conf-section__heading .line { width:80px; height:4px; background:linear-gradient(90deg,#007bff,#2ecc71); border-radius:2px; margin:16px auto 0; }
 
         .welcome-text { max-width:850px; margin:0 auto; text-align:center; font-size:1.08rem; color:#444; line-height:1.9; }
         .welcome-text p { margin-bottom:20px; }
@@ -55,8 +55,10 @@
         .welcome-contact a:hover { color:#0056b3; }
 
         .faculty-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:28px; }
-        .faculty-item { background:#fff; border-radius:18px; padding:30px 20px 24px; text-align:center; box-shadow:0 4px 20px rgba(0,0,0,.06); transition:transform .3s, box-shadow .3s; border:1px solid #eef2f7; }
-        .faculty-item:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(0,0,0,.12); }
+        .faculty-item { background:#fff; border-radius:18px; padding:30px 20px 24px; text-align:center; box-shadow:0 4px 20px rgba(0,0,0,.06); transition:transform .3s, box-shadow .3s; border:1px solid #eef2f7; position:relative; overflow:hidden; }
+        .faculty-item::before { content:''; position:absolute; top:0; left:0; right:0; height:4px; background:linear-gradient(90deg,#007bff,#2ecc71); opacity:0; transition:opacity .3s; }
+        .faculty-item:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(0,123,255,.15); }
+        .faculty-item:hover::before { opacity:1; }
         .faculty-item__photo { width:110px; height:110px; border-radius:50%; overflow:hidden; margin:0 auto 16px; border:3px solid #e0e7ef; transition:border-color .3s; background:#e8eef3; }
         .faculty-item:hover .faculty-item__photo { border-color:#007bff; }
         .faculty-item__photo img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
@@ -67,23 +69,30 @@
 
         .oc-section { padding:60px 0; background:#fff; }
         .oc-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:16px; margin-bottom:30px; }
-        .oc-card { background:#f8fafc; border:1px solid #eef2f7; border-radius:12px; padding:16px 20px; text-align:center; min-width:180px; flex:0 1 200px; transition:box-shadow .3s; }
-        .oc-card:hover { box-shadow:0 8px 24px rgba(0,0,0,.08); }
+        .oc-card { background:linear-gradient(135deg,#fff,#f0f7ff); border:1px solid #d4e4f1; border-radius:14px; padding:20px 22px; text-align:center; min-width:180px; flex:0 1 200px; transition:all .3s; border-top:3px solid #007bff; }
+        .oc-card:hover { box-shadow:0 12px 30px rgba(0,123,255,.12); transform:translateY(-3px); }
         .oc-card__role { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; color:#007bff; margin-bottom:6px; }
         .oc-card__name { font-size:.9rem; font-weight:700; color:#02111A; }
         .oc-members { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:10px; }
-        .oc-members .name-tag { display:inline-block; background:#f0f4f8; border:1px solid #dce3eb; border-radius:8px; padding:8px 16px; font-size:.88rem; font-weight:600; color:#02111A; transition:all .2s; }
-        .oc-members .name-tag:hover { background:#007bff; color:#fff; border-color:#007bff; }
+        .oc-members .name-tag { display:inline-block; background:linear-gradient(135deg,#f0f7ff,#e8f4fd); border:1px solid #c8ddf0; border-radius:8px; padding:8px 16px; font-size:.88rem; font-weight:600; color:#02111A; transition:all .25s; border-left:3px solid #007bff; }
+        .oc-members .name-tag:hover { background:linear-gradient(135deg,#007bff,#0056b3); color:#fff; border-color:#007bff; transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,123,255,.25); }
 
         .national-grid { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; max-width:1000px; margin:0 auto; }
-        .national-grid .name-tag { display:inline-block; background:#fff; border:1px solid #dce3eb; border-radius:8px; padding:8px 16px; font-size:.85rem; font-weight:600; color:#02111A; transition:all .2s; box-shadow:0 2px 6px rgba(0,0,0,.03); }
-        .national-grid .name-tag:hover { background:#007bff; color:#fff; border-color:#007bff; }
+        .national-grid .name-tag { display:inline-block; background:#fff; border:1px solid #d4e4f1; border-radius:8px; padding:8px 16px; font-size:.85rem; font-weight:600; color:#02111A; transition:all .25s; box-shadow:0 2px 8px rgba(0,0,0,.04); border-left:3px solid #17a2b8; }
+        .national-grid .name-tag:hover { background:linear-gradient(135deg,#17a2b8,#138496); color:#fff; border-color:#17a2b8; transform:translateY(-2px); box-shadow:0 4px 12px rgba(23,162,184,.25); }
         .national-grid .name-tag small { font-weight:400; color:#5a6a7a; margin-left:4px; }
         .national-grid .name-tag:hover small { color:rgba(255,255,255,.8); }
 
+        .logos-bar { padding:40px 0; background:#fff; border-top:1px solid #eef2f7; border-bottom:1px solid #eef2f7; }
+        .logos-bar__inner { display:flex; align-items:center; justify-content:center; gap:40px; flex-wrap:wrap; }
+        .logos-bar__item { display:flex; align-items:center; gap:12px; padding:12px 24px; background:#f8fafc; border-radius:12px; border:1px solid #e8eef3; }
+        .logos-bar__item img { height:50px; width:auto; }
+        .logos-bar__item span { font-size:.85rem; font-weight:700; color:#02111A; line-height:1.3; }
+
         .schedule-tabs { display:flex; justify-content:center; gap:12px; margin-bottom:40px; flex-wrap:wrap; }
-        .schedule-tab { padding:12px 28px; border-radius:50px; font-weight:700; font-size:.95rem; cursor:pointer; border:2px solid #dee2e6; background:#fff; color:#333; transition:all .3s; }
-        .schedule-tab.active, .schedule-tab:hover { background:#007bff; color:#fff; border-color:#007bff; }
+        .schedule-tab { padding:14px 32px; border-radius:50px; font-weight:700; font-size:.95rem; cursor:pointer; border:2px solid #c8ddf0; background:#fff; color:#333; transition:all .3s; box-shadow:0 2px 8px rgba(0,0,0,.04); }
+        .schedule-tab.active { background:linear-gradient(135deg,#007bff,#0056b3); color:#fff; border-color:#007bff; box-shadow:0 6px 20px rgba(0,123,255,.3); }
+        .schedule-tab:hover:not(.active) { border-color:#007bff; color:#007bff; background:#f0f7ff; }
         .schedule-day { display:none; }
         .schedule-day.active { display:block; }
         .schedule-item { display:flex; gap:20px; padding:18px 24px; border-radius:12px; background:#fff; margin-bottom:12px; box-shadow:0 2px 10px rgba(0,0,0,.04); border-left:4px solid #007bff; align-items:center; transition:box-shadow .3s; }
@@ -179,6 +188,17 @@
             </div>
         </div>
     </section>
+    <div class="logos-bar" data-aos="fade-up" data-aos-duration="600">
+        <div class="container">
+            <div class="logos-bar__inner">
+                <div class="logos-bar__item"><img src="/assets/img/logo/21-Logo.png" alt="NSP"><span>Neurological Society<br>of Pune</span></div>
+                <div class="logos-bar__item"><span style="font-size:1.4rem;color:#e67e22;">&#9764;</span><span>Indian Academy<br>of Neurology</span></div>
+                <div class="logos-bar__item"><span style="font-size:1.4rem;color:#007bff;">&#9883;</span><span>ICTRIMS</span></div>
+                <div class="logos-bar__item"><span style="font-size:1.4rem;color:#e74c3c;">&#10010;</span><span>European Charcot<br>Foundation</span></div>
+            </div>
+        </div>
+    </div>
+
     <section class="conf-section">
         <div class="container">
             <div class="conf-section__heading" data-aos="fade-up"><h2>Welcome to ICTRIMS 2026</h2><div class="line"></div></div>
@@ -310,39 +330,6 @@
                     </ul>
                 </div>
             </div></div>
-        </div>
-    </section>
-
-    <section class="conf-section conf-section--dark" id="registration">
-        <div class="container">
-            <div class="conf-section__heading" data-aos="fade-up"><h2>Registration</h2><p>Secure your spot at ICTRIMS 2026</p><div class="line"></div></div>
-            <div class="row justify-content-center" data-aos="fade-up" data-aos-delay="100">
-                <div class="col-lg-9">
-                    <table class="reg-table">
-                        <thead><tr><th class="cat-col">Category</th><th>Early Bird<br><small>Till Apr 30</small></th><th>Regular<br><small>Till May 31</small></th><th>Spot<br><small>After Jun 1</small></th></tr></thead>
-                        <tbody>
-                            <tr><td class="cat-col">Consultant</td><td>&#8377;10,000</td><td>&#8377;12,000</td><td>&#8377;15,000</td></tr>
-                            <tr><td class="cat-col">PG Student</td><td>&#8377;5,000</td><td>&#8377;6,000</td><td>&#8377;8,000</td></tr>
-                            <tr><td class="cat-col">Accompanying Person</td><td>&#8377;7,000</td><td>&#8377;9,000</td><td>&#8377;12,000</td></tr>
-                        </tbody>
-                    </table>
-                    <h4 style="text-align:center;margin:40px 0 20px;color:#fff;font-weight:700;">Accommodation (3N/4D Package)</h4>
-                    <table class="reg-table">
-                        <thead><tr><th class="cat-col">Room Type</th><th>Early Bird<br><small>Till Apr 30</small></th><th>Regular<br><small>Till May 31</small></th><th>Spot<br><small>After Jun 1</small></th></tr></thead>
-                        <tbody>
-                            <tr><td class="cat-col">Single Room</td><td>&#8377;50,000</td><td>&#8377;60,000</td><td>N/A</td></tr>
-                            <tr><td class="cat-col">Twin Sharing (per person)</td><td>&#8377;30,000</td><td>&#8377;33,000</td><td>N/A</td></tr>
-                            <tr><td class="cat-col">Double Room (Delegate + Spouse)</td><td>&#8377;60,000</td><td>&#8377;70,000</td><td>N/A</td></tr>
-                        </tbody>
-                    </table>
-                    <div style="margin-top:28px;color:rgba(255,255,255,.7);font-size:.88rem;line-height:1.8;">
-                        <p>&bull; Cheque / DD favouring <strong>Neurological Society of Pune</strong>, payable at Pune. Add &#8377;100 for outstation cheques.</p>
-                        <p>&bull; Accommodation: 2 PM Thu, June 11 to 10 AM Sun, June 14. Does NOT include Registration Fees.</p>
-                        <p>&bull; Registration includes Lunches (Fri-Sun) and Dinner (Fri &amp; Sat). Accommodation includes breakfast (Fri-Sun).</p>
-                        <p>&bull; PG Students must attach a letter from the Head of the Department.</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
