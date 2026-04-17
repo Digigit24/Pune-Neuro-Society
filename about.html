@@ -337,8 +337,8 @@
         }
 
         .video-section {
-            padding: 80px 0;
-            background: var(--light-bg);
+            padding: 80px 0 100px;
+            background: linear-gradient(180deg, #f0f4f8 0%, #e8eef3 100%);
         }
 
         .video-section .section-heading {
@@ -365,23 +365,35 @@
             color: var(--secondary-color);
         }
 
+        .video-carousel-wrapper {
+            position: relative;
+            padding: 0 60px;
+        }
+
         .video-carousel .slick-slide {
-            padding: 0 12px;
+            padding: 0 14px;
         }
 
         .video-carousel .slick-list {
-            margin: 0 -12px;
+            margin: 0 -14px;
+            overflow: hidden;
         }
 
         .video-facade {
             position: relative;
             width: 100%;
             aspect-ratio: 16 / 9;
-            border-radius: 14px;
+            border-radius: 16px;
             overflow: hidden;
             cursor: pointer;
-            box-shadow: 0 8px 28px rgba(2, 17, 26, .12);
+            box-shadow: 0 8px 30px rgba(2, 17, 26, .14);
             background: #000;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+
+        .video-facade:hover {
+            box-shadow: 0 16px 48px rgba(2, 17, 26, .22);
+            transform: translateY(-4px);
         }
 
         .video-facade__thumb {
@@ -389,11 +401,11 @@
             height: 100%;
             object-fit: cover;
             display: block;
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
         }
 
         .video-facade:hover .video-facade__thumb {
-            transform: scale(1.05);
+            transform: scale(1.06);
         }
 
         .video-facade__play {
@@ -401,10 +413,10 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 64px;
-            height: 64px;
-            background: rgba(255, 0, 0, 0.85);
-            border-radius: 14px;
+            width: 68px;
+            height: 48px;
+            background: rgba(255, 0, 0, 0.9);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -418,26 +430,26 @@
             width: 0;
             height: 0;
             border-style: solid;
-            border-width: 11px 0 11px 20px;
+            border-width: 10px 0 10px 18px;
             border-color: transparent transparent transparent #fff;
             margin-left: 3px;
         }
 
         .video-facade:hover .video-facade__play {
-            background: rgba(255, 0, 0, 1);
-            transform: translate(-50%, -50%) scale(1.1);
+            background: #ff0000;
+            transform: translate(-50%, -50%) scale(1.12);
         }
 
         .video-facade__overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.35) 100%);
+            background: rgba(0, 0, 0, 0.15);
             z-index: 1;
-            transition: opacity 0.3s;
+            transition: background 0.3s;
         }
 
         .video-facade:hover .video-facade__overlay {
-            opacity: 0.6;
+            background: rgba(0, 0, 0, 0.05);
         }
 
         .video-facade iframe {
@@ -449,79 +461,141 @@
             border: 0;
         }
 
-        .video-carousel .slick-prev,
-        .video-carousel .slick-next {
-            width: 48px;
-            height: 48px;
-            background: var(--secondary-color);
+        .video-carousel .slick-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: #fff;
+            border: 2px solid #e0e5ea;
             border-radius: 50%;
             z-index: 3;
-            transition: background 0.3s;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0;
+            padding: 0;
+            outline: none;
+            box-shadow: 0 4px 14px rgba(0,0,0,.1);
+            transition: all 0.3s;
         }
 
-        .video-carousel .slick-prev:hover,
-        .video-carousel .slick-next:hover {
+        .video-carousel .slick-arrow:hover {
             background: var(--primary-color);
+            border-color: var(--primary-color);
+            box-shadow: 0 6px 20px rgba(0, 123, 255, .3);
         }
 
-        .video-carousel .slick-prev { left: -24px; }
-        .video-carousel .slick-next { right: -24px; }
+        .video-carousel .slick-prev {
+            left: -60px;
+        }
 
-        .video-carousel .slick-prev::before,
+        .video-carousel .slick-next {
+            right: -60px;
+        }
+
+        .video-carousel .slick-prev::before {
+            content: '\f053';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 16px;
+            color: var(--secondary-color);
+            transition: color 0.3s;
+        }
+
         .video-carousel .slick-next::before {
-            font-size: 20px;
-            opacity: 1;
+            content: '\f054';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 16px;
+            color: var(--secondary-color);
+            transition: color 0.3s;
+        }
+
+        .video-carousel .slick-arrow:hover::before {
+            color: #fff;
         }
 
         .video-carousel .slick-dots {
-            bottom: -40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            list-style: none;
+            padding: 0;
+            margin: 32px 0 0;
         }
 
-        .video-carousel .slick-dots li button::before {
-            font-size: 10px;
-            color: var(--secondary-color);
+        .video-carousel .slick-dots li {
+            margin: 0;
+            padding: 0;
+            line-height: 0;
         }
 
-        .video-carousel .slick-dots li.slick-active button::before {
-            color: var(--primary-color);
+        .video-carousel .slick-dots li button {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #c5cdd5;
+            border: none;
+            padding: 0;
+            font-size: 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            outline: none;
+        }
+
+        .video-carousel .slick-dots li.slick-active button {
+            background: var(--primary-color);
+            width: 28px;
+            border-radius: 5px;
         }
 
         @media (max-width: 991px) {
-            .video-carousel .slick-prev { left: -10px; }
-            .video-carousel .slick-next { right: -10px; }
+            .video-carousel-wrapper { padding: 0 50px; }
+            .video-carousel .slick-prev { left: -50px; }
+            .video-carousel .slick-next { right: -50px; }
         }
 
         @media (max-width: 767px) {
+            .video-carousel-wrapper { padding: 0 16px; }
+
             .video-facade__play {
-                width: 50px;
-                height: 50px;
-                border-radius: 12px;
+                width: 56px;
+                height: 40px;
+                border-radius: 10px;
             }
 
             .video-facade__play::after {
-                border-width: 9px 0 9px 16px;
+                border-width: 8px 0 8px 14px;
             }
 
             .video-section {
-                padding: 50px 0;
+                padding: 50px 0 70px;
             }
 
             .video-section .section-heading h2 {
                 font-size: 1.75rem;
             }
 
-            .video-carousel .slick-prev,
-            .video-carousel .slick-next {
-                width: 36px;
-                height: 36px;
+            .video-carousel .slick-arrow {
+                width: 38px;
+                height: 38px;
             }
 
-            .video-carousel .slick-prev { left: 2px; }
-            .video-carousel .slick-next { right: 2px; }
+            .video-carousel .slick-prev { left: -12px; }
+            .video-carousel .slick-next { right: -12px; }
 
             .video-carousel .slick-prev::before,
             .video-carousel .slick-next::before {
-                font-size: 16px;
+                font-size: 13px;
+            }
+
+            .video-carousel .slick-dots {
+                margin-top: 24px;
+                gap: 6px;
             }
         }
     </style>
@@ -698,11 +772,12 @@
                 <h2>A Glimpse Into Our Work</h2>
             </div>
 
+            <div class="video-carousel-wrapper">
             <div class="video-carousel">
 
                 <div>
                     <div class="video-facade" data-video-id="zRn8yG2zPuA">
-                        <img src="https://img.youtube.com/vi/zRn8yG2zPuA/hqdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
+                        <img src="https://img.youtube.com/vi/zRn8yG2zPuA/maxresdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
                         <div class="video-facade__overlay"></div>
                         <div class="video-facade__play"></div>
                     </div>
@@ -710,7 +785,7 @@
 
                 <div>
                     <div class="video-facade" data-video-id="j4bUJEGJg6o">
-                        <img src="https://img.youtube.com/vi/j4bUJEGJg6o/hqdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
+                        <img src="https://img.youtube.com/vi/j4bUJEGJg6o/maxresdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
                         <div class="video-facade__overlay"></div>
                         <div class="video-facade__play"></div>
                     </div>
@@ -718,7 +793,7 @@
 
                 <div>
                     <div class="video-facade" data-video-id="8LsWrjMSyPw">
-                        <img src="https://img.youtube.com/vi/8LsWrjMSyPw/hqdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
+                        <img src="https://img.youtube.com/vi/8LsWrjMSyPw/maxresdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
                         <div class="video-facade__overlay"></div>
                         <div class="video-facade__play"></div>
                     </div>
@@ -726,7 +801,7 @@
 
                 <div>
                     <div class="video-facade" data-video-id="ek6P2IYiHDY">
-                        <img src="https://img.youtube.com/vi/ek6P2IYiHDY/hqdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
+                        <img src="https://img.youtube.com/vi/ek6P2IYiHDY/maxresdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
                         <div class="video-facade__overlay"></div>
                         <div class="video-facade__play"></div>
                     </div>
@@ -734,7 +809,7 @@
 
                 <div>
                     <div class="video-facade" data-video-id="3yCnLnzrwsg">
-                        <img src="https://img.youtube.com/vi/3yCnLnzrwsg/hqdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
+                        <img src="https://img.youtube.com/vi/3yCnLnzrwsg/maxresdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
                         <div class="video-facade__overlay"></div>
                         <div class="video-facade__play"></div>
                     </div>
@@ -742,7 +817,7 @@
 
                 <div>
                     <div class="video-facade" data-video-id="LlSymuyMNbc">
-                        <img src="https://img.youtube.com/vi/LlSymuyMNbc/hqdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
+                        <img src="https://img.youtube.com/vi/LlSymuyMNbc/maxresdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
                         <div class="video-facade__overlay"></div>
                         <div class="video-facade__play"></div>
                     </div>
@@ -750,7 +825,7 @@
 
                 <div>
                     <div class="video-facade" data-video-id="WFx31OiPNiE">
-                        <img src="https://img.youtube.com/vi/WFx31OiPNiE/hqdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
+                        <img src="https://img.youtube.com/vi/WFx31OiPNiE/maxresdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
                         <div class="video-facade__overlay"></div>
                         <div class="video-facade__play"></div>
                     </div>
@@ -758,7 +833,7 @@
 
                 <div>
                     <div class="video-facade" data-video-id="KRu6lrQTago">
-                        <img src="https://img.youtube.com/vi/KRu6lrQTago/hqdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
+                        <img src="https://img.youtube.com/vi/KRu6lrQTago/maxresdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
                         <div class="video-facade__overlay"></div>
                         <div class="video-facade__play"></div>
                     </div>
@@ -766,7 +841,7 @@
 
                 <div>
                     <div class="video-facade" data-video-id="n9G_tLtANL4">
-                        <img src="https://img.youtube.com/vi/n9G_tLtANL4/hqdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
+                        <img src="https://img.youtube.com/vi/n9G_tLtANL4/maxresdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
                         <div class="video-facade__overlay"></div>
                         <div class="video-facade__play"></div>
                     </div>
@@ -774,7 +849,7 @@
 
                 <div>
                     <div class="video-facade" data-video-id="pCa9EaMs87w">
-                        <img src="https://img.youtube.com/vi/pCa9EaMs87w/hqdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
+                        <img src="https://img.youtube.com/vi/pCa9EaMs87w/maxresdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
                         <div class="video-facade__overlay"></div>
                         <div class="video-facade__play"></div>
                     </div>
@@ -782,7 +857,7 @@
 
                 <div>
                     <div class="video-facade" data-video-id="Dl9u9CcIJ4o">
-                        <img src="https://img.youtube.com/vi/Dl9u9CcIJ4o/hqdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
+                        <img src="https://img.youtube.com/vi/Dl9u9CcIJ4o/maxresdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
                         <div class="video-facade__overlay"></div>
                         <div class="video-facade__play"></div>
                     </div>
@@ -790,7 +865,7 @@
 
                 <div>
                     <div class="video-facade" data-video-id="xKAvbdNFG2A">
-                        <img src="https://img.youtube.com/vi/xKAvbdNFG2A/hqdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
+                        <img src="https://img.youtube.com/vi/xKAvbdNFG2A/maxresdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
                         <div class="video-facade__overlay"></div>
                         <div class="video-facade__play"></div>
                     </div>
@@ -798,12 +873,13 @@
 
                 <div>
                     <div class="video-facade" data-video-id="xWwDGj1Z7vQ">
-                        <img src="https://img.youtube.com/vi/xWwDGj1Z7vQ/hqdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
+                        <img src="https://img.youtube.com/vi/xWwDGj1Z7vQ/maxresdefault.jpg" alt="NSP Video" class="video-facade__thumb" loading="lazy">
                         <div class="video-facade__overlay"></div>
                         <div class="video-facade__play"></div>
                     </div>
                 </div>
 
+            </div>
             </div>
         </div>
     </section>
