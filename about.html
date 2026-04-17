@@ -155,6 +155,9 @@
         .about-img-wrapper {
             position: relative;
             z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
         }
 
         .about-img-wrapper::before {
@@ -179,8 +182,8 @@
             border-radius: 12px;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
             width: 100%;
-            height: 600px;
-            object-fit: cover;
+            height: auto;
+            display: block;
             transition: transform 0.3s ease;
         }
 
@@ -699,6 +702,7 @@
                 <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
                     <div class="about-img-wrapper">
                         <img src="/assets/aboutus/DSC06282.jpg" alt="NSP Conference Meeting" class="img-fluid">
+                        <img src="/assets/aboutus/DSC06278.jpg" alt="NSP Event" class="img-fluid">
                     </div>
                 </div>
 
@@ -768,8 +772,8 @@
     <section class="video-section">
         <div class="container">
             <div class="section-heading">
-                <h4>Watch</h4>
-                <h2>A Glimpse Into Our Work</h2>
+                <h4>Learn With Us</h4>
+                <h2>Educating & Empowering Through Neurology</h2>
             </div>
 
             <div class="video-carousel-wrapper">
