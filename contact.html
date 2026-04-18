@@ -378,13 +378,21 @@
         }
 
         @media (max-width: 767px) {
-            .contact-info-side {
-                order: 2;
-            }
+            .contact-info-side { order: 2; }
+            .contact-form-side { order: 1; }
+        }
 
-            .contact-form-side {
-                order: 1;
-            }
+        @media (max-width: 576px) {
+            .page-header-area { padding: 100px 0 50px; }
+            .page-header-title { font-size: 1.8rem; }
+            .page-header-subtitle { font-size: .9rem; }
+            .contact-section-wrapper { margin-top: -30px; padding-bottom: 50px; }
+            .contact-info-side { padding: 30px 20px; }
+            .contact-form-side { padding: 30px 20px; }
+            .info-title { font-size: 22px; }
+            .info-item { padding: 12px; margin-bottom: 20px; }
+            .form-floating label { font-size: .85rem; }
+            .social-icons-row { gap: 8px; }
         }
     </style>
 </head>

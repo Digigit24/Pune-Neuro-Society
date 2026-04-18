@@ -103,18 +103,22 @@
     }
 
     @media (max-width: 767px) {
-      .faculty-card {
-        padding: 16px 12px;
-      }
+      .faculty-card { padding: 16px 12px; }
+      .faculty-card__photo { width: 130px; height: 130px; }
+      .faculty-card__name { font-size: 16px; }
+      .vl-section-title { font-size: 1.5rem !important; }
+      .faculty-section { padding: 40px 0 60px; }
+    }
 
-      .faculty-card__photo {
-        width: 130px;
-        height: 130px;
-      }
-
-      .faculty-card__name {
-        font-size: 16px;
-      }
+    @media (max-width: 576px) {
+      .faculty-card__photo { width: 110px; height: 110px; border-width: 3px; }
+      .faculty-card__name { font-size: 15px; }
+      .faculty-card__role { font-size: 12px; }
+      .faculty-card__institution { font-size: 11px; padding: 3px 10px; }
+      .faculty-card { padding: 14px 10px; border-radius: 16px; }
+      .heading7 { padding: 0 10px; }
+      .space-margin60 { margin-bottom: 30px !important; }
+      .invited-faculty.sp1 { padding: 40px 0 !important; }
     }
   </style>
   <style>
