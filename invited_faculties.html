@@ -151,10 +151,9 @@
     }
 
     /* Mobile Menu Logo Visibility Fix */
-        .vl-offcanvas-logo img {
-            max-width: 150px;
-            filter: none !important;
-        }
+        .vl-offcanvas-logo { display: none !important; }
+        .vl-offcanvas-close-toggle { background: transparent !important; border: none !important; box-shadow: none !important; }
+        .vl-offcanvas-header { justify-content: flex-end !important; }
         @media (max-width: 450px) {
             .vl-offcanvas { width: 85% !important; }
         }
