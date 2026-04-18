@@ -151,11 +151,15 @@
     }
 
     /* Mobile Menu Logo Visibility Fix */
-    .vl-offcanvas-logo img {
-      background-color: #02111A;
-      padding: 10px;
-      border-radius: 5px;
-    }
+        .vl-offcanvas-logo img {
+            background-color: #02111A;
+            padding: 10px;
+            border-radius: 5px;
+            max-width: 150px;
+        }
+        @media (max-width: 450px) {
+            .vl-offcanvas { width: 85% !important; }
+        }
   </style>
 
 </head>
