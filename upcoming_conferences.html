@@ -160,10 +160,22 @@
             .venue-card__map { min-height:200px; }
             .logos-bar__inner img { max-width:85% !important; }
         }
+    
+        .progress-wrap { background: #007bff !important; box-shadow: 0 4px 16px rgba(0,123,255,.4) !important; }
+        .progress-wrap::after, .progress-wrap::before { color: #fff !important; }
+        .progress-wrap:hover { background: #0056b3 !important; }
     </style>
 </head>
 
 <body>
+
+    <div class="paginacontainer">
+        <div class="progress-wrap">
+            <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+            </svg>
+        </div>
+    </div>
 
     <div class="preloader"><div class="loading-container"><div class="loading"></div><div id="loading-icon"><img src="/assets/img/logo/preloader.png" alt="Preloader"></div></div></div>
 
