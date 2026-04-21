@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroMeets - Neurological Society of Pune</title>
+
+    <link rel="shortcut icon" href="/assets/img/logo/21-Logo.png" type="image/x-icon">
+    <meta name="title" content="Monthly NeuroMeets - Neurological Society of Pune">
+    <meta name="description" content="Monthly NeuroMeet schedule by the Neurological Society of Pune. Interactive case discussions by leading hospitals in Pune.">
+
+    <link rel="stylesheet" href="/assets/css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/plugins/aos.css">
+    <link rel="stylesheet" href="/assets/css/plugins/fontawesome.css">
+    <link rel="stylesheet" href="/assets/css/plugins/magnific-popup.css">
+    <link rel="stylesheet" href="/assets/css/plugins/slick-slider.css">
+    <link rel="stylesheet" href="/assets/css/plugins/nice-select.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        .vl-main-menu nav ul { display:flex; align-items:center; justify-content:center; gap:18px; padding:0; margin:0; list-style:none; }
+        .vl-main-menu nav ul li { display:inline-flex; align-items:center; margin:0; padding:0; white-space:nowrap; }
+        .vl-main-menu nav ul li a { display:inline-flex; align-items:center; gap:4px; font-weight:600; text-decoration:none; }
+        .vl-offcanvas-logo { display:none !important; } .vl-offcanvas-close-toggle { background:transparent !important; border:none !important; box-shadow:none !important; } .vl-offcanvas-header { justify-content:flex-end !important; }
+        @media(max-width:450px) { .vl-offcanvas { width:85% !important; } }
+
+        .nm-hero { background:linear-gradient(135deg,#02111A 0%,#0a3d62 50%,#1a5276 100%); padding:160px 0 90px; text-align:center; color:#fff; position:relative; overflow:hidden; }
+        .nm-hero::before { content:''; position:absolute; inset:0; background:url('/assets/img/homepage/gallery-1.jpg') center/cover no-repeat; opacity:0.1; }
+        .nm-hero .container { position:relative; z-index:2; }
+        .nm-hero h1 { font-size:3.5rem; font-weight:900; letter-spacing:-1px; margin-bottom:12px; }
+        .nm-hero p { font-size:1.1rem; color:rgba(255,255,255,.8); max-width:650px; margin:0 auto; }
+
+        .nm-section { padding:80px 0; }
+        .nm-section--alt { background:#f5f8fb; }
+        .nm-section__heading { text-align:center; margin-bottom:50px; }
+        .nm-section__heading h2 { font-size:2.2rem; font-weight:800; color:#02111A; margin-bottom:8px; }
+        .nm-section__heading p { color:#5a6a7a; font-size:1rem; }
+        .nm-section__heading .line { width:80px; height:4px; background:linear-gradient(90deg,#007bff,#17a2b8); border-radius:2px; margin:14px auto 0; }
+
+        .nm-card { background:#fff; border-radius:24px; box-shadow:0 8px 40px rgba(2,17,26,.08); overflow:hidden; border:1px solid #eef2f7; }
+        .nm-card__header { background:linear-gradient(135deg,#02111A,#0a3d62); color:#fff; padding:36px 40px; position:relative; overflow:hidden; }
+        .nm-card__header::before { content:''; position:absolute; top:-40px; right:-40px; width:160px; height:160px; background:rgba(0,123,255,.15); border-radius:50%; }
+        .nm-card__header::after { content:''; position:absolute; bottom:-30px; left:-30px; width:120px; height:120px; background:rgba(23,162,184,.1); border-radius:50%; }
+        .nm-card__month { display:inline-block; background:linear-gradient(135deg,#007bff,#0056b3); padding:8px 24px; border-radius:30px; font-size:13px; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:16px; position:relative; z-index:1; }
+        .nm-card__title { font-size:1.8rem; font-weight:800; margin-bottom:8px; position:relative; z-index:1; }
+        .nm-card__subtitle { color:rgba(255,255,255,.7); font-size:.95rem; position:relative; z-index:1; }
+
+        .nm-card__body { padding:40px; }
+
+        .nm-info-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-bottom:36px; }
+        .nm-info-item { display:flex; align-items:flex-start; gap:14px; padding:20px; background:linear-gradient(135deg,#f8fafc,#eef4fb); border-radius:14px; border:1px solid #e0eaf3; transition:all .3s; }
+        .nm-info-item:hover { transform:translateY(-3px); box-shadow:0 8px 24px rgba(0,123,255,.1); }
+        .nm-info-item__icon { width:46px; height:46px; background:linear-gradient(135deg,#007bff,#0056b3); border-radius:12px; display:flex; align-items:center; justify-content:center; color:#fff; font-size:18px; flex-shrink:0; }
+        .nm-info-item__text h4 { font-size:.9rem; font-weight:800; color:#02111A; margin:0 0 4px; }
+        .nm-info-item__text p { font-size:.85rem; color:#5a6a7a; margin:0; line-height:1.4; }
+
+        .nm-notice { background:linear-gradient(135deg,#fff3cd,#ffeeba); border:1px solid #ffc107; border-radius:12px; padding:16px 24px; display:flex; align-items:center; gap:14px; margin-bottom:36px; }
+        .nm-notice i { color:#e67e22; font-size:1.3rem; flex-shrink:0; }
+        .nm-notice p { margin:0; font-size:.9rem; color:#856404; font-weight:500; }
+
+        .nm-hospitals { margin-bottom:36px; }
+        .nm-hospitals h3 { font-size:1.2rem; font-weight:800; color:#02111A; margin-bottom:20px; display:flex; align-items:center; gap:10px; }
+        .nm-hospitals h3 i { color:#007bff; }
+        .nm-hospital-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+        .nm-hospital-card { background:#fff; border:2px solid #eef2f7; border-radius:16px; padding:24px 16px; text-align:center; transition:all .3s; display:flex; flex-direction:column; align-items:center; gap:12px; }
+        .nm-hospital-card:hover { border-color:#007bff; transform:translateY(-4px); box-shadow:0 12px 30px rgba(0,123,255,.12); }
+        .nm-hospital-card__logo { width:80px; height:80px; display:flex; align-items:center; justify-content:center; }
+        .nm-hospital-card__logo img { max-width:100%; max-height:100%; object-fit:contain; }
+        .nm-hospital-card__name { font-size:.9rem; font-weight:700; color:#02111A; }
+        .nm-hospital-card__time { font-size:.78rem; color:#007bff; font-weight:600; background:rgba(0,123,255,.08); padding:3px 12px; border-radius:20px; }
+
+        .nm-footer-info { display:flex; flex-wrap:wrap; gap:20px; padding-top:24px; border-top:1px solid #eef2f7; }
+        .nm-footer-info__item { display:flex; align-items:center; gap:8px; font-size:.88rem; color:#5a6a7a; }
+        .nm-footer-info__item i { color:#17a2b8; }
+
+        .nm-secretary { display:flex; align-items:center; gap:16px; margin-top:24px; padding:20px 24px; background:linear-gradient(135deg,#f0f7ff,#e8f4fd); border-radius:14px; border-left:4px solid #007bff; }
+        .nm-secretary__text { font-size:.9rem; color:#333; }
+        .nm-secretary__text strong { color:#02111A; display:block; margin-bottom:2px; }
+        .nm-secretary__text span { color:#007bff; font-weight:600; }
+
+        @media(max-width:991px) { .nm-info-grid { grid-template-columns:repeat(2,1fr); } .nm-hospital-grid { grid-template-columns:repeat(2,1fr); } }
+        @media(max-width:576px) {
+            .nm-hero { padding:120px 0 60px; }
+            .nm-hero h1 { font-size:2rem; }
+            .nm-section { padding:50px 0; }
+            .nm-card__header { padding:24px; }
+            .nm-card__title { font-size:1.3rem; }
+            .nm-card__body { padding:24px; }
+            .nm-info-grid { grid-template-columns:1fr; }
+            .nm-hospital-grid { grid-template-columns:1fr 1fr; gap:12px; }
+            .nm-hospital-card { padding:16px 12px; }
+            .nm-hospital-card__logo { width:60px; height:60px; }
+            .nm-notice { flex-direction:column; text-align:center; }
+            .nm-secretary { flex-direction:column; text-align:center; }
+        }
+
+        .progress-wrap { background: #007bff !important; box-shadow: 0 4px 16px rgba(0,123,255,.4) !important; }
+        .progress-wrap::after, .progress-wrap::before { color: #fff !important; }
+        .progress-wrap:hover { background: #0056b3 !important; }
+    </style>
+</head>
+
+<body>
+
+    <div class="paginacontainer">
+        <div class="progress-wrap">
+            <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+                <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+            </svg>
+        </div>
+    </div>
+
+    <div class="preloader"><div class="loading-container"><div class="loading"></div><div id="loading-icon"><img src="/assets/img/logo/preloader.png" alt="Preloader"></div></div></div>
+
+    <header class="homepage7-body">
+        <div id="vl-header-sticky" class="vl-header-area vl-transparent-header" style="background:rgba(2,17,26,0.95);position:relative;">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-2 col-md-6 col-6">
+                        <div class="vl-logo"><a href="index.html"><img src="/assets/img/logo/21-Logo.png" alt="NSP Logo"></a></div>
+                    </div>
+                    <div class="col-lg-8 d-none d-lg-block">
+                        <div class="vl-main-menu text-center">
+                            <nav class="vl-mobile-menu-active">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="committee.html">Committee</a></li>
+                                    <li><a href="invited_faculties.html">Faculty</a></li>
+                                    <li><a href="activities.html">Activities</a></li>
+                                    <li><a href="upcoming_conferences.html">Conferences</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-6 col-6">
+                        <div class="vl-hero-btn d-none d-lg-block text-end">
+                            <div class="hero-btn1"><a href="contact.html" class="vl-btn7"><span class="text">Join Now</span></a></div>
+                        </div>
+                        <div class="vl-header-action-item d-block d-lg-none">
+                            <button type="button" class="vl-offcanvas-toggle" aria-label="Open navigation menu"><i class="fa-solid fa-bars-staggered"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="homepage7-body">
+        <div class="vl-offcanvas">
+            <div class="vl-offcanvas-wrapper">
+                <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-90">
+                    <div class="vl-offcanvas-logo"><a href="index.html"><img src="/assets/img/logo/21-Logo-sm.png" alt="NSP Logo"></a></div>
+                    <div class="vl-offcanvas-close"><button class="vl-offcanvas-close-toggle"><i class="fa-solid fa-xmark"></i></button></div>
+                </div>
+                <div class="vl-offcanvas-menu d-lg-none mb-40"><nav></nav></div>
+                <div class="space20"></div>
+                <div class="vl-offcanvas-info">
+                    <h3 class="vl-offcanvas-sm-title">Contact Us</h3>
+                    <div class="space20"></div>
+                    <span><a href="tel:+917685900400"><i class="fa-solid fa-phone"></i> +91 76859 00400</a></span>
+                    <span><a href="mailto:ajit@ascenthospitality.in"><i class="fa-regular fa-envelope"></i> ajit@ascenthospitality.in</a></span>
+                    <span><a href="#"><i class="fa-solid fa-location-dot"></i> Pune, India</a></span>
+                </div>
+                <div class="space20"></div>
+                <div class="vl-offcanvas-social">
+                    <h3 class="vl-offcanvas-sm-title">Follow Us</h3>
+                    <div class="space20"></div>
+                    <a href="https://www.facebook.com/NSI.Pune/"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://in.linkedin.com/in/neurological-society-pune-776842234"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/neurosociety_pune/"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="vl-offcanvas-overlay"></div>
+    </div>
+
+    <!-- HERO -->
+    <section class="nm-hero">
+        <div class="container">
+            <h1 data-aos="zoom-in" data-aos-duration="800">Monthly NeuroMeets</h1>
+            <p data-aos="fade-up" data-aos-duration="900">Interactive clinical case discussions hosted by Pune's leading hospitals, organised by the Neurological Society of Pune every month.</p>
+        </div>
+    </section>
+
+    <!-- NEUROMEET CARDS -->
+    <section class="nm-section">
+        <div class="container">
+            <div class="nm-section__heading" data-aos="fade-up">
+                <h2>Upcoming & Recent NeuroMeets</h2>
+                <p>Stay updated with our monthly schedule</p>
+                <div class="line"></div>
+            </div>
+
+            <!-- APRIL 2026 CARD -->
+            <div class="nm-card" data-aos="fade-up" data-aos-duration="800">
+                <div class="nm-card__header">
+                    <span class="nm-card__month">April 2026</span>
+                    <h2 class="nm-card__title">Monthly NeuroMeet</h2>
+                    <p class="nm-card__subtitle">Interactive Case Presentations by Leading Pune Hospitals</p>
+                </div>
+
+                <div class="nm-card__body">
+
+                    <!-- Notice -->
+                    <div class="nm-notice">
+                        <i class="fa-solid fa-circle-info"></i>
+                        <p>Please note that the NeuroMeet is scheduled a week late, to mitigate the traffic hurdles Pune city will face on April 14.</p>
+                    </div>
+
+                    <!-- Info Grid -->
+                    <div class="nm-info-grid">
+                        <div class="nm-info-item">
+                            <div class="nm-info-item__icon"><i class="fa-regular fa-calendar"></i></div>
+                            <div class="nm-info-item__text">
+                                <h4>Date</h4>
+                                <p>Tuesday, April 21, 2026</p>
+                            </div>
+                        </div>
+                        <div class="nm-info-item">
+                            <div class="nm-info-item__icon"><i class="fa-regular fa-clock"></i></div>
+                            <div class="nm-info-item__text">
+                                <h4>Time</h4>
+                                <p>8:00 PM onwards</p>
+                            </div>
+                        </div>
+                        <div class="nm-info-item">
+                            <div class="nm-info-item__icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="nm-info-item__text">
+                                <h4>Venue</h4>
+                                <p>Hotel LemonTree Premier, Near Pune Railway Station</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Participating Hospitals -->
+                    <div class="nm-hospitals">
+                        <h3><i class="fa-solid fa-hospital"></i> Participating Hospitals</h3>
+                        <div class="nm-hospital-grid">
+                            <div class="nm-hospital-card">
+                                <div class="nm-hospital-card__logo"><img src="/assets/hos logos/Ruby.png" alt="Ruby Hall Clinic"></div>
+                                <div class="nm-hospital-card__name">Ruby Hall Clinic</div>
+                                <div class="nm-hospital-card__time">30 min presentation</div>
+                            </div>
+                            <div class="nm-hospital-card">
+                                <div class="nm-hospital-card__logo"><img src="/assets/hos logos/jehangir.png" alt="Jehangir Hospital"></div>
+                                <div class="nm-hospital-card__name">Jehangir Hospital</div>
+                                <div class="nm-hospital-card__time">30 min presentation</div>
+                            </div>
+                            <div class="nm-hospital-card">
+                                <div class="nm-hospital-card__logo"><img src="/assets/hos logos/KEM-Logo1.png" alt="KEM Hospital"></div>
+                                <div class="nm-hospital-card__name">KEM Hospital</div>
+                                <div class="nm-hospital-card__time">30 min presentation</div>
+                            </div>
+                            <div class="nm-hospital-card">
+                                <div class="nm-hospital-card__logo"><img src="/assets/hos logos/SahyadriLogoNew.png" alt="Sahyadri Hospital"></div>
+                                <div class="nm-hospital-card__name">Sahyadri Hospital, Deccan</div>
+                                <div class="nm-hospital-card__time">30 min presentation</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Footer Info -->
+                    <div class="nm-footer-info">
+                        <div class="nm-footer-info__item"><i class="fa-solid fa-utensils"></i> Starters served during the meeting</div>
+                        <div class="nm-footer-info__item"><i class="fa-solid fa-bowl-food"></i> Dinner served after the meeting</div>
+                        <div class="nm-footer-info__item"><i class="fa-solid fa-chalkboard-user"></i> Teachers: please inform your students</div>
+                    </div>
+
+                    <!-- Secretary -->
+                    <div class="nm-secretary">
+                        <i class="fa-solid fa-user-tie" style="font-size:2rem;color:#007bff;"></i>
+                        <div class="nm-secretary__text">
+                            <strong>Dr. Shripad Pujari</strong>
+                            <span>Secretary, Neurological Society of Pune</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <div class="vl-footer7-section-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-logo-area">
+                        <img src="/assets/img/logo/21-Logo.png" alt="NSP Logo">
+                        <div class="space16"></div>
+                        <p>Neurological Society of Pune (NSP) is a registered society of neurologists and neurosurgeons, established in 2010.</p>
+                        <div class="space24"></div>
+                        <ul class="social-links">
+                            <li><a href="https://www.facebook.com/NSI.Pune/"><i class="fa-brands fa-facebook-f"></i></a></li>
+                            <li><a href="https://in.linkedin.com/in/neurological-society-pune-776842234"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                            <li><a href="https://www.instagram.com/neurosociety_pune/"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="https://www.youtube.com/@neurologicalsocietyofpune"><i class="fa-brands fa-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg col-md-6">
+                    <div class="space30 d-lg-none d-block"></div>
+                    <div class="footer-widget-area foot-padding1">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="about.html">About NSP</a></li>
+                            <li><a href="activities.html">Academic Activities</a></li>
+                            <li><a href="invited_faculties.html">Invited Faculty</a></li>
+                            <li><a href="upcoming_conferences.html">ICTRIMS 2026</a></li>
+                            <li><a href="contact.html">Contact NSP</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg col-md-6">
+                    <div class="space30 d-lg-none d-block"></div>
+                    <div class="footer-widget-area foot-padding2">
+                        <h3>Key Activities</h3>
+                        <ul>
+                            <li><a href="neuromeets.html">Monthly NeuroMeets</a></li>
+                            <li><a href="activities.html">NSP Approach Meet</a></li>
+                            <li><a href="activities.html">PG Approach Meeting</a></li>
+                            <li><a href="activities.html">Invited Lectures</a></li>
+                            <li><a href="activities.html">Public Awareness Drives</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg col-md-6">
+                    <div class="space30 d-lg-none d-block"></div>
+                    <div class="footer-widget-area">
+                        <h3>Contact NSP</h3>
+                        <ul>
+                            <li><a href="tel:+917685900400"><i class="fa-solid fa-phone"></i> +91 76859 00400</a></li>
+                            <li><a href="#"><i class="fa-solid fa-location-dot"></i> Pune, India</a></li>
+                            <li><a href="mailto:info@pune-neuro-society.org"><i class="fa-solid fa-envelope"></i> info@pune-neuro-society.org</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="space48"></div>
+            <div class="row"><div class="col-lg-12">
+                <div class="copyright-area">
+                    <span>Copyright &copy; 2026 Neurological Society of Pune. All Rights Reserved</span>
+                    <ul><li><a href="privacy.html">Privacy Policy</a><span> | </span></li><li><a href="terms.html">Terms and Conditions</a></li></ul>
+                </div>
+            </div></div>
+        </div>
+    </div>
+
+    <script src="/assets/js/plugins/jquery-3-7-1.min.js"></script>
+    <script src="/assets/js/plugins/bootstrap.min.js"></script>
+    <script src="/assets/js/plugins/fontawesome.js"></script>
+    <script src="/assets/js/plugins/aos.js"></script>
+    <script src="/assets/js/plugins/counter.js"></script>
+    <script src="/assets/js/plugins/magnific-popup.js"></script>
+    <script src="/assets/js/plugins/nice-select.js"></script>
+    <script src="/assets/js/plugins/waypoints.js"></script>
+    <script src="/assets/js/plugins/slick-slider.js"></script>
+    <script src="/assets/js/plugins/circle-progress.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script>AOS.init({once:true});</script>
+
+</body>
+</html>
