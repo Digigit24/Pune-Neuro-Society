@@ -57,10 +57,13 @@
         /* ---- Conference stats ---- */
         .sp-stats { background:#02111A; padding:0; }
         .sp-stats__grid { display:grid; grid-template-columns:repeat(5,1fr); gap:1px; background:rgba(255,255,255,.08); }
-        .sp-stat { background:#02111A; padding:34px 18px; text-align:center; color:#fff; }
-        .sp-stat__icon { width:48px; height:48px; margin:0 auto 14px; border-radius:14px; background:rgba(0,123,255,.18); border:1px solid rgba(0,123,255,.4); display:flex; align-items:center; justify-content:center; color:#9ecbff; font-size:19px; }
-        .sp-stat__num { font-size:1.9rem; font-weight:900; line-height:1.1; color:#fff; }
-        .sp-stat__label { font-size:.82rem; font-weight:600; color:rgba(255,255,255,.7); margin-top:6px; letter-spacing:.3px; }
+        .sp-stat { background:#02111A; padding:24px 14px; text-align:center; color:#fff; }
+        .sp-stat__icon { display:none !important; }
+        .sp-stat__num { font-size:1.65rem; font-weight:900; line-height:1.1; color:#fff; }
+        .sp-stat__label { font-size:.78rem; font-weight:600; color:rgba(255,255,255,.7); margin-top:6px; letter-spacing:.3px; }
+
+        /* hide small decorative icons for a cleaner look */
+        .sp-hero__meta-item i, .sp-btn i, .sp-quickjump__label i, .sp-jump i { display:none !important; }
 
         /* ---- Quick jump ---- */
         .sp-quickjump { background:#fff; border-bottom:1px solid #eef2f7; padding:20px 0; position:sticky; top:0; z-index:20; }
@@ -206,12 +209,11 @@
             .logo-card img { max-height:48px; max-width:100%; width:auto; height:auto; }
             .logo-card--wide img { max-height:38px; }
             /* stats -> compact horizontal scroll cards (no empty grid block) */
-            .sp-stats__grid { display:flex; flex-wrap:nowrap; overflow-x:auto; gap:1px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+            .sp-stats__grid { display:flex; flex-wrap:nowrap; overflow-x:auto; gap:6px; padding:10px 8px; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
             .sp-stats__grid::-webkit-scrollbar { display:none; }
-            .sp-stat { flex:0 0 auto; min-width:118px; height:auto; padding:16px 12px; }
-            .sp-stat__icon { width:34px; height:34px; margin:0 auto 8px; font-size:14px; border-radius:10px; }
-            .sp-stat__num { font-size:1.25rem; }
-            .sp-stat__label { font-size:.72rem; margin-top:3px; }
+            .sp-stat { flex:0 0 auto; min-width:110px; min-height:82px; height:auto; padding:14px 10px; display:flex; flex-direction:column; justify-content:center; }
+            .sp-stat__num { font-size:1.35rem; }
+            .sp-stat__label { font-size:.72rem; line-height:1.2; }
             .sp-quickjump .container { flex-direction:column; gap:12px; }
             .sp-daytabs { gap:8px; }
             .sp-daytab { min-width:0; flex:1; padding:12px 8px; }
@@ -259,10 +261,23 @@
         .vl-footer7-section-area .social-links .sp-foot-ico { width:15px; height:15px; display:block; }
         .vl-footer7-section-area .footer-widget-area ul li a { display:inline-flex; align-items:center; gap:9px; overflow-wrap:anywhere; }
         .vl-footer7-section-area .footer-widget-area .sp-foot-cico { width:16px; height:16px; flex-shrink:0; color:#17a2b8; }
+        
+        .vl-footer7-section-area .social-links .sp-foot-ico {
+            width: 20px;
+            height: 15px;
+            display: block;
+            margin: 8px;
+            flex-shrink: 0;
+            }
+
+
+
 
         .progress-wrap { background: #007bff !important; box-shadow: 0 4px 16px rgba(0,123,255,.4) !important; }
         .progress-wrap::after, .progress-wrap::before { color: #fff !important; }
         .progress-wrap:hover { background: #0056b3 !important; }
+
+
     </style>
 </head>
 
