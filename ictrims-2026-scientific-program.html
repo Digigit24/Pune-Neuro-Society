@@ -62,8 +62,17 @@
         .sp-stat__num { font-size:1.65rem; font-weight:900; line-height:1.1; color:#fff; }
         .sp-stat__label { font-size:.78rem; font-weight:600; color:rgba(255,255,255,.7); margin-top:6px; letter-spacing:.3px; }
 
-        /* hide small decorative icons for a cleaner look */
-        .sp-hero__meta-item i, .sp-btn i, .sp-quickjump__label i, .sp-jump i { display:none !important; }
+        /* hide small decorative font icons (local Font Awesome is unreliable) for a cleaner, box-free look */
+        .sp-hero__meta-item i, .sp-btn i, .sp-quickjump__label i, .sp-jump i,
+        .sp-session__time i, .sp-session__chairs i, .sp-slot__speaker i,
+        .sp-break i, .sp-glance__note i { display:none !important; }
+        .sp-cta__icon .sp-cta__svg { width:30px; height:30px; display:block; }
+        /* nav / drawer icons as SVG (white on dark header / orange drawer) */
+        .vl-offcanvas-info i { display:none !important; }
+        .vl-offcanvas-toggle .sp-nav-ico { width:24px; height:24px; color:#fff; display:block; }
+        .vl-offcanvas-close-toggle .sp-nav-ico { width:22px; height:22px; color:#fff; display:block; }
+        .vl-offcanvas-social a { display:inline-flex !important; align-items:center; justify-content:center; }
+        .vl-offcanvas-social a svg { width:18px; height:18px; color:#fff; }
 
         /* ---- Quick jump ---- */
         .sp-quickjump { background:#fff; border-bottom:1px solid #eef2f7; padding:20px 0; position:sticky; top:0; z-index:20; }
@@ -321,7 +330,7 @@
                             <div class="hero-btn1"><a href="contact.html" class="vl-btn7"><span class="text">Join Now</span></a></div>
                         </div>
                         <div class="vl-header-action-item d-block d-lg-none">
-                            <button type="button" class="vl-offcanvas-toggle" aria-label="Open navigation menu"><i class="fa-solid fa-bars-staggered"></i></button>
+                            <button type="button" class="vl-offcanvas-toggle" aria-label="Open navigation menu"><svg class="sp-nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/></svg></button>
                         </div>
                     </div>
                 </div>
@@ -334,7 +343,7 @@
             <div class="vl-offcanvas-wrapper">
                 <div class="vl-offcanvas-header d-flex justify-content-between align-items-center mb-90">
                     <div class="vl-offcanvas-logo"><a href="index.html"><img src="assets/img/logo/21-Logo-sm.png" alt="NSP Logo"></a></div>
-                    <div class="vl-offcanvas-close"><button class="vl-offcanvas-close-toggle"><i class="fa-solid fa-xmark"></i></button></div>
+                    <div class="vl-offcanvas-close"><button class="vl-offcanvas-close-toggle"><svg class="sp-nav-ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M18.3 5.71 12 12.01 5.7 5.7 4.29 7.12l6.3 6.3-6.3 6.29 1.41 1.41 6.3-6.29 6.3 6.29 1.41-1.41-6.3-6.29 6.3-6.3z"/></svg></button></div>
                 </div>
                 <div class="vl-offcanvas-menu d-lg-none mb-40"><nav></nav></div>
                 <div class="space20"></div>
@@ -349,9 +358,9 @@
                 <div class="vl-offcanvas-social">
                     <h3 class="vl-offcanvas-sm-title">Follow Us</h3>
                     <div class="space20"></div>
-                    <a href="https://www.facebook.com/NSI.Pune/"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://in.linkedin.com/in/neurological-society-pune-776842234"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.instagram.com/neurosociety_pune/"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/NSI.Pune/" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M15.12 8.5h-2.2V7.1c0-.62.41-.76.7-.76h1.46V4.06L13.06 4.05C10.6 4.05 10.04 5.86 10.04 7v1.5H8.5v2.6h1.54V20h2.88v-8.9h1.94l.26-2.6z"/></svg></a>
+                    <a href="https://in.linkedin.com/in/neurological-society-pune-776842234" aria-label="LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg></a>
+                    <a href="https://www.instagram.com/neurosociety_pune/" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.6" cy="6.4" r="1.4" fill="currentColor"/></svg></a>
                 </div>
             </div>
         </div>
@@ -964,7 +973,7 @@
     <section class="sp-cta">
         <div class="container">
             <div class="sp-cta__card" data-aos="fade-up">
-                <div class="sp-cta__icon"><i class="fa-solid fa-file-pdf"></i></div>
+                <div class="sp-cta__icon"><svg class="sp-cta__svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm0 2 4 4h-4V4zM8 13h8v2H8v-2zm0 4h8v2H8v-2z"/></svg></div>
                 <h2 class="sp-cta__title">Download ICTRIMS 2026 Scientific Program Brochure</h2>
                 <p class="sp-cta__sub">Get the complete Hall A &amp; Hall B schedule, faculty and session details in a single PDF.</p>
                 <a href="assets/pdf/Scientific_Program_02_June.pdf" class="sp-btn sp-btn--light" download><i class="fa-solid fa-file-arrow-down"></i> Download Brochure (PDF)</a>
